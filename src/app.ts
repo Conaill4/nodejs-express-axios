@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import session from "express-session";
 
 import { getAllDatabases } from "./controllers/TestController";
+import { getJobsList } from "./controllers/JobRoleController";
 
 const app = express();
 
@@ -30,3 +31,4 @@ app.listen(3000, () => {
 });
 
 app.get('/', getAllDatabases);
+app.get('/jobs', getJobsList);
