@@ -15,13 +15,13 @@
                 <th>Band: </th>
                 <th>Closing Date: </th>
             </tr>
-            {% for employee in employees | sort(attribute='employeeId') %}
+            {% for JobRole in JobRoles | sort(attribute='JobRoleId') %}
                 <tr>
-                    <td>{{ employee.employeeID }}</td>
-                        <td>{{ employee.employeeName }}</td>
-                        <td>{{ employee.salary }}</td>
-                        <td>{{ employee.bankAccountNumber }}</td>
-                        <td>{{ employee.nationalInsuranceNumber }}</td>
+                    <td>{{ JobRole.JobroleId }}</td>
+                        <td>{{ JobRole.roleName }}</td>
+                        <td>{{ JobRole.capabilityId }}</td>
+                        <td>{{ JobRole.bandId }}</td>
+                        <td>{{ JobRole.closingDate }}</td>
                 </tr>
             {% endfor %}
         </table>
