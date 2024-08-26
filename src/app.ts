@@ -30,3 +30,4 @@ app.listen(3000, () => {
 });
 
 app.get('/', getAllDatabases);
+app.get('/jobs',getJobs);
