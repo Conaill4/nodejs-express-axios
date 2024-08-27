@@ -17,5 +17,16 @@ Yml files are created to monitor the the github wokflow
 9. Start the application with `npm start` or `npm run dev` to reload the server when changes are made
 10. To check that your application is running enter url http://localhost:3000
 
-## Backend
-1. Follow the steps to run the backend for this application <a href="https://github.com/shaunganley/java-dropwizard-flyway-starter" target="_blank">here</a>
+Testing
+-----------
+Install the project/dependencies: `npm install`
+Run the project unit tests: `npm test`
+Check to see if you have the correct dependancies in the package.json
+This will show you the full breakdown within the test suite 
+- Test run -> Shows the overall test ran 
+- Test passed -> Out of the overall test ran, shows the test passed 
+- Test failed -> Out of the overall test ran, shows the test failed 
+- Test skipped -> Out of the overall test ran, shows the test skipped 
+
+<img width="548" alt="image" src="https://github.com/user-attachments/assets/3313fab9-5ffa-4ee6-8f42-f28111bb8605">
+
