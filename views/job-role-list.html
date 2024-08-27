@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
+    {% if errormessage %} 
+    <div class="govuk-error-message" id="view-employees-error">{{ errormessage }}</div> 
+    {% endif %}
     <head>
+        {% if JobRoles and JobRoles.length > 0 %}
         <title>Job Roles</title>
     </head>
     <body>
@@ -25,5 +29,8 @@
                 </tr>
             {% endfor %}
         </table>
+        {% else %}
+        There are no jobs. 
+        {% endif %}
     </body>
 </html>
