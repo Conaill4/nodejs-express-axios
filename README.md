@@ -2,7 +2,17 @@ Backend API -> https://github.com/Conaill4/java-dropwizard-flyway
 # nodejs-express-axios-starter
 
 # Yaml files created (Optional)
+## How to create yaml directly from your IDE 
 Yml files are created to monitor the the github wokflow 
+
+Run `mkdir -p .github/workflows                                             
+touch .github/workflows/"filename".yml` -> to create a workflow file for your github.
+
+
+Run `npm audit fix` to resolve a potential issue if you were to build a yml file around audit
+
+<img width="246" alt="image" src="https://github.com/user-attachments/assets/3a4778c6-0948-4a2f-be5b-83197960afcd">
+
 
 
 ## How to start the application
