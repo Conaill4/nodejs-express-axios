@@ -14,7 +14,6 @@ Run `npm audit fix` to resolve a potential issue if you were to build a yml file
 <img width="246" alt="image" src="https://github.com/user-attachments/assets/3a4778c6-0948-4a2f-be5b-83197960afcd">
 
 
-
 ## How to start the application
 1. Run a git pull in your main to insure all files are up to date
 2. Run `npm install axios` to install axios node module
