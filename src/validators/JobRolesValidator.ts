@@ -16,7 +16,22 @@ export const validateJobRoles = function (jobRole: JobRole): void {
     if (jobRole.location.length < 4 ) {
         throw new Error ("Invalid Location -> too short");
     }
- 
+    if (jobRole.capabilityId < 1)
+    {
+        throw new Error ("Invalid capabilityId. Please select a valid capabilityId for this job")
+    }
+    if (jobRole.capabilityId > 6)
+    {
+        throw new Error ("Invalid capabilityId. Please select a valid capabilityId for this job")
+    }
+    if (jobRole.bandId < 1)
+    {
+        throw new Error ("Invalid bandId. Please select a valid bandId for this job")
+    }
+    if (jobRole.bandId > 6)
+    {
+        throw new Error ("Invalid bandId. Please select a valid bandId for this job")
+    }
 
 
 /*export const validateEmployeeRequest = function (employeeRequest: EmployeeRequest): void {
