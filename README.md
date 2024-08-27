@@ -17,6 +17,9 @@ Yml files are created to monitor the the github wokflow
 9. Start the application with `npm start` or `npm run dev` to reload the server when changes are made
 10. To check that your application is running enter url http://localhost:3000
 
+11. <img width="335" alt="image" src="https://github.com/user-attachments/assets/378458e5-c833-4052-b73a-de4dec40ce37">
+
+
 Testing
 -----------
 Install the project/dependencies: `npm install`
