@@ -5,13 +5,16 @@ import session from "express-session";
 
 import { getAllDatabases } from "./controllers/TestController";
 import { getJobsList } from "./controllers/JobRoleController";
+import { dateFilter } from "./filters/dateFilter";
 
 const app = express();
 
-nunjucks.configure('views', {
+const env = nunjucks.configure('views', {
     autoescape: true,
     express: app
 });
+
+env.addFilter('date', dateFilter);
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({

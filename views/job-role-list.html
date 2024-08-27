@@ -21,7 +21,7 @@
                         <td>{{ JobRole.roleName }}</td>
                         <td>{{ JobRole.capabilityId }}</td>
                         <td>{{ JobRole.bandId }}</td>
-                        <td>{{ JobRole.closingDate }}</td>
+                        <td>{{ JobRole.closingDate | date }}</td>
                 </tr>
             {% endfor %}
         </table>
