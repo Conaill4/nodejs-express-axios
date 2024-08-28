@@ -8,12 +8,9 @@ Yml files are created to monitor the the github wokflow
 Run `mkdir -p .github/workflows                                             
 touch .github/workflows/"filename".yml` -> to create a workflow file for your github.
 
-
 Run `npm audit fix` to resolve a potential issue if you were to build a yml file around audit
 
 <img width="246" alt="image" src="https://github.com/user-attachments/assets/3a4778c6-0948-4a2f-be5b-83197960afcd">
-
-
 
 ## How to start the application
 1. Run a git pull in your main to insure all files are up to date
@@ -29,7 +26,6 @@ Run `npm audit fix` to resolve a potential issue if you were to build a yml file
 
 11. <img width="335" alt="image" src="https://github.com/user-attachments/assets/378458e5-c833-4052-b73a-de4dec40ce37">
 
-
 Testing
 -----------
 Install the project/dependencies: `npm install`
@@ -41,5 +37,6 @@ This will show you the full breakdown within the test suite
 - Test failed -> Out of the overall test ran, shows the test failed 
 - Test skipped -> Out of the overall test ran, shows the test skipped 
 
+Run the project UI tests: `npm run test-ui`
+Make sure you have another terminal running `npm start` or `npm run dev` for the test to work or you will get connection error issues 
 <img width="548" alt="image" src="https://github.com/user-attachments/assets/3313fab9-5ffa-4ee6-8f42-f28111bb8605">
-
