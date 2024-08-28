@@ -1,7 +1,5 @@
 import webdriver from 'selenium-webdriver';
 
-import { expect } from 'chai';
-
 describe('Job Role test', async () => {
     it('Should view job-roles', async () => {
         const driver = new webdriver.Builder().

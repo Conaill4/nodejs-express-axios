@@ -17,7 +17,7 @@ describe('JobRolesValidator', function () {
      try{
         validateJobRoles(jobRole)
      }
-     catch(e){
+     catch{
         assert.fail("Expected no error message ")
      }
     })
