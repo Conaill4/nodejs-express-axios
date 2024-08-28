@@ -5,9 +5,9 @@ export type JobRoleDetailedResponse = {
     capabilityName: number,
     bandName: number,
     closingDate: Date,
-    description: String,
-    responsibilities: String,
-    sharepointUrl: String,
+    description: string,
+    responsibilities: string,
+    sharepointUrl: string,
     status: number,
-    numberOfOpenPositions: String
+    numberOfOpenPositions: string
 }

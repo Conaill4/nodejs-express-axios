@@ -39,7 +39,7 @@
     "globals": "^15.9.0",
     "mocha": "^10.7.3",
     "sass": "^1.75.0",
-    "selenium-webdriver": "^4.9.0",
+    "selenium-webdriver": "^4.24.0",
     "sinon": "^17.0.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5",

@@ -2,11 +2,9 @@ import express from "express";
 import nunjucks from "nunjucks";
 import bodyParser from "body-parser";
 import session from "express-session";
- 
-import { getAllDatabases } from "./controllers/TestController";
+
 import { getHomePage, getJobByID, getJobsList } from "./controllers/JobRoleController";
 import { dateFilter } from "./filters/dateFilter";
-import { getJobByID_ } from "./services/JobRoleService";
  
 const app = express();
  
