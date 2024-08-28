@@ -32,8 +32,7 @@ app.get('/', getHomePage);
 app.get('/availablejobs', getJobsList);
 app.get('/availablejobs/:id',getJobByID, (req, res) =>
 {
-  const jobId = req.params.id;
-  res.send('Job details for job ID: ${jobId');
+  res.send('Job details for job');
 })
  
 app.listen(3000, () => {
