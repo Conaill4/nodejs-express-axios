@@ -5,12 +5,12 @@ import { getJobs, URL } from '../../../src/services/JobRoleService';
 import { JobRole } from "../../../src/models/JobRole";
 
 const jobRole: JobRole = {
-    jobRoleId: 1,
-    roleName: "Graduate Software Engineer",
-    location: "Derry",
-    capabilityId: 1,
-    bandId: 2,
-    Date: new Date(1693078000000)
+  jobRoleId: 1,
+  roleName: "Graduate Software Engineer",
+  location: "Derry",
+  capabilityId: 1,
+  bandId: 2,
+  Date: new Date(1693078000000),
 }
 
 const mock = new MockAdapter(axios);
