@@ -3,7 +3,6 @@ import nunjucks from "nunjucks";
 import bodyParser from "body-parser";
 import session from "express-session";
  
-import { getAllDatabases } from "./controllers/TestController";
 import { getHomePage, getJobsList } from "./controllers/JobRoleController";
 import { dateFilter } from "./filters/dateFilter";
  
