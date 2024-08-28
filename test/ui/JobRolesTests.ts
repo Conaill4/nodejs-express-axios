@@ -1,3 +1,4 @@
+import { describe, it } from 'node:test';
 import webdriver from 'selenium-webdriver';
 
 describe('Job Role test', async () => {
