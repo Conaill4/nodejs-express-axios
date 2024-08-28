@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "tsc --build",
     "start": "tsc && node dist/app.js",
     "dev": "nodemon src/app.ts",
     "linter": "npx eslint .",
