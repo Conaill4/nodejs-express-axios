@@ -10,7 +10,8 @@ const app = express();
  
 const env = nunjucks.configure('views', {
     autoescape: true,
-    express: app
+    express: app,
+    noCache: true
 });
  
 env.addFilter('date', dateFilter);
