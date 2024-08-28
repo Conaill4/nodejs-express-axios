@@ -9,18 +9,20 @@
         </h1>
         <table>
             <tr>
-                <th>Role name:</th>
+                <th>Role ID: </th>
+                <th>Role name: </th>
                 <th>Location: </th>
                 <th>Capability: </th>
                 <th>Band: </th>
                 <th>Closing Date: </th>
             </tr>
-            {% for JobRole in JobRoles | sort(attribute='JobRoleId') %}
+            {% for JobRole in JobRoles | sort(attribute='jobRoleId') %}
                 <tr>
-                    <td>{{ JobRole.JobroleId }}</td>
+                        <td>{{ JobRole.jobRoleId }}</td>
                         <td>{{ JobRole.roleName }}</td>
-                        <td>{{ JobRole.capabilityId }}</td>
-                        <td>{{ JobRole.bandId }}</td>
+                        <td>{{ JobRole.location }}</td>
+                        <td>{{ JobRole.capabilityName }}</td>
+                        <td>{{ JobRole.bandName }}</td>
                         <td>{{ JobRole.closingDate | date }}</td>
                 </tr>
             {% endfor %}
