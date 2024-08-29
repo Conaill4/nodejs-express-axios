@@ -2067,7 +2067,7 @@
                                                                             </tr>
                                                                             {% for JobRole in JobRoles | sort(attribute='JobRoleId') %}
                                                                                 <tr >
-                                                                                        <td style="padding-bottom: 1.5rem;">{{ JobRole.jobRoleId }}</td>
+                                                                                        <td style="padding-bottom: 1.5rem;"><a href="/availablejobs/{{JobRole.jobRoleId}}">{{ JobRole.jobRoleId }}</a></td>
                                                                                         <td style="padding-bottom: 1.5rem;">{{ JobRole.roleName }}</td>
                                                                                         <td style="padding-bottom: 1.5rem;">{{ JobRole.location }}</td>
                                                                                         <td style="padding-bottom: 1.5rem;">{{ JobRole.capabilityName }}</td>

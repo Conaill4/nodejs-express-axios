@@ -6,12 +6,12 @@ import { JobRole } from "../../../src/models/JobRole";
 import { describe, it } from "node:test";
 
 const jobRole: JobRole = {
-    jobRoleId: 1,
-    roleName: "Graduate Software Engineer",
-    location: "Derry",
-    capabilityId: 1,
-    bandId: 2,
-    Date: new Date(1693078000000)
+  jobRoleId: 1,
+  roleName: "Graduate Software Engineer",
+  location: "Derry",
+  capabilityId: 1,
+  bandId: 2,
+  Date: new Date(1693078000000),
 }
 
 const mock = new MockAdapter(axios);

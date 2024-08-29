@@ -33,27 +33,4 @@ export const validateJobRoles = function (jobRole: JobRole): void {
         throw new Error ("Invalid bandId. Please select a valid bandId for this job")
     }
 
-
-/*export const validateEmployeeRequest = function (employeeRequest: EmployeeRequest): void {
-    if (employeeRequest.salary < 20000) {
-        throw new Error("Salary must be at least £20,000");
-    }
-
-    if (employeeRequest.bankNo.length != 8) {
-        throw new Error("Invalid bank number");
-    }
-
-    if (employeeRequest.fname.length > 50) {
-        throw new Error("First Name is to long");
-    }
-
-    if (employeeRequest.lname.length > 50) {
-        throw new Error("Last Name is to long");
-    }
-
-    if (employeeRequest.nin.length != 8) {
-        throw new Error("Incorrect National Insurance Number");
-    }
-
-*/
 }

@@ -2,15 +2,16 @@ import express from "express";
 import nunjucks from "nunjucks";
 import bodyParser from "body-parser";
 import session from "express-session";
- 
-import { getHomePage, getJobsList } from "./controllers/JobRoleController";
+
+import { getHomePage, getJobByID, getJobsList } from "./controllers/JobRoleController";
 import { dateFilter } from "./filters/dateFilter";
  
 const app = express();
  
 const env = nunjucks.configure('views', {
     autoescape: true,
-    express: app
+    express: app,
+    noCache: true
 });
  
 env.addFilter('date', dateFilter);
@@ -28,10 +29,13 @@ declare module "express-session" {
   }
 }
  
-app.listen(3000, () => {
-    console.log('Server started on port 3000');
-});
- 
 app.get('/', getHomePage);
 app.get('/availablejobs', getJobsList);
+app.get('/availablejobs/:id',getJobByID, (req, res) =>
+{
+  res.send('Job details for job');
+})
  
+app.listen(3000, () => {
+  console.log('Server started on port 3000');
+});
