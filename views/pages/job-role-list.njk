@@ -11,10 +11,28 @@
 <body>
   {% include 'components/header.njk' %}
 
-  <main>
+  <main class="justify-content-center align-items-center">
     <h1>Job Role List</h1>
-    <p>jobs</p>
-  </main>
+    <table style="width: 100%; margin: 0 auto; text-align: center;">
+        <tr>
+            <th>Listing Number:</th>
+            <th>Role name:</th>
+            <th>Location:</th>
+            <th>Capability:</th>
+            <th>Salary Band:</th>
+            <th>Closing Date:</th>
+        </tr>
+        {% for JobRole in JobRoles | sort(attribute='JobRoleId') %}
+            <tr>
+                <td><a href="/availablejobs/{{JobRole.jobRoleId}}">{{ JobRole.jobRoleId }}</a></td>
+                <td>{{ JobRole.roleName }}</td>
+                <td>{{ JobRole.location }}</td>
+                <td>{{ JobRole.capabilityName }}</td>
+                <td>{{ JobRole.bandName }}</td>
+                <td>{{ JobRole.closingDate | date }}</td>
+            </tr>
+        {% endfor %}
+    </table>
 
   {% include 'components/footer.njk' %}
 </body>
