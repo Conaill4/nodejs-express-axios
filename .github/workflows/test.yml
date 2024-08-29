@@ -1,4 +1,4 @@
-name: Build Code Base
+name: Test Code Base
  
 on:
 
@@ -38,6 +38,16 @@ jobs:
 
         run: npm install
  
-      - name: Run Build
+      # For Running the npm test 
+      - name: Run NPM Test & NPM UI Test
 
-        run: npm ci
+        run: npm test
+    
+       # For Running the npm UI test 
+      - name: Run Application
+
+        run: npm start
+    
+      - name: Run NPM UI Test
+
+        run: npm run test-ui 
