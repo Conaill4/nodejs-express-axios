@@ -46,12 +46,6 @@ jobs:
 
         run: npm test
       
-    # For Running NPM UI Test
-
-      - name: Run Start
-
-        run: npm start
-
       - name: Run Npm UI Test
 
         run: npm run test-ui
