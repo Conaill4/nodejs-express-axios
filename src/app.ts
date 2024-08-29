@@ -13,6 +13,8 @@ const env = nunjucks.configure('views', {
     express: app,
     noCache: true
 });
+
+app.set('view engine', 'njk');
  
 env.addFilter('date', dateFilter);
  
