@@ -1,4 +1,4 @@
-name:  Lint Code Base
+name: Build Code Base
  
 on:
 
@@ -33,11 +33,25 @@ jobs:
         with:
 
           node-version: '20.15.1'
+    
+    # Install dependencies
  
       - name: Install dependencies
 
         run: npm install
- 
-      - name: Run linter
 
-        run: npm run linter
+    # For Running NPM Test
+      
+      - name: Run Npm Test
+
+        run: npm test
+      
+    # For Running NPM UI Test
+
+      - name: Run Start
+
+        run: npm start
+
+      - name: Run Npm UI Test
+
+        run: npm run test-ui
