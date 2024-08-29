@@ -5,7 +5,7 @@ import { describe, it} from 'node:test';
 
 describe('JobRolesValidator', function () {
     describe('validateJobRoles', function () {
-      it('should not throw exception when errors', () => {
+      it('should not throw exception', () => {
         const jobRole: JobRole = {
             
             jobRoleId: 1,
@@ -35,7 +35,7 @@ describe('JobRolesValidator', function () {
     Should return error Invalid Id please try again
 */
 
-it('should throw exception when jobRoleID is null', () => {
+it('should throw exception when jobRoleID is less than one character', () => {
     const jobRole: JobRole = {
         
         jobRoleId: 0,
@@ -54,19 +54,8 @@ it('should throw exception when jobRoleID is null', () => {
  }
 })
 
-/*
-    Test 3
 
-    Write a unit test for the validateJobRoles method
-
-    When the jobRole name should be less than 5
-
-    Expect error to be returned
-
-    Should return error There is no role under that descripion
-*/
-
-it('should throw exception when rolename is less than 5 ', () => {
+it('should throw exception when rolename is less than 5 characters', () => {
     const jobRole: JobRole = {
         
         jobRoleId: 1,
@@ -215,13 +204,13 @@ it('should throw exception when capabilityId is less than one', () => {
 
     Write a unit test for the validateJobRoles method
 
-    When the capability greater than 6
+    When the capabilityId greater than the value of six
     Expect error to be returned
 
     Should return error Invalid capabilityId. Please select a valid capabilityId for this job
 */
 
-it('should throw exception when capabilityId is less than one', () => {
+it('should throw exception when capabilityId is greater than the value of six', () => {
    const jobRole: JobRole = {
        
        jobRoleId: 1,

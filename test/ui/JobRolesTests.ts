@@ -1,3 +1,4 @@
+import { expect } from 'chai';
 import { describe, it } from 'node:test';
 import webdriver from 'selenium-webdriver';
 
@@ -10,5 +11,17 @@ describe('Job Role test', async () => {
         const url: string = process.env.UI_TEST_URL || 'http://localhost:3000/job-roles'
         await driver.get(url);
 
+        const jobRoles = await driver.findElement(webdriver.By.id("//a[@href='job-roles/1']")).getText();
+        await driver.findElement(webdriver.By.id("//a[@href='job-roles/1']")).click();
+
+        const jobs = await driver.findElement(webdriver.By.id('jobs')).getText();
+ 
+
+        expect(jobRoles).to.equal(jobs);
+
     })
 })
+
+
+
+ 

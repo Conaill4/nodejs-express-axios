@@ -24,6 +24,11 @@ describe('JobRoleService', function () {
         mock.onGet(URL).reply(200, data);
 
         const results = await getJobs();
+        expect(results[0].jobRoleId).to.deep.equal(jobRole.jobRoleId)
+        expect(results[0].roleName).to.deep.equal(jobRole.roleName)
+        expect(results[0].location).to.deep.equal(jobRole.location)
+        expect(results[0].capabilityId).to.deep.equal(jobRole.capabilityId)
+        expect(results[0].bandId).to.deep.equal(jobRole.bandId)
         expect(new Date(results[0].Date)).to.deep.equal(jobRole.Date);
       })
 
