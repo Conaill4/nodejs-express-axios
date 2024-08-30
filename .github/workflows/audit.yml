@@ -13,6 +13,13 @@ on:
     branches:
 
       - main
+  
+  
+name: "Daily Audit Run"
+  on:
+    schedule:
+      - cron: "0 0 * * *"
+
  
 jobs:
 
