@@ -26,18 +26,6 @@ describe('JobRolesValidator', function () {
     }
 )
 
-/*
-    Test 2
-
-    Write a unit test for the validateJobRoles method
-
-    When the jobRole ID number is less than 1 characters
-
-    Expect error to be returned
-
-    Should return error Invalid Id please try again
-*/
-
 it('should throw exception when jobRoleID is less than one character', () => {
     const jobRole: JobRole = 
     {
@@ -83,17 +71,6 @@ it('should throw exception when rolename is less than 5 characters', () => {
     }
 )
 
-/*
-    Test 4
-
-    Write a unit test for the validateJobRoles method
-
-    When the jobRole name should start with a Capital
-    Expect error to be returned
-
-    Should return error Job role should start with a uppercase
-*/
-
 it('should throw exception when rolename doesnt start with a capital', () => {
     const jobRole: JobRole = 
     {
@@ -115,17 +92,6 @@ it('should throw exception when rolename doesnt start with a capital', () => {
         }
     }
 )
-
-/*
-    Test 5
-
-    Write a unit test for the validateJobRoles method
-
-    When the location greater than 35 characters
-    Expect error to be returned
-
-    Should return error Invalid Location -> too long
-*/
 
 it('should throw exception when location is too long', () => {
     const jobRole: JobRole = 
@@ -149,17 +115,6 @@ it('should throw exception when location is too long', () => {
     }
 )
 
-/*
-    Test 5
-
-    Write a unit test for the validateJobRoles method
-
-    When the location less than 5 characters
-    Expect error to be returned
-
-    Should return error Invalid Location -> too short
-*/
-
 it('should throw exception when location is too short', () => {
     const jobRole: JobRole = {
         
@@ -181,17 +136,6 @@ it('should throw exception when location is too short', () => {
         }
     }
 )
-
-/*
-    Test 6
-
-    Write a unit test for the validateJobRoles method
-
-    When the capabilityId less than 1 
-    Expect error to be returned
-
-    Should return error Invalid capabilityId. Please select a valid capabilityId for this job
-*/
 
 it('should throw exception when capabilityId is less than one', () => {
     const jobRole: JobRole = {
@@ -215,17 +159,6 @@ it('should throw exception when capabilityId is less than one', () => {
     }
 )
 
-/*
-    Test 7
-
-    Write a unit test for the validateJobRoles method
-
-    When the capabilityId greater than the value of six
-    Expect error to be returned
-
-    Should return error Invalid capabilityId. Please select a valid capabilityId for this job
-*/
-
 it('should throw exception when capabilityId is greater than the value of six', () => {
    const jobRole: JobRole = {
        
@@ -247,18 +180,6 @@ it('should throw exception when capabilityId is greater than the value of six', 
         }
     }
 )
-
-/*
-    Test 8
-
-    Write a unit test for the validateJobRoles method
-
-    When the bandId less than 1
-    Expect error to be returned
-
-    Should return error Invalid bandId. Please select a valid bandId for this job
-*/
-
 it('should throw exception when bandId is less than one', () => {
    const jobRole: JobRole = {
        
@@ -280,17 +201,6 @@ it('should throw exception when bandId is less than one', () => {
         }
     }
 )
-
-/*
-    Test 9
-
-    Write a unit test for the validateJobRoles method
-
-    When the bandId greater than 6
-    Expect error to be returned
-
-    Should return error Invalid bandId. Please select a valid bandId for this job
-*/
 
 it('should throw exception when bandId is greater than six', () => {
    const jobRole: JobRole = 
