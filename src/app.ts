@@ -3,7 +3,7 @@ import nunjucks from "nunjucks";
 import bodyParser from "body-parser";
 import session from "express-session";
 
-import { getHomePage, getJobsList } from "./controllers/JobRoleController";
+import { getJobsList } from "./controllers/JobRoleController";
 import { dateFilter } from "./filters/dateFilter";
  
 const app = express();
@@ -29,7 +29,6 @@ declare module "express-session" {
   }
 }
  
-app.get('/', getHomePage);
 app.get('/job-roles', getJobsList);
  
 app.listen(3000, () => {
