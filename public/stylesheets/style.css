@@ -1,0 +1,170 @@
+/* Main navbar styling */
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    height: 90px;
+    background-color: rgb(255, 255, 255);
+    font-family: "Galano Grotesque";
+    color: rgb(87, 87, 86);
+    border: 2px solid rgb(40, 53, 131);
+}
+
+.navbar a:hover {
+    text-decoration: none;
+    background-color: aliceblue;
+    border-radius: 5px;
+}
+
+.navbar .logo {
+    font-size: 1.5em;
+}
+
+.container-fluid {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: 50vw;
+}
+
+.navbar-header {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    position: sticky;
+}
+.navbar-header a {
+    margin-left: 1rem;
+}
+
+body {
+    font-family: "Galano Grotesque";
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    color: rgb(80, 93, 164);
+    display: flex;
+    flex-direction: column;
+}
+
+body :hover {
+    text-decoration: none;
+}
+
+.home-container-fluid {
+    padding: 20px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.card-img-top {
+    width: 100%;
+}
+
+.we-write-our-story {
+    font-family: "Galano Grotesque";
+    margin-top: 20px;
+    margin-bottom: 400px;
+    margin-left: 20px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(40, 53, 131);
+    font-family: "Galano Grotesque";
+    font-size: 1.3rem;
+    color: rgb(255, 255, 255);
+    padding: 1rem;
+    height: 160px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.contact {
+    padding: 0 20px;
+    text-align: left;
+}
+
+.footer-title {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.logo {
+    margin-left: left;
+    float: left;
+    width: 100px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+     .navbar-header {
+        flex-direction: column;
+    }
+
+    .navbar-header a {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .container-fluid {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact {
+        padding: 10px 0;
+    }
+
+    .footer-title {
+        padding-top: 10px;
+    }
+}
+
+h3 {
+    font-family: "Galano Grotesque";
+    background-image: url('./images/kainos-Teams-3.jpg');
+}
+
+a {
+    font-family: "Galano Grotesque";
+    color: rgb(40, 53, 131);
+    font-size: 1.6rem;
+}
+
+.table {
+    border: 2px solid rgb(0, 70, 49);
+    font-family: "Galano Grotesque";
+    background-color: #f2f2f2;
+    padding: 20px 10px;
+}
+
+tr :hover {
+    background-color: rgb(255, 255, 255);
+}
+
+li {
+    display: list-item;
+    background-color: #f2f2f2;
+    padding: 15px 5px;
+    margin: 5px;
+}
+
+image {
+border: 1px solid #ddd;
+border-radius: 4px;
+padding: 5px;
+width: 150px;
+
+}
