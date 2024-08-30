@@ -1,0 +1,253 @@
+<script>
+    var phApp = phApp || {
+        "widgetApiEndpoint": "https://careers.kainos.com/widgets",
+        "country": "gb",
+        "deviceType": "desktop",
+        "locale": "en_gb",
+        "absUrl": true,
+        "refNum": "KAINGB",
+        "cdnUrl": "https://cdn.phenompeople.com/CareerConnectResources",
+        "baseUrl": "https://careers.kainos.com/gb/en/",
+        "baseDomain": "https://careers.kainos.com",
+        "phenomTrackURL": "careers.kainos.com/gb/en/phenomtrack.min.js",
+        "pageId": "page35-prod",
+        "pageName": "Life at Kainos",
+        "siteType": "external",
+        "rootDomain": "https://careers.kainos.com"
+    };
+    phApp.ddo = {
+        "siteConfig": {
+            "status": "success",
+            "errorCode": null,
+            "errorMsg": null,
+            "data": {
+                "navItems": {
+                    "showExternalEvents": true,
+                    "candidateHome": true,
+                    "cdnCaasContentUrl": "https://content-ir.phenompeople.com/api/content-delivery/caasContentV1",
+                    "eventsEnabled": false,
+                    "audPxConfig": {
+                        "newVersion": "4.0",
+                        "oldVersion": "2.0"
+                    },
+                    "blogsEnabled": true,
+                    "navMenuItems": ["blogs", "candidateHome"],
+                    "cdnCaasContentEnabled": true,
+                    "showExternalBlogs": true,
+                    "navMenuItemsData": {
+                        "blogs": {
+                            "url": "https://careers.kainos.com/gb/en/blog"
+                        },
+                        "events": {
+                            "url": "https://careers.kainos.com/gb/en/events"
+                        }
+                    }
+                },
+                "globalManagedWidgetIds": ["8b82bfdaafd4d8504005407db933c9a6"],
+                "blogsharewidgetsettings": {
+                    "options": [{
+                        "name": "whatsapp",
+                        "order": 0,
+                        "baseUrl": "https://api.whatsapp.com/send?&text=",
+                        "eventName": "Share_whatsapp",
+                        "settings": {
+                            "icon": "icon-whatsapp-1",
+                            "iconBrandColor": "",
+                            "popUpParams": "resizable,scrollbars,status,height=500,width=500",
+                            "params": {},
+                            "label": false
+                        },
+                        "isSelected": true
+                    }, ],
+                    "brandStyle": true,
+                    "widgetStyle": "style3",
+                    "isInline": true,
+                    "size": "16",
+                    "spacing": "21",
+                    "color": "#fff",
+                    "backgroundColor": "#ggg",
+                    "height": "34",
+                    "width": "34",
+                    "line-height": "30",
+                    "lineHeight": "30",
+                    "borderWidth": "1",
+                    "borderStyle": "solid",
+                    "borderColor": "transparent",
+                    "borderRadius": "100",
+                    "locale": "en_us",
+                    "siteVariant": "external"
+                },
+                "videoScreeningGlobalStyles": "https://pp-cdn.phenompeople.com/CareerConnectResources/st/common/video-platform/js/ph-vs-global-styles-v1.css",
+                "cdnConfig": {
+                    "cdnDdos": ["fitScoreSettings", "landingPageOverview", "categoryContentV2", "candidateProfileConfig", "categoryMasterData", "jobTagSettings", "getBusinessRules", "getMasterCategories", "categoryMasterDataV2", "caasFetchRawConfig", "globalSearchConfig", "categoryContent", "siteBranding", "blogsharewidgetsettings", "audiencePxWidgetConfig", "jobsharewidgetsettings", "npsConfig", "socialConnectOptions", "getRegionLocales", "jobLogoConfig", "supportedLanguages", "getMasterLocations", "locationmapsettings", "pxAudJobwidgetsettings", "getRegionLocales", "eventsharewidgetsettings", "jobwidgetsettings", "fyfConfig", "getPiiConsentConfig", "glassdoorReviews", "masterFrequencyV1"],
+                    "cdnUrl": "https://content-ir.phenompeople.com",
+                    "pageNameLevelDdos": [],
+                    "pageIdlevelDdos": []
+                },
+                "urlMap": {
+                    "home": "home",
+                    "category": "c/:category",
+                    "job": "job/:jobId/:title",
+                    "service": "service/:jobId/:title",
+                    "jobcart": "jobcart",
+                    "search-results": "search-results",
+                    "glassdoor-reviews": "glassdoor-reviews",
+                    "event": "event/:eventScheduleId/:title",
+                    "events": "events",
+                    "talentcommunity": "talentcommunity",
+                    "talentcommunityupdate": "talentcommunityupdate",
+                    "blogarticle": "blogarticle/:url",
+                    "jobalert": "jobalert",
+                    "employee-profile": "employeeprofile",
+                    "editprofile": "editprofile",
+                    "businessUnit": ":url",
+                    "featuredOpportunities": ":url",
+                    "di_about": "di/about/:groupId",
+                    "di_details": "di/details/:groupId",
+                    "di_events": "di/events/:groupId",
+                    "di_groups": "di/groups",
+                    "di_highlights": "di/highlights/:groupId",
+                    "di_jobs": "di/jobs/:groupId",
+                    "di_members": "di/members/:groupId",
+                    "referrals_candidate": "referrals/candidate",
+                    "referrals_referredcandidates": "referrals/referredcandidates",
+                    "referrals_friendsinterests": "referrals/friendsinterests",
+                    "referrals_home": "referrals/home",
+                    "referrals_candidatesuniversity": "referrals/candidatescompany",
+                    "employees_home": "employees/home",
+                    "lms_courses": "lms/courses",
+                    "lms_savedcourses": "lms/savedcourses",
+                    "gigs_details": "gigs/details/:gigId",
+                    "gigs_searchresults": "gigs/searchresults",
+                    "nla_home": "nla/home",
+                    "nla_search": "nla/search",
+                    "gigs_manage": "gigs/manage",
+                    "gigs_applications": "gigs/applications",
+                    "gigs_applicants": "gigs/applicants/:gigId",
+                    "events_event": "events/event/:eventScheduleId/:title",
+                    "events_home": "events/home",
+                    "my-profile": "myprofile",
+                    "cp_createpath": "cp/createpath",
+                    "cp_home": "cp/home",
+                    "mentoring_relationship": "mentoring/relationship/:mentorshipId",
+                    "mentoring_mentees": "mentoring/mentees",
+                    "mentoring_mentors": "mentoring/mentors",
+                    "mentoring_searchresults": "mentoring/searchresults",
+                    "settings": "settings",
+                    "story": "story/:contentId/:title",
+                    "video-assessment-landing-page": "video-assessment-landing-page",
+                    "video-assessment-recording": "video-assessment-recording",
+                    "video-assessment-thankyou": "video-assessment-thankyou",
+                    "forwardApply": "hvhapply",
+                    "interview-landing-page": "interview-landing-page",
+                    "interview-recording": "interview-recording",
+                    "interview-thankyou": "interview-thankyou",
+                    "roles_details": "roles/details/:jobCode/:jobTitle",
+                    "roles_search-results": "roles/searchresults",
+                    "screening-welcome": "screening-welcome",
+                    "screening-answering": "screening-answering",
+                    "screening-thankyou": "screening-thankyou"
+                },
+                "categoryUrlMap": {
+                    "KAINGB_Engineering": "c/engineering-jobs",
+                    "KAINGB_Product_and_Digital_Consultancy": "c/product-and-digital-consultancy-jobs",
+                    "KAINGB_Experience_Design": "c/experience-design-jobs",
+                    "KAINGB_Other": "c/other-jobs",
+                    "KAINGB_Data": "c/data-jobs",
+                    "KAINGB_Workday": "c/workday-jobs",
+                    "KAINGB_People": "c/people-jobs",
+                    "KAINGB_Platforms": "c/platforms-jobs",
+                    "KAINGB_Operations": "c/operations-jobs",
+                    "KAINGB_Artifical_Intelligence": "c/artifical-intelligence-jobs",
+                    "KAINGB_Business_Development_and_Marketing": "c/business-development-and-marketing-jobs",
+                    "KAINGB_Organisational_Strategy_and_Planning": "c/organisational-strategy-and-planning-jobs",
+                    "KAINGB_Commercial_and_Financial_Management": "c/commercial-and-financial-management-jobs",
+                    "KAINGB_Cyber_Security": "c/cyber-security-jobs",
+                    "KAINGB_Delivery_Management": "c/delivery-management-jobs",
+                    "KAINGB_Data_Artificial_Intelligence": "c/data-artificial-intelligence-jobs"
+                },
+                "crawlerUserAgents": "Screaming Frog|googlebot|yahoo|bingbot|baiduspider|facebookexternalhit|twitterbot|rogerbot|linkedinbot|embedly|showyoubot|outbrain|pinterest|slackbot|vkShare|W3C_Validator|redditbot|Applebot|WhatsApp|flipboard|tumblr|bitlybot|SkypeUriPreview|nuzzel|Discordbot|Google Page Speed|Qwantify|pinterestbot|Custom|Chrome-Lighthouse",
+                "siteSettings": {
+                    "locationSlider": false,
+                    "glassdoor": {},
+                    "glassdoorReviews": {},
+                    "twitter": {},
+                    "refineSearch": {
+                        "enabledFacets": ["category", "country", "state", "city", "type"],
+                        "facetDisplayNames": {
+                            "category": "Category",
+                            "country": "Country",
+                            "state": "State/Province",
+                            "city": "City",
+                            "type": "Hiring Type"
+                        },
+                        "facetPlaceholderNames": {
+                            "category": "Category",
+                            "country": "Country",
+                            "state": "State/Province",
+                            "city": "City",
+                            "type": "Hiring Type"
+                        },
+                        "defaultFacetsToOpen": ["country"]
+                    },
+                    "linkedIn": {
+                        "apiKey": "752xe1cieo8utv"
+                    },
+                    "gdpr": {
+                        "cookieType": "persistent",
+                        "enabled": true
+                    },
+                    "size": "10",
+                    "iscdnEnabled": true,
+                   
+                },
+                "trackingConfig": {
+
+                    "play_click": {
+                        "trait260": "videotype",
+                        "videoId": "videoid"
+                    },
+                    "pause_click": {
+                        "trait260": "videotype",
+                        "videoId": "videoid"
+                    },
+                },         
+            },
+            "reqData": null
+        },
+        "caasLazyLoadWidgetVersions": {
+            "status": "success",
+            "errorCode": null,
+            "errorMsg": null,
+            "data": {
+                "pcs-card-v1": "https://pp-cdn.phenompeople.com/CareerConnectResources/prod/common/js/caas-platform/widgets/pcs-card-v1/pcs-card-v1-1620286894383.js",
+                "pcs-content-v1": "https://pp-cdn.phenompeople.com/CareerConnectResources/prod/common/js/caas-platform/widgets/pcs-content-v1/pcs-content-v1-1683892274455.js",
+                "pcs-candidate-login-v1": "https://cdn.phenompeople.com/CareerConnectResources/common/js/caas-platform/widgets/pcs-candidate-login-v1/pcs-candidate-login-v1-1713343704873.js",
+                "pcs-blog-list-overview-v1": "https://pp-cdn.phenompeople.com/CareerConnectResources/pp/common/js/caas-platform/widgets/pcs-blog-list-overview-v1/pcs-blog-list-overview-v1-1694708553477.js",
+                "pcs-component-v1": "https://pp-cdn.phenompeople.com/CareerConnectResources/pp/common/js/caas-platform/widgets/pcs-component-v1/pcs-component-v1-1617346843242.js",
+                "pcs-footer-v1": "https://pp-cdn.phenompeople.com/CareerConnectResources/prod/common/js/caas-platform/widgets/pcs-footer-v1/pcs-footer-v1-1617347029398.js",
+                "pcs-social-connect-v1": "https://pp-cdn.phenompeople.com/CareerConnectResources/prod/common/js/caas-platform/widgets/pcs-social-connect-v1/pcs-social-connect-v1-1669873248000.js",
+                "pcs-header-v1": "https://cdn.phenompeople.com/CareerConnectResources/common/js/caas-platform/widgets/pcs-header-v1/pcs-header-v1-1718969442490.js",
+                "pcs-menu-list-v1": "https://cdn.phenompeople.com/CareerConnectResources/common/js/caas-platform/widgets/pcs-menu-list-v1/pcs-menu-list-v1-1710917512987.js",
+                "pcs-job-cart-count-v1": "https://pp-cdn.phenompeople.com/CareerConnectResources/prod/common/js/caas-platform/widgets/pcs-job-cart-count-v1/pcs-job-cart-count-v1-1652708896808.js",
+                "pcs-language-selector-v2": "https://cdn.phenompeople.com/CareerConnectResources/common/js/caas-platform/widgets/pcs-language-selector-v2/pcs-language-selector-v2-1714483631689.js"
+            },
+            "reqData": null
+        },
+        "flashParams": {}
+    };
+    </script>
+
+    <script type="text/javascript" src="https://cdn.phenompeople.com/CareerConnectResources/common/js/vendor/ph-basic-4.30.js" defer="" module="" platform_id="platform_basic" nonce=""></script>
+    <script type="text/javascript" src="https://cdn.phenompeople.com/CareerConnectResources/common/js/vendor/require-4.1.js" defer="" platform_id="platform_require" nonce=""></script>
+    <script type="text/javascript" src="https://cdn.phenompeople.com/CareerConnectResources/common/js/vendor/vendor-bundle-part1-4.1.js" defer="" platform_id="platform_vendorBundleJs" nonce=""></script>
+    <script type="text/javascript" src="https://cdn.phenompeople.com/CareerConnectResources/common/js/vendor/vendor-bundle-part2-4.1.js" defer="" platform_id="platform_vendorBundleJs_part2" nonce=""></script>
+    <script type="text/javascript" src="https://cdn.phenompeople.com/CareerConnectResources/common/js/common/ph-common-bundle-part1-4.86.js" defer="" platform_id="platform_phCommonBundleJs" nonce=""></script>
+    <script type="text/javascript" src="https://cdn.phenompeople.com/CareerConnectResources/common/js/common/ph-common-bundle-part2-4.86.js" defer="" platform_id="platform_phCommonBundleJs_part2" nonce=""></script>
+    <script type="text/javascript" src="https://cdn.phenompeople.com/CareerConnectResources/KAINGB/en_gb/desktop/page35-prod/ph-page-page35-prod-1724139185312.js" defer="" nonce=""></script>
+    <script type="text/javascript" src="https://cdn.phenompeople.com/CareerConnectResources/common/js/vendor/ph-loader-4.21.js" defer="" platform_id="platform_loader" nonce=""></script>
+    <script type="text/javascript" src="https://cdn.phenompeople.com/CareerConnectResources/common/js/appConfig/ph-app-config-1.14.js" defer="" platform_id="platform_phAppConfigJs" nonce=""></script>
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.phenompeople.com/CareerConnectResources/globalstyles/globalstyles-1722508075271.css" id="globalcss"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.phenompeople.com/CareerConnectResources/KAINGB/tenantcss/main-1721331484097.css" id="tenantcss"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.phenompeople.com/CareerConnectResources/KAINGB/tenantcss/color-css-1721331485082.css" id="colorCss"/>
