@@ -16,7 +16,7 @@ on:
  
 jobs:
 
-  lint:
+  test:
 
     runs-on: ubuntu-latest
  

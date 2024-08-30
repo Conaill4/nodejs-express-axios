@@ -16,7 +16,7 @@ on:
  
 jobs:
 
-  lint:
+  audit:
 
     runs-on: ubuntu-latest
  

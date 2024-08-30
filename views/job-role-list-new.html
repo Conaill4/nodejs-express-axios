@@ -16,12 +16,12 @@
         </tr>
             {% for JobRole in JobRoles | sort(attribute='JobRoleId') %}
                 <tr >
-                        <td>{{ JobRole.jobRoleId }}</td>
-                        <td>{{ JobRole.roleName }}</td>
-                        <td>{{ JobRole.location }}</td>
-                        <td>{{ JobRole.capabilityName }}</td>
-                        <td>{{ JobRole.bandName }}</td>
-                        <td>{{ JobRole.closingDate | date }}</td>
+                        <td id="identification">{{ JobRole.jobRoleId }}</td>
+                        <td id="name">{{ JobRole.roleName }}</td>
+                        <td id="location">{{ JobRole.location }}</td>
+                        <td id="capabilityName">{{ JobRole.capabilityName }}</td>
+                        <td id="bandName">{{ JobRole.bandName }}</td>
+                        <td id="closingDate">{{ JobRole.closingDate | date }}</td>
                 </tr>
             {% endfor %}
         </table>

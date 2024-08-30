@@ -6,8 +6,8 @@ import { describe, it} from 'node:test';
 describe('JobRolesValidator', function () {
     describe('validateJobRoles', function () {
       it('should not throw exception', () => {
-        const jobRole: JobRole = {
-            
+        const jobRole: JobRole = 
+        {
             jobRoleId: 1,
             roleName: "Graduate Software Engineer",
             location: "Derry",
@@ -15,13 +15,16 @@ describe('JobRolesValidator', function () {
             bandId: 2,
             Date: new Date(1693078000000)
         }
-     try{
+    try
+        {
         validateJobRoles(jobRole)
-     }
-     catch{
+        }
+    catch
+        {
         assert.fail("Expected no error message ")
-     }
-    })
+        }
+    }
+)
 
 /*
     Test 2
@@ -36,8 +39,8 @@ describe('JobRolesValidator', function () {
 */
 
 it('should throw exception when jobRoleID is less than one character', () => {
-    const jobRole: JobRole = {
-        
+    const jobRole: JobRole = 
+    {
         jobRoleId: 0,
         roleName: "Graduate Software Engineer",
         location: "Derry",
@@ -45,19 +48,22 @@ it('should throw exception when jobRoleID is less than one character', () => {
         bandId: 2,
         Date: new Date(1693078000000)
     }
- try{
-    validateJobRoles(jobRole)
- }
- catch(e){
-    expect(e.message).to.equal("Invalid Id please try again");
-    return;
- }
+    try
+        {
+            validateJobRoles(jobRole)
+        }
+
+    catch(e)
+        {
+            expect(e.message).to.equal("Invalid Id please try again");
+            return;
+        }
 })
 
 
 it('should throw exception when rolename is less than 5 characters', () => {
-    const jobRole: JobRole = {
-        
+    const jobRole: JobRole = 
+    {
         jobRoleId: 1,
         roleName: "Test",
         location: "Derry",
@@ -65,14 +71,16 @@ it('should throw exception when rolename is less than 5 characters', () => {
         bandId: 2,
         Date: new Date(1693078000000)
     }
- try{
-    validateJobRoles(jobRole)
- }
- catch(e){
-    expect(e.message).to.equal("There is no role under that descripion");
-    return;
- }
-}
+        try
+            {
+                validateJobRoles(jobRole)
+            }
+        catch(e)
+            {
+                expect(e.message).to.equal("There is no role under that descripion");
+                return;
+            }
+    }
 )
 
 /*
@@ -87,8 +95,8 @@ it('should throw exception when rolename is less than 5 characters', () => {
 */
 
 it('should throw exception when rolename doesnt start with a capital', () => {
-    const jobRole: JobRole = {
-        
+    const jobRole: JobRole = 
+    {
         jobRoleId: 1,
         roleName: "graduate Software Engineer",
         location: "Derry",
@@ -96,14 +104,16 @@ it('should throw exception when rolename doesnt start with a capital', () => {
         bandId: 2,
         Date: new Date(1693078000000)
     }
- try{
-    validateJobRoles(jobRole)
- }
- catch(e){
-    expect(e.message).to.equal("Job role should start with a uppercase");
-    return;
- }
-}
+    try
+        {
+            validateJobRoles(jobRole)
+        }
+    catch(e)
+        {
+            expect(e.message).to.equal("Job role should start with a uppercase");
+            return;
+        }
+    }
 )
 
 /*
@@ -118,8 +128,8 @@ it('should throw exception when rolename doesnt start with a capital', () => {
 */
 
 it('should throw exception when location is too long', () => {
-    const jobRole: JobRole = {
-        
+    const jobRole: JobRole = 
+    {
         jobRoleId: 1,
         roleName: "Graduate Software Engineer",
         location: "asdfghjklqwertyuiopzxcvbnmasdfghjklqwertyuiopzxcvbnmasdfghjkl",
@@ -127,14 +137,16 @@ it('should throw exception when location is too long', () => {
         bandId: 2,
         Date: new Date(1693078000000)
     }
- try{
-    validateJobRoles(jobRole)
- }
- catch(e){
-    expect(e.message).to.equal("Invalid Location -> too long");
-    return;
- }
-}
+    try
+        {
+            validateJobRoles(jobRole)
+        }
+    catch(e)
+        {
+            expect(e.message).to.equal("Invalid Location -> too long");
+            return;
+        }
+    }
 )
 
 /*
@@ -158,14 +170,16 @@ it('should throw exception when location is too short', () => {
         bandId: 2,
         Date: new Date(1693078000000)
     }
- try{
-    validateJobRoles(jobRole)
- }
- catch(e){
-    expect(e.message).to.equal("Invalid Location -> too short");
-    return;
- }
-}
+    try
+        {
+            validateJobRoles(jobRole)
+        }
+    catch(e)
+        {
+            expect(e.message).to.equal("Invalid Location -> too short");
+            return;
+        }
+    }
 )
 
 /*
@@ -189,14 +203,16 @@ it('should throw exception when capabilityId is less than one', () => {
         bandId: 2,
         Date: new Date(1693078000000)
     }
- try{
-    validateJobRoles(jobRole)
- }
- catch(e){
-    expect(e.message).to.equal("Invalid capabilityId. Please select a valid capabilityId for this job");
-    return;
- }
-}
+    try
+        {
+            validateJobRoles(jobRole)
+        }
+    catch(e)
+        {
+            expect(e.message).to.equal("Invalid capabilityId. Please select a valid capabilityId for this job");
+            return;
+        }
+    }
 )
 
 /*
@@ -220,14 +236,16 @@ it('should throw exception when capabilityId is greater than the value of six', 
        bandId: 2,
        Date: new Date(1693078000000)
    }
-try{
-   validateJobRoles(jobRole)
-}
-catch(e){
-   expect(e.message).to.equal("Invalid capabilityId. Please select a valid capabilityId for this job");
-   return;
-}
-}
+    try
+        {
+        validateJobRoles(jobRole)
+        }
+    catch(e)
+        {
+        expect(e.message).to.equal("Invalid capabilityId. Please select a valid capabilityId for this job");
+        return;
+        }
+    }
 )
 
 /*
@@ -251,14 +269,16 @@ it('should throw exception when bandId is less than one', () => {
        bandId: 0,
        Date: new Date(1693078000000)
    }
-try{
-   validateJobRoles(jobRole)
-}
-catch(e){
-   expect(e.message).to.equal("Invalid bandId. Please select a valid bandId for this job");
-   return;
-}
-}
+    try
+        {
+        validateJobRoles(jobRole)
+        }
+    catch(e)
+        {
+        expect(e.message).to.equal("Invalid bandId. Please select a valid bandId for this job");
+        return;
+        }
+    }
 )
 
 /*
@@ -273,8 +293,8 @@ catch(e){
 */
 
 it('should throw exception when bandId is greater than six', () => {
-   const jobRole: JobRole = {
-       
+   const jobRole: JobRole = 
+   {
        jobRoleId: 1,
        roleName: "Graduate Software Engineer",
        location: "Derry",
@@ -282,15 +302,15 @@ it('should throw exception when bandId is greater than six', () => {
        bandId: 20,
        Date: new Date(1693078000000)
    }
-try{
-   validateJobRoles(jobRole)
-}
-catch(e){
-   expect(e.message).to.equal("Invalid bandId. Please select a valid bandId for this job");
-   return;
-}
-}
+    try
+        {
+        validateJobRoles(jobRole)
+        }
+    catch(e)
+        {
+        expect(e.message).to.equal("Invalid bandId. Please select a valid bandId for this job");
+        return;
+        }
+    }
 )
-
-
 })})
