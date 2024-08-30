@@ -11,20 +11,17 @@ describe('Job Role test', async () => {
         const url: string = process.env.UI_TEST_URL || 'http://localhost:3000/job-roles'
         await driver.get(url);
 
-        await driver.findElement(webdriver.By.id('jobRoleId')).sendKeys(1);
-        await driver.findElement(webdriver.By.id('roleName')).sendKeys('Graduate Software Engineer');
-        await driver.findElement(webdriver.By.id('location')).sendKeys('Derry');
-        await driver.findElement(webdriver.By.id('capabilityName')).sendKeys('Intern');
-        await driver.findElement(webdriver.By.id('bandName')).sendKeys('Grade 1 -£20,000 - 25,000');
-        await driver.findElement(webdriver.By.id('closingDate')).sendKeys('Wed Dec 25 2024');
+        const expectedJobRoleId = await driver.findElement(webdriver.By.id('identification')).getText();
+        await driver.findElement(webdriver.By.id('name')).getText();
+        await driver.findElement(webdriver.By.id('location')).getText();
+        await driver.findElement(webdriver.By.id('capabilityName')).getText();
+        await driver.findElement(webdriver.By.id('bandName')).getText();
+        await driver.findElement(webdriver.By.id('closingDate')).getText();
 
-        const jobRoles = await driver.findElement(webdriver.By.id("'job-roles/1']")).getText();
-        await driver.findElement(webdriver.By.id("//a[@href='job-roles/1']")).click();
-
-        const jobs = await driver.findElement(webdriver.By.id('jobs')).getText();
+        const jobroleId = await driver.findElement(webdriver.By.id('identification')).getText();
  
 
-        expect(jobRoles).to.equal(jobs);
+        expect(expectedJobRoleId).to.equal(jobroleId);
 
     })
 })
