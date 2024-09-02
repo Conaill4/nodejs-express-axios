@@ -1,13 +1,10 @@
+import { JobRole } from "./JobRole"
+
 export type JobRoleDetailedResponse = {
-    jobRoleId: number,
-    roleName: string,
-    location: string,
-    capabilityName: number,
-    bandName: number,
-    closingDate: Date,
+    jobRole: JobRole,
     description: string,
     responsibilities: string,
-    sharepointUrl: string,
-    status: number,
-    numberOfOpenPositions: string
+    sharePointUrl: string,
+    numberOfOpenPositions: Number,
+    status: string
 }

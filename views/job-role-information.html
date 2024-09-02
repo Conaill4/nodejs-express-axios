@@ -53,7 +53,7 @@
                                                             <span class="ph-line-height-1_5" data-ph-process-line-height="true" data-ph-style-attr="ph-line-height-1_5">Jobs available at Kainos
                                                         </h2>
                                                         <br/>
-                                                        <h4 style="text-align: left;">{{ JobRole.roleName }} &nbsp;</h4>
+                                                        <h4 style="text-align: left;">{{ JobRoleDetailedResponse.jobRole.roleName }} &nbsp;</h4>
                                                         <p style="text-align: left;">
                                                             <br/>
                                                             <table style="width: 100%; margin: 0 auto; text-align: center;">
@@ -70,20 +70,23 @@
                                                                     <th class="th_data">Available Positions:</th>
 
                                                                 </tr>
+                                                                {% for JobRoleDetailed in JobRoleDetailedResponse %}
+                                                                <strong><h2 style="padding-bottom: 2rem;">Job Role ID: {{ JobRoleDetailed.jobRole.jobRoleId }}</h2></strong>
+                                        
                                                                     <tr >
-                                                                            <td>{{ JobRole.jobRoleId }}</td>
-                                                                            <td style="padding-bottom: 1.5rem;">{{ JobRole.roleName }}</td>
-                                                                            <td>{{ JobRole.description }}</td>
-                                                                            <td>{{ JobRole.responsibilities }}</td>
-                                                                            <td>{{ JobRole.sharepointUrl }}</td>
-                                                                            <td>{{ JobRole.location }}</td>
-                                                                            <td>{{ JobRole.capabilityName }}</td>
-                                                                            <td>{{ JobRole.bandName }}</td>
-                                                                            <td>{{ JobRole.closingDate | date }}</td>
-                                                                            <td>{{ JobRole.status }}</td>
-                                                                            <td>{{ JobRole.numberOfOpenPositions }}</td>
+                                                                            <td>{{ JobRoleDetailed.jobRole.roleName }}</td>
+                                                                            <td>{{ JobRoleDetailed.description }}</td>
+                                                                            <td>{{ JobRoleDetailed.responsibilities }}</td>
+                                                                            <td>{{ JobRoleDetailed.sharepointUrl }}</td>
+                                                                            <td>{{ JobRoleDetailed.jobRole.location }}</td>
+                                                                            <td>{{ JobRoleDetailed.jobRole.capabilityName }}</td>
+                                                                            <td>{{ JobRoleDetailed.jobRole.bandName }}</td>
+                                                                            <td>{{ JobRoleDetailed.jobRole.closingDate | date }}</td>
+                                                                            <td>{{ JobRoleDetailed.status }}</td>
+                                                                            <td>{{ JobRoleDetailed.numberOfOpenPositions }}</td>
                                                                             
-                                                                    </tr>                            
+                                                                    </tr>       
+                                                                {% endfor %}                     
                                                             </table>
                                                             <br/>
                                                             <br/>
