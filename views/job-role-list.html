@@ -10,7 +10,7 @@
                 font-weight: 600;
                 padding-bottom: 1rem;
         }
-        
+
         .td_data{
             padding-bottom: 1rem;
             font-size: large;
@@ -76,6 +76,7 @@
     </div>
 </div></div>
         </div>
+        
         <section class="ph-paragraph-cc-view1-option1-theme1 ph-widget" type="static" view="1719398658373-paragraph-cc-view1-option1-savedView-1719398636006" original-view="ph-paragraph-cc-view1-option1" theme="theme1" instance-id="P0ARHq" data-ph-id="-1719398658291">
             <div class="ph-paragraph-cc-view1-option1-theme1 ph-widget-target" type="static" as-element="ph-html-v1" data-widget="ph-html-v1" view="1719398658373-paragraph-cc-view1-option1-savedView-1719398636006" original-view="ph-paragraph-cc-view1-option1" theme="theme1" ph-removed="true" data-ph-id="-1719398658291-1" instance-id="P0ARHq">
                 <div class="ph-component-cntr ph-widget-box" default-cards-count="1" max-allowed-cards="4" data-ph-id="ph-widget-element-1566038290791334-2">
@@ -95,7 +96,8 @@
                                                                     <span class="ph-line-height-1_5" data-ph-process-line-height="true" data-ph-style-attr="ph-line-height-1_5">Jobs at Kainos
                                                                 </h2>
                                                                 <br/>
-                                                                <h4 style="text-align: left;">The following jobs are available at Kainos: &nbsp;</h4>
+                                                                <h4 style="text-align: left;"><b>The following jobs are available at Kainos:</b></h4>
+                                                                <h5 style="text-align: left; padding-top: 5px;">Please click on a job to view more information.</h5>
                                                                 <p style="text-align: left;">
                                                                     <br/>
                                                                     <table style="width: 100%; margin: 0 auto; text-align: center; margin-top: 1rem;">
@@ -107,14 +109,14 @@
                                                                             <th class="th_data">Band:</th>
                                                                             <th class="th_data">Closing Date:</th>
                                                                         </tr>
-                                                                        {% for JobRole in JobRoles | sort(attribute='JobRoleId') %}
+                                                                        {% for JobRole in JobRoles | sort(attribute='jobRoleId') %}
                                                                             <tr >
-                                                                                    <td class="td_data" id="identification"><a href="/job-roles/{{JobRole.jobRoleId}}">{{ JobRole.jobRoleId }}</a></td>
-                                                                                    <td class="td_data" id="name"><a href="/job-roles/{{JobRole.jobRoleId}}">{{ JobRole.roleName }}</a></td>
-                                                                                    <td class="td_data" id="location">{{ JobRole.location }}</td>
-                                                                                    <td class="td_data" id="capabilityName">{{ JobRole.capabilityName }}</td>
-                                                                                    <td class="td_data" id="bandName">{{ JobRole.bandName }}</td>
-                                                                                    <td class="td_data" id="closingDate">{{ JobRole.closingDate | date }}</td>
+                                                                                    <td class="td_data"><a href="/job-roles/{{JobRole.jobRoleId}}">{{ JobRole.jobRoleId }}</a></td>
+                                                                                    <td class="td_data"><a href="/job-roles/{{JobRole.jobRoleId}}">{{ JobRole.roleName }}</a></td>
+                                                                                    <td class="td_data"><a target="_blank" href="https://www.google.com/maps/place/{{ JobRole.location }}">{{ JobRole.location }}</a></td>
+                                                                                    <td class="td_data">{{ JobRole.capabilityName }}</td>
+                                                                                    <td class="td_data">{{ JobRole.bandName }}</td>
+                                                                                    <td class="td_data">{{ JobRole.closingDate | date }}</td>
                                                                             </tr>
                                                                         {% endfor %}
                                                                     </table>
@@ -139,6 +141,7 @@
         </div>
     </div>
 {% include "components/footer.html" %}
+
 </body>
 </html>
 <div id='csrfToken' style='display:none'>9ce53fe1fb584ad884739157eadba0b5</div>
