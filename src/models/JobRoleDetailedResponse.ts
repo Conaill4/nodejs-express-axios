@@ -5,6 +5,6 @@ export type JobRoleDetailedResponse = {
     description: string,
     responsibilities: string,
     sharePointUrl: string,
-    numberOfOpenPositions: Number,
+    numberOfOpenPositions: number,
     status: string
 }
