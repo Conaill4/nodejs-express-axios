@@ -1,5 +1,7 @@
 import { validateJobRoles } from '../../src/validators/JobRolesValidator';
+import { validateJobRoleDetailed } from '../../src/validators/JobRoleDetailedResponseValidator'
 import { JobRole } from '../../src/models/JobRole'
+import { JobRoleDetailedResponse } from '../../src/models/JobRoleDetailedResponse';
 import { assert, expect } from 'chai';
 import { describe, it} from 'node:test';
 
@@ -222,5 +224,120 @@ it('should throw exception when bandId is greater than six', () => {
         return;
         }
     }
+)
+})
+
+describe('validateJobRoleDetailed', function () {
+
+it('should throw error if description is more than 500 charcters', () => {
+    const jobRoleDetailed: JobRoleDetailedResponse = {
+        jobRole: {
+          jobRoleId: 1,
+          roleName: "Graduate Software Engineer",
+          location: "Derry",
+          capabilityId: 1,
+          bandId: 2,
+          closingDate: new Date(1693078000000),
+        },
+        description: " Software Engineer Derry SBDHSBHDBSHSDBHSBDHSBHDBSHDBSHDBHSBDHSBDHBSHDBHSBDHSBHDBSHBDHSBDHSBHDBSHBDHSBDHSBHDBSHDBHSBDHSBDHSBHDBSHBDHSBDHBSHDBSHBDHSBDHBSHDBSHDBSHDBSHDBHSBDHSBDHSBHDBSHDBSHDBHSBDHBSDHBSDHBSHBDHSBDHSBDSHDBSHBSHDBSHDBSHBHSDBHSDBHBHHSDBSHBDHSDBHSBDHSBDHBSDHSBDHDBHSDBDSHBDSHBDSHBDSHDSBHSDBDSHBSDHBDSHSBHDSBH",
+        responsibilities: "Managing Software",
+        sharePointUrl: "123.com",
+        numberOfOpenPositions: 3,
+        status: "OPEN"
+    }
+      try
+          {
+              validateJobRoleDetailed(jobRoleDetailed)
+          }
+      catch(e)
+          {
+              expect(e.message).to.equal("Invalid Description -> too long");
+              return;
+          }
+  }
+)
+
+it('should throw error when numberOfPositions is 0', () => {
+    const jobRoleDetailed: JobRoleDetailedResponse = {
+        jobRole: {
+          jobRoleId: 1,
+          roleName: "Graduate Software Engineer",
+          location: "Derry",
+          capabilityId: 1,
+          bandId: 2,
+          closingDate: new Date(1693078000000),
+        },
+        description: "Software Engineer Derry",
+        responsibilities: "Managing Software",
+        sharePointUrl: "123.com",
+        numberOfOpenPositions: 0,
+        status: "OPEN"
+    }
+  try
+      {
+          validateJobRoleDetailed(jobRoleDetailed)
+      }
+  catch(e)
+      {
+          expect(e.message).to.equal("Number of positions cannot be 0");
+          return;
+      }
+  }
+)
+
+it('should throw error when responsibilities is more than 400 characters', () => {
+    const jobRoleDetailed: JobRoleDetailedResponse = {
+        jobRole: {
+          jobRoleId: 1,
+          roleName: "Graduate Software Engineer",
+          location: "Derry",
+          capabilityId: 1,
+          bandId: 2,
+          closingDate: new Date(1693078000000),
+        },
+        description: " Software Engineer Derry",
+        responsibilities: "Managing Software JBSBSHDBSHDBHSBDHSBDHBSHDBHBHSBDHSBDHBSHDBSHDBHSDBHSBDHSBDHBSHDBSHDBHSBDHSBDHSBHDBSHDBHSBDHSBDHBSHDBSHDBHSBDHSBDHBSHDBSHBDHSBDHSBDHBSHDBSHBDHSBDHSBDHSBDHBSHDBHSD",
+        sharePointUrl: "123.com",
+        numberOfOpenPositions: 1,
+        status: "OPEN"
+    }
+  try
+      {
+          validateJobRoleDetailed(jobRoleDetailed)
+      }
+  catch(e)
+      {
+          expect(e.message).to.equal("Invalid Responsibilities -> too long");
+          return;
+      }
+  }
+)
+
+it('should throw error if status is not OPEN or CLOSED', () => {
+    const jobRoleDetailed: JobRoleDetailedResponse = {
+        jobRole: {
+          jobRoleId: 1,
+          roleName: "Graduate Software Engineer",
+          location: "Derry",
+          capabilityId: 1,
+          bandId: 2,
+          closingDate: new Date(1693078000000),
+        },
+        description: " Software Engineer Derry",
+        responsibilities: "Managing Software",
+        sharePointUrl: "123.com",
+        numberOfOpenPositions: 2,
+        status: "WHEN"
+    }
+  try
+      {
+          validateJobRoleDetailed(jobRoleDetailed)
+      }
+  catch(e)
+      {
+          expect(e.message).to.equal("Invalid status - must be 'OPEN' or 'CLOSED'");
+          return;
+      }
+  }
 )
 })})
