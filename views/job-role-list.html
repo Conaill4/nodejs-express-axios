@@ -3,13 +3,14 @@
 <head>
     {% include "components/header.html" %}   
 
+    <title>Job Roles - Kainos</title>
     <style>
         .th_data{
                 text-align: center;
                 font-weight: 600;
                 padding-bottom: 1rem;
         }
-
+        
         .td_data{
             padding-bottom: 1rem;
             font-size: large;
@@ -108,12 +109,12 @@
                                                                         </tr>
                                                                         {% for JobRole in JobRoles | sort(attribute='JobRoleId') %}
                                                                             <tr >
-                                                                                    <td class="td_data" id="identification"><a href="/job-roles/{{JobRole.jobRoleId}}">{{ JobRole.jobRoleId }}</a></td>
-                                                                                    <td class="td_data" id="name"><a href="/job-roles/{{JobRole.jobRoleId}}">{{ JobRole.roleName }}</a></td>
-                                                                                    <td class="td_data" id="location">{{ JobRole.location }}</td>
-                                                                                    <td class="td_data" id="capabilityName">{{ JobRole.capabilityName }}</td>
-                                                                                    <td class="td_data" id="bandName">{{ JobRole.bandName }}</td>
-                                                                                    <td class="td_data"id="closingDate">{{ JobRole.closingDate | date }}</td>
+                                                                                    <td class="td_data"><a href="/job-roles/{{JobRole.jobRoleId}}">{{ JobRole.jobRoleId }}</a></td>
+                                                                                    <td class="td_data"><a href="/job-roles/{{JobRole.jobRoleId}}">{{ JobRole.roleName }}</a></td>
+                                                                                    <td class="td_data">{{ JobRole.location }}</td>
+                                                                                    <td class="td_data">{{ JobRole.capabilityName }}</td>
+                                                                                    <td class="td_data">{{ JobRole.bandName }}</td>
+                                                                                    <td class="td_data">{{ JobRole.closingDate | date }}</td>
                                                                             </tr>
                                                                         {% endfor %}
                                                                     </table>

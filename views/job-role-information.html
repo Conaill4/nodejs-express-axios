@@ -2,8 +2,10 @@
 <html lang="en" class="external en_gb desktop">
 <head>
     {% include "components/header.html" %}   
-
+    <title>Job {{ JobRole.jobRoleId }} - Kainos</title>
     <style>
+
+
         .th_data{
                 text-align: center;
                 font-weight: 600;
@@ -25,6 +27,14 @@
             transition: color 0.3s ease;
         }
 
+        .infoTable{
+            width: 70%;
+
+        }
+
+        .infoTable th,td{
+            text-align: left;
+        }
     </style>
     
 </head>
@@ -56,7 +66,7 @@
                                                         <h4 style="text-align: left;">{{ JobRoleDetailedResponse.jobRole.roleName }} &nbsp;</h4>
                                                         <p style="text-align: left;">
                                                             <br/>
-                                                            <table style="width: 100%; margin: 0 auto; text-align: center;">
+                                                            <table id="infoTable">
                                                                 <tr>
                                                                     <th class="th_data">Role name:</th>
                                                                     <th class="th_data">Description:</th>
@@ -73,7 +83,7 @@
                                                                 {% for JobRoleDetailed in JobRoleDetailedResponse %}
                                                                 <strong><h2 style="padding-bottom: 2rem;">Job Role ID: {{ JobRoleDetailed.jobRole.jobRoleId }}</h2></strong>
                                         
-                                                                    <tr >
+                                                                    <tr>
                                                                             <td>{{ JobRoleDetailed.jobRole.roleName }}</td>
                                                                             <td>{{ JobRoleDetailed.description }}</td>
                                                                             <td>{{ JobRoleDetailed.responsibilities }}</td>
