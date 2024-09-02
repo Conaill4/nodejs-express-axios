@@ -1,0 +1,54 @@
+name: Accessibility Testing
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: '0 2 * * *'  # Run every night at 2 AM UTC
+  workflow_dispatch:
+
+jobs:
+  pa11y-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build and start the backend API server
+      run: |
+        mvn clean install
+        java -jar target/my-dropwizard-api.jar server config.yml &
+        sleep 10  # Wait for the backend to start
+
+    - name: Start the frontend server
+      run: npm start &
+      run: sleep 10  # Ensure the frontend is fully up
+
+    - name: Run Pa11y accessibility tests (Localhost) and generate report
+      run: pa11y-ci --reporter html --config test/accessibility/pa11y-config.json > reports/accessibility-report-local-${{ github.run_number }}.html
+
+    - name: Run Pa11y accessibility tests (AWS) and generate report
+      run: pa11y-ci --reporter html --config test/accessibility/pa11y-aws-config.json > reports/accessibility-report-aws-${{ github.run_number }}.html
+
+    - name: Upload accessibility reports as artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: accessibility-reports
+        path: reports/*.html
+
+    - name: Tear down services
+      run: |
+        kill $(jobs -p) || true  # Terminate all background jobs

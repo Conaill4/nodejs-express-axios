@@ -9,7 +9,9 @@
     "dev": "nodemon src/app.ts",
     "linter": "npx eslint .",
     "test": "mocha --require ts-node/register test/unit/**/*.ts",
-    "test-ui": "mocha --require ts-node/register --timeout 10000 test/ui/**/*.ts"
+    "test-ui": "mocha --require ts-node/register --timeout 10000 test/ui/**/*.ts",
+    "test:accessibility-local": "pa11y-ci --config tests/accessibility/pa11y-config.json",
+    "test:accessibility-aws": "pa11y-ci --config tests/accessibility/pa11y-aws-config.json"
   },
   "keywords": [],
   "author": "Shaun Ganley <shaung@kainos.com>",
