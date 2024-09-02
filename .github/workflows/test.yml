@@ -1,20 +1,51 @@
-name: Lint Codebase
+name: Test Code Base
+ 
 on:
+
   push:
-    branches: [ "main" ]
+
+    branches:
+
+      - main
+
   pull_request:
-    branches: [ "main" ]
+
+    branches:
+
+      - main
+ 
 jobs:
-  lint:
+
+  test:
+
     runs-on: ubuntu-latest
+ 
     steps:
+
       - name: Checkout code
+
         uses: actions/checkout@v3
+ 
       - name: Set up Node.js
+
         uses: actions/setup-node@v3
+
         with:
+
           node-version: '20.15.1'
+    
+    # Install dependencies
+ 
       - name: Install dependencies
+
         run: npm install
-      - name: Run linter
-        run: npm run linter
+
+    # For Running NPM Test
+      
+      - name: Run Npm Test
+
+        run: npm test
+      
+      - name: Run Npm UI Test
+
+        run: npm run test-ui
