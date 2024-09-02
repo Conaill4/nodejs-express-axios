@@ -48,7 +48,3 @@ jobs:
       with:
         name: accessibility-reports
         path: reports/*.html
-
-    - name: Tear down services
-      run: |
-        kill $(jobs -p) || true  # Terminate all background jobs
