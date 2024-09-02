@@ -13,7 +13,7 @@ describe('JobRolesValidator', function () {
             location: "Derry",
             capabilityId: 1,
             bandId: 2,
-            Date: new Date(1693078000000)
+            closingDate: new Date(1693078000000)
         }
     try
         {
@@ -34,7 +34,7 @@ it('should throw exception when jobRoleID is less than one character', () => {
         location: "Derry",
         capabilityId: 1,
         bandId: 2,
-        Date: new Date(1693078000000)
+        closingDate: new Date(1693078000000)
     }
     try
         {
@@ -57,7 +57,7 @@ it('should throw exception when rolename is less than 5 characters', () => {
         location: "Derry",
         capabilityId: 1,
         bandId: 2,
-        Date: new Date(1693078000000)
+        closingDate: new Date(1693078000000)
     }
         try
             {
@@ -79,7 +79,7 @@ it('should throw exception when rolename doesnt start with a capital', () => {
         location: "Derry",
         capabilityId: 1,
         bandId: 2,
-        Date: new Date(1693078000000)
+        closingDate: new Date(1693078000000)
     }
     try
         {
@@ -101,7 +101,7 @@ it('should throw exception when location is too long', () => {
         location: "asdfghjklqwertyuiopzxcvbnmasdfghjklqwertyuiopzxcvbnmasdfghjkl",
         capabilityId: 1,
         bandId: 2,
-        Date: new Date(1693078000000)
+        closingDate: new Date(1693078000000)
     }
     try
         {
@@ -123,7 +123,7 @@ it('should throw exception when location is too short', () => {
         location: "asd",
         capabilityId: 1,
         bandId: 2,
-        Date: new Date(1693078000000)
+        closingDate: new Date(1693078000000)
     }
     try
         {
@@ -145,7 +145,7 @@ it('should throw exception when capabilityId is less than one', () => {
         location: "Derry",
         capabilityId: 0,
         bandId: 2,
-        Date: new Date(1693078000000)
+        closingDate: new Date(1693078000000)
     }
     try
         {
@@ -167,7 +167,7 @@ it('should throw exception when capabilityId is greater than the value of six', 
        location: "Derry",
        capabilityId: 20,
        bandId: 2,
-       Date: new Date(1693078000000)
+       closingDate: new Date(1693078000000)
    }
     try
         {
@@ -188,7 +188,7 @@ it('should throw exception when bandId is less than one', () => {
        location: "Derry",
        capabilityId: 1,
        bandId: 0,
-       Date: new Date(1693078000000)
+       closingDate: new Date(1693078000000)
    }
     try
         {
@@ -210,7 +210,7 @@ it('should throw exception when bandId is greater than six', () => {
        location: "Derry",
        capabilityId: 1,
        bandId: 20,
-       Date: new Date(1693078000000)
+       closingDate: new Date(1693078000000)
    }
     try
         {
