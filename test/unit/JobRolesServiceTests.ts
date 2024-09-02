@@ -11,7 +11,7 @@ const jobRole: JobRole = {
   location: "Derry",
   capabilityId: 1,
   bandId: 2,
-  Date: new Date(1693078000000),
+  closingDate: new Date(1693078000000),
 }
 
 const mock = new MockAdapter(axios);
@@ -29,7 +29,7 @@ describe('JobRoleService', function () {
         expect(results[0].location).to.deep.equal(jobRole.location)
         expect(results[0].capabilityId).to.deep.equal(jobRole.capabilityId)
         expect(results[0].bandId).to.deep.equal(jobRole.bandId)
-        expect(new Date(results[0].Date)).to.deep.equal(jobRole.Date);
+        expect(new Date(results[0].closingDate)).to.deep.equal(jobRole.closingDate);
       })
 
       it('should throw exception when 500 error returned from axios', async () => {
