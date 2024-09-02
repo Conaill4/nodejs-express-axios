@@ -64,36 +64,33 @@
                                                         </h2>
                                                         <br/>
                                                         <h4 style="text-align: left;">{{ JobRoleDetailedResponse.jobRole.roleName }} &nbsp;</h4>
-                                                        <p style="text-align: left;">
+                                                        <p style="text-align:left;">
                                                             <br/>
-                                                            <table id="infoTable">
+                                                            <table style="width: 100%; text-align: center; box-sizing: content-box; table-layout: auto;">
                                                                 <tr>
-                                                                    <th class="th_data">Role name:</th>
                                                                     <th class="th_data">Description:</th>
                                                                     <th class="th_data">Responsibilities:</th>
                                                                     <th class="th_data">Sharepoint Link:</th>
                                                                     <th class="th_data">Location:</th>
                                                                     <th class="th_data">Capability:</th>
-                                                                    <th class="th_data">Salary Band:</th>
+                                                                    <th class="th_data">Band:</th>
                                                                     <th class="th_data">Closing Date:</th>
                                                                     <th class="th_data">Current Status:</th>
                                                                     <th class="th_data">Available Positions:</th>
 
                                                                 </tr>
                                                                 {% for JobRoleDetailed in JobRoleDetailedResponse %}
-                                                                <strong><h2 style="padding-bottom: 2rem;">Job Role ID: {{ JobRoleDetailed.jobRole.jobRoleId }}</h2></strong>
-                                        
+                                                                <strong><h2 style="padding-bottom: 2rem;" id="view-job-role-infromation">Role: {{ JobRoleDetailed.jobRole.roleName }}</h2></strong>
                                                                     <tr>
-                                                                            <td>{{ JobRoleDetailed.jobRole.roleName }}</td>
-                                                                            <td>{{ JobRoleDetailed.description }}</td>
-                                                                            <td>{{ JobRoleDetailed.responsibilities }}</td>
-                                                                            <td><a href="{{ JobRoleDetailed.sharepointUrl }}">{{ JobRoleDetailed.sharepointUrl }}</a></td>
-                                                                            <td>{{ JobRoleDetailed.jobRole.location }}</td>
-                                                                            <td>{{ JobRoleDetailed.jobRole.capabilityName }}</td>
-                                                                            <td>{{ JobRoleDetailed.jobRole.bandName }}</td>
-                                                                            <td>{{ JobRoleDetailed.jobRole.closingDate | date }}</td>
-                                                                            <td>{{ JobRoleDetailed.status }}</td>
-                                                                            <td>{{ JobRoleDetailed.numberOfOpenPositions }}</td>
+                                                                            <td id="description">{{ JobRoleDetailed.description }}</td>
+                                                                            <td id="responsibilities">{{ JobRoleDetailed.responsibilities }}</td>
+                                                                            <td id="sharepointUrl"><a href="{{ JobRoleDetailed.sharepointUrl }}">{{ JobRoleDetailed.sharepointUrl }}</a></td>
+                                                                            <td id="location">{{ JobRoleDetailed.jobRole.location }}</td>
+                                                                            <td id="capabilityName">{{ JobRoleDetailed.jobRole.capabilityName }}</td>
+                                                                            <td id="bandName">{{ JobRoleDetailed.jobRole.bandName }}</td>
+                                                                            <td id="closingDate">{{ JobRoleDetailed.jobRole.closingDate | date }}</td>
+                                                                            <td id="status">{{ JobRoleDetailed.status }}</td>
+                                                                            <td id="numberOfOpenPositions">{{ JobRoleDetailed.numberOfOpenPositions }}</td>
                                                                             
                                                                     </tr>       
                                                                 {% endfor %}                     
