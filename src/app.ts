@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import session from "express-session";
 
 import { getHomePage } from "./controllers/HomePageController";
+import { getLoginForm, postLoginForm } from "./controllers/AuthController";
 
 const app = express();
 
@@ -30,3 +31,5 @@ app.listen(3000, () => {
 });
 
 app.get('/', getHomePage);
+app.get('/loginForm', getLoginForm);
+app.post('/loginForm', postLoginForm);
