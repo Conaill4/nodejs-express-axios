@@ -16,7 +16,7 @@ on:
  
 jobs:
 
-  lint:
+  audit:
 
     runs-on: ubuntu-latest
  
@@ -32,7 +32,7 @@ jobs:
 
         with:
 
-          node-version: '16'
+          node-version: '20.15.1'
  
       - name: Install dependencies
 
