@@ -1,9 +1,10 @@
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
 import { expect } from 'chai';
-import { getJobs, URL } from '../../src/services/JobRoleService';
+import { getJobs, URL, getJobByID_ } from '../../src/services/JobRoleService';
 import { JobRole } from "../../src/models/JobRole";
 import { describe, it } from "node:test";
+import { JobRoleDetailedResponse } from "../../src/models/JobRoleDetailedResponse";
 
 const jobRole: JobRole = {
   jobRoleId: 1,
@@ -14,6 +15,21 @@ const jobRole: JobRole = {
   closingDate: new Date(1693078000000),
 }
 
+const jobRoleDetailed: JobRoleDetailedResponse = {
+    jobRole: {
+      jobRoleId: 1,
+      roleName: "Graduate Software Engineer",
+      location: "Derry",
+      capabilityId: 1,
+      bandId: 2,
+      closingDate: new Date(1693078000000),
+    },
+    description: " Software Engineer Derry",
+    responsibilities: "Managing Software",
+    sharePointUrl: "123.com",
+    numberOfOpenPositions: 3,
+    status: "OPEN"
+}
 const mock = new MockAdapter(axios);
 
 describe('JobRoleService', function () {
@@ -43,4 +59,34 @@ describe('JobRoleService', function () {
         }
       })
 
+      describe('getDetailedJobInfo', function () {
+        it('should return detailed information for the job', async () => {
+          const data = [jobRoleDetailed];
+  
+          mock.onGet(URL+jobRoleDetailed.jobRole.jobRoleId).reply(200, data);
+
+          
+          const results = await getJobByID_((jobRoleDetailed.jobRole.jobRoleId).toString());
+
+          results[0].jobRole.closingDate = new Date(results[0].jobRole.closingDate);
+          expect(results[0].jobRole).to.deep.equal(jobRoleDetailed.jobRole)
+          expect(results[0].description).to.deep.equal(jobRoleDetailed.description)
+          expect(results[0].responsibilities).to.deep.equal(jobRoleDetailed.responsibilities)
+          expect(results[0].sharePointUrl).to.deep.equal(jobRoleDetailed.sharePointUrl)
+          expect(results[0].numberOfOpenPositions).to.deep.equal(jobRoleDetailed.numberOfOpenPositions)
+          expect(results[0].status).to.deep.equal(jobRoleDetailed.status)
+        })
+
+  
+        it('should throw exception when 500 error returned from axios', async () => {
+          mock.onGet(URL+jobRoleDetailed.jobRole.jobRoleId).reply(500);
+  
+          try {
+            await getJobByID_((jobRoleDetailed.jobRole.jobRoleId).toString());
+          } catch (e) {
+            expect(e.message).to.equal('Failed to get Job');
+            return;
+          }
+        })
     })})
+  })
