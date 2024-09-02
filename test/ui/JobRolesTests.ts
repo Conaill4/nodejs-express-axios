@@ -3,7 +3,7 @@ import { describe, it } from 'node:test';
 import webdriver from 'selenium-webdriver';
 
 describe('Job Role test', async () => {
-    it('hould not throw an exception when there are no errors', async () => {
+    it('should not throw an exception when there are no errors', async () => {
         const driver = new webdriver.Builder().
             withCapabilities(webdriver.Capabilities.chrome()).
             build();
