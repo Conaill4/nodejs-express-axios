@@ -1,4 +1,4 @@
-name: Audit Code Base
+name: Daily Audit Code Base
  
 on:
 
@@ -13,17 +13,12 @@ on:
     branches:
 
       - main
-  
-  
-name: "Daily Audit Run"
-  
-on:
     
   schedule:
      
-      - cron: "30 11 * * *"
+    - cron: "05 13 * * *"
 
- 
+
 jobs:
 
   audit:
