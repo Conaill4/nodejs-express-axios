@@ -1,7 +1,7 @@
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
 import { expect } from 'chai';
-import { getJobs, URL, getJobByID_ } from '../../src/services/JobRoleService';
+import { getJobs, URL, getJobDetailsById} from '../../src/services/JobRoleService';
 import { JobRole } from "../../src/models/JobRole";
 import { describe, it } from "node:test";
 import { JobRoleDetailedResponse } from "../../src/models/JobRoleDetailedResponse";
@@ -66,7 +66,7 @@ describe('JobRoleService', function () {
           mock.onGet(URL+jobRoleDetailed.jobRole.jobRoleId).reply(200, data);
 
           
-          const results = await getJobByID_((jobRoleDetailed.jobRole.jobRoleId).toString());
+          const results = await getJobDetailsById((jobRoleDetailed.jobRole.jobRoleId).toString());
 
           results[0].jobRole.closingDate = new Date(results[0].jobRole.closingDate);
           expect(results[0].jobRole).to.deep.equal(jobRoleDetailed.jobRole)
@@ -82,7 +82,7 @@ describe('JobRoleService', function () {
           mock.onGet(URL+jobRoleDetailed.jobRole.jobRoleId).reply(500);
   
           try {
-            await getJobByID_((jobRoleDetailed.jobRole.jobRoleId).toString());
+            await getJobDetailsById((jobRoleDetailed.jobRole.jobRoleId).toString());
           } catch (e) {
             expect(e.message).to.equal('Failed to get Job');
             return;
