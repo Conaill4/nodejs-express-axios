@@ -1,21 +1,21 @@
 name: Daily Audit Code Base
- 
+
 on:
   schedule:
      
-      - cron: "0 15 * * *"
+      - cron: "0 0 * * *"
 
   push:
 
     branches:
 
-      - 004-DailyAuditRun
+      - main
 
   pull_request:
 
     branches:
 
-       - 004-DailyAuditRun
+       - main
     
  
 jobs:
