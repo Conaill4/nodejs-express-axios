@@ -38,4 +38,3 @@ jobs:
 
       - name: Run Pa11y on local server
         run: pa11y-ci --config test/accessibility/pa11y-config.json
-

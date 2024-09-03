@@ -23,4 +23,4 @@ jobs:
           node-version: '20.15.1'
       
       - name: Run Pa11y on aws server
-        run: npm run pa11y-ci --config test/accessibility/pa11y-aws-config.json
+        run: pa11y-ci --config test/accessibility/pa11y-aws-config.json
