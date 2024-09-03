@@ -1,4 +1,4 @@
 export type LoginRequest = {
-    username: String,
+    email: String,
     passsword: String
 }

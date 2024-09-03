@@ -12,5 +12,11 @@ export const postLoginForm = async (req: express.Request, res: express.Response)
     } catch (e) {
         res.locals.errormessage = e.message;
         res.render('loginForm.html', req.body);
+    
     }
+}
+
+export const logoutForm = async (req: express.Request, res: express.Response): Promise<void> => {
+    req.session.token = undefined;
+    res.redirect('/loginForm');
 }

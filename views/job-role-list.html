@@ -10,7 +10,7 @@
                 font-weight: 600;
                 padding-bottom: 1rem;
         }
-
+        
         .td_data{
             padding-bottom: 1rem;
             font-size: large;
@@ -107,14 +107,14 @@
                                                                             <th class="th_data">Band:</th>
                                                                             <th class="th_data">Closing Date:</th>
                                                                         </tr>
-                                                                        {% for JobRole in JobRoles | sort(attribute='JobRoleId') %}
+                                                                        {% for JobRole in JobRoles | sort(attribute='jobRoleId') %}
                                                                             <tr >
                                                                                     <td class="td_data" id="identification"><a href="/job-roles/{{JobRole.jobRoleId}}">{{ JobRole.jobRoleId }}</a></td>
                                                                                     <td class="td_data" id="name"><a href="/job-roles/{{JobRole.jobRoleId}}">{{ JobRole.roleName }}</a></td>
                                                                                     <td class="td_data" id="location">{{ JobRole.location }}</td>
                                                                                     <td class="td_data" id="capabilityName">{{ JobRole.capabilityName }}</td>
                                                                                     <td class="td_data" id="bandName">{{ JobRole.bandName }}</td>
-                                                                                    <td class="td_data"id="closingDate">{{ JobRole.closingDate | date }}</td>
+                                                                                    <td class="td_data" id="closingDate">{{ JobRole.closingDate | date }}</td>
                                                                             </tr>
                                                                         {% endfor %}
                                                                     </table>

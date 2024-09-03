@@ -2,10 +2,15 @@
 <html>
 
 <head>
-    <title>Login</title>
+    {% include "components/header.html" %}
+
+    <title>Login - Kainos</title>
 </head>
 
 <body>
+    <div class="main-header">
+        {% include "components/navigationBar.html" %}
+    </div>
     <h1>Login</h1>
 
     {% if errormessage %}
@@ -13,10 +18,10 @@
     {% endif %}
 
     <form class="form" action="/loginForm" method="post">
-        <h3><label for="username">
-                Username:
+        <h3><label for="email">
+                Email:
             </label></h3>
-        <input id="username" name="username" value="{{username}}" type="text">
+        <input id="email" name="email" value="{{email}}" type="text">
 
         <h3><label for="password">
                 Password:
@@ -27,6 +32,8 @@
 
         <button id="submit">Submit</button>
     </form>
+
+    {% include "components/footer.html" %}
 </body>
 
 </html>
