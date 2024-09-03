@@ -12,7 +12,7 @@ describe('Job Role test', async () => {
         await driver.get(url);
 
         //Confirms that any record exists
-        const expectedJobRole = await driver.findElement(webdriver.By.className('th_data')).getText();
+        const expectedJobRole = await driver.findElement(webdriver.By.className('td_data')).getText();
         expect(expectedJobRole).to.exist;
 
     })
