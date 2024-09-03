@@ -8,7 +8,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 2 * * *'  # Run every night at 2 AM
+    - cron: '0 2 * * *'
   workflow_dispatch:
 
 jobs:
@@ -31,7 +31,7 @@ jobs:
       run: |
         mvn clean install
         java -jar target/my-dropwizard-api.jar server config.yml &
-        sleep 10  # Wait for the backend to start
+        sleep 10
 
     - name: Start the frontend server
       run: npm start &
@@ -48,3 +48,7 @@ jobs:
       with:
         name: accessibility-reports
         path: reports/*.html
+
+    - name: Tear down services
+      run: |
+        kill $(jobs -p) || true  # Terminate all background jobs
