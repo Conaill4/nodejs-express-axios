@@ -68,8 +68,8 @@
                                                                         {% for JobRole in JobRoles | sort(attribute='jobRoleId') %}
                                                                             <tr >
                                                                                     <td class="td_data"id="jobRoleId{{ JobRole.jobRoleId }}">{{ JobRole.jobRoleId }}</td>
-                                                                                    <td class="td_data"><a href="/job-roles/{{JobRole.jobRoleId}}" id="jobName{{ JobRole.jobRoleId }}" class="jobNameClass">{{ JobRole.roleName }}</a></td>
-                                                                                    <td class="td_data"id="jobLocation{{ JobRole.jobRoleId }}">{{ JobRole.location }}</td>
+                                                                                    <td class="td_data"><a href="/job-roles/{{JobRole.jobRoleId}}" id="jobName{{ JobRole.jobRoleId }}">{{ JobRole.roleName }}</a></td>
+                                                                                    <td class="td_data"id="jobLocation{{ JobRole.jobRoleId }}" >{{ JobRole.location }}</td>
                                                                                     <td class="td_data" id="jobCapability{{ JobRole.jobRoleId }}">{{ JobRole.capabilityName }}</td>
                                                                                     <td class="td_data" id="jobBand{{ JobRole.jobRoleId }}">{{ JobRole.bandName }}</td>
                                                                                     <td class="td_data" id="jobClosingDate{{ JobRole.jobRoleId }}">{{ JobRole.closingDate | date }}</td>

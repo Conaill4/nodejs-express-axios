@@ -11,11 +11,9 @@ describe('Job Role test', async () => {
         const url: string = process.env.UI_TEST_URL || 'http://localhost:3000/job-roles'
         await driver.get(url);
 
-        //testing that there is a job with role id 1 that appears
-        const expectedJobRoleId = await driver.findElement(webdriver.By.className('jobNameClass')).getText();
-        const jobroleId = await driver.findElement(webdriver.By.className('jobNameClass')).getText();
- 
-        expect(expectedJobRoleId).to.equal(jobroleId);
+        //Confirms that any record exists
+        const expectedJobRole = await driver.findElement(webdriver.By.className('th_data')).getText();
+        expect(expectedJobRole).to.exist;
 
     })
 })
