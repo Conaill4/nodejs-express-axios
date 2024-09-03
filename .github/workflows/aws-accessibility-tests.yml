@@ -29,15 +29,10 @@ jobs:
         run: npm install
 
       - name: Start local server
-        run: npm start &
+        run: npm start
       
       - name: Wait for server to be ready
         run: sleep 10
 
-      - name: Run Pa11y on local server
-        run: pa11y-ci --config test/accessibility/pa11y-config.json
-    
-
       - name: Run Pa11y on aws server
         run: pa11y-ci --config test/accessibility/pa11y-aws-config.json
-

@@ -1,0 +1,41 @@
+name: Accessibility Testing
+
+on:
+  push:
+    branches:
+      - main
+      - 037-Job-Roles-Accessibility-Testing
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: '10 14 * * 0'
+
+jobs:
+  pa11y:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.15.1'
+      
+      - name: Install Pa11y CI
+        run: npm install -g pa11y-ci
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Start local server
+        run: npm start
+      
+      - name: Wait for server to be ready
+        run: sleep 10
+
+      - name: Run Pa11y on local server
+        run: pa11y-ci --config test/accessibility/pa11y-config.json
+
