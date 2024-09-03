@@ -1,6 +1,5 @@
 import { validateJobRoles } from '../../src/validators/JobRolesValidator';
 import { JobRole } from '../../src/models/JobRole'
-import { JobRoleDetailedResponse } from '../../src/models/JobRoleDetailedResponse';
 import { assert, expect } from 'chai';
 import { describe, it} from 'node:test';
 

@@ -12,8 +12,8 @@ describe('Job Role test', async () => {
         await driver.get(url);
 
         //testing that there is a job with role id 1 that appears
-        const expectedJobRoleId = await driver.findElement(webdriver.By.id('jobRoleId1')).getText();
-        const jobroleId = await driver.findElement(webdriver.By.id('jobRoleId1')).getText();
+        const expectedJobRoleId = await driver.findElement(webdriver.By.className('jobNameClass')).getText();
+        const jobroleId = await driver.findElement(webdriver.By.className('jobNameClass')).getText();
  
         expect(expectedJobRoleId).to.equal(jobroleId);
 
