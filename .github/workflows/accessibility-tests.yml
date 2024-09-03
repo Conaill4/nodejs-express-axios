@@ -24,15 +24,13 @@ jobs:
       with:
         node-version: '14'
 
-
-
     - name: Run Pa11y accessibility tests (Localhost) and generate report
-    - run: | 
+      run: | 
         npm install -g pa11y-ci
         pa11y-ci --reporter html --config test/accessibility/pa11y-config.json > reports/accessibility-report-local-${{ github.run_number }}.html
 
     - name: Run Pa11y accessibility tests (AWS) and generate report
-    - run: |
+      run: |
         npm install -g pa11y-ci
         pa11y-ci --reporter html --config test/accessibility/pa11y-aws-config.json > reports/accessibility-report-aws-${{ github.run_number }}.html
 
