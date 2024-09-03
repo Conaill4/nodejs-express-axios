@@ -21,6 +21,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '14'
+      
+      - name: Install Pa11y CI
+        run: npm install -g pa11y-ci
 
       - name: Install dependencies
         run: npm install
@@ -33,7 +36,7 @@ jobs:
 
       - name: Run Pa11y on local server
         run: pa11y-ci --config test/accessibility/pa11y-config.json
-      
+    
 
       - name: Run Pa11y on aws server
         run: pa11y-ci --config test/accessibility/pa11y-aws-config.json
