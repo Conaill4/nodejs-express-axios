@@ -1,4 +1,4 @@
-name: Accessibility Testing
+name: Aws Accessibility Testing
 
 on:
   push:

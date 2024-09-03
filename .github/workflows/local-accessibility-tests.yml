@@ -1,4 +1,4 @@
-name: Accessibility Testing
+name: Local Accessibility Testing
 
 on:
   push:
