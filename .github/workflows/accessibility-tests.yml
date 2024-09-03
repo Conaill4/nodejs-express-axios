@@ -8,34 +8,33 @@ on:
   pull_request:
     branches:
       - main
-  schedule:
-    - cron: '0 2 * * *'
-      
+
 jobs:
-  pa11y-tests:
+  pa11y:
     runs-on: ubuntu-latest
-
+    
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
 
-    - name: Run Pa11y accessibility tests (Localhost) and generate report
-      run: | 
-        npm install -g pa11y-ci
-        pa11y-ci --config test/accessibility/pa11y-config.json
+      - name: Install dependencies
+        run: npm install
 
-    - name: Run Pa11y accessibility tests (AWS) and generate report
-      run: |
-        npm install -g pa11y-ci
-        pa11y-ci --config test/accessibility/pa11y-aws-config.json
+      - name: Start local server
+        run: npm start &
+      
+      - name: Wait for server to be ready
+        run: sleep 10
 
-    - name: Upload accessibility reports as artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: accessibility-reports
-        path: reports/*.html
+      - name: Run Pa11y on local server
+        run: pa11y-ci --config test/accessibility/pa11y-config.json
+      
+
+      - name: Run Pa11y on aws server
+        run: pa11y-ci --config test/accessibility/pa11y-aws-config.json
+
