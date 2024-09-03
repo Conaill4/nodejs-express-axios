@@ -9,7 +9,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '10 14 * * 0'
+    - cron: '15 14 * * 0'
 
 jobs:
   pa11y:
