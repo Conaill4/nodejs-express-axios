@@ -7,7 +7,6 @@ on:
   pull_request:
     branches:
       - main
-      - 006-Job-Roles-Accessibility-Testing
   schedule:
     - cron: '0 2 * * *'  # Run every night at 2 AM
   workflow_dispatch:
@@ -36,7 +35,7 @@ jobs:
 
     - name: Start the frontend server
       run: npm start &
-      run: sleep 10  # Ensure the frontend is fully up
+      run: sleep 10
 
     - name: Run Pa11y accessibility tests (Localhost) and generate report
       run: pa11y-ci --reporter html --config test/accessibility/pa11y-config.json > reports/accessibility-report-local-${{ github.run_number }}.html
