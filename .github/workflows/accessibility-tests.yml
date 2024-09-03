@@ -27,12 +27,12 @@ jobs:
     - name: Run Pa11y accessibility tests (Localhost) and generate report
       run: | 
         npm install -g pa11y-ci
-        pa11y-ci --reporter html --config test/accessibility/pa11y-config.json > reports/accessibility-report-local-${{ github.run_number }}.html
+        pa11y-ci --config test/accessibility/pa11y-config.json
 
     - name: Run Pa11y accessibility tests (AWS) and generate report
       run: |
         npm install -g pa11y-ci
-        pa11y-ci --reporter html --config test/accessibility/pa11y-aws-config.json > reports/accessibility-report-aws-${{ github.run_number }}.html
+        pa11y-ci --config test/accessibility/pa11y-aws-config.json
 
     - name: Upload accessibility reports as artifacts
       uses: actions/upload-artifact@v2
