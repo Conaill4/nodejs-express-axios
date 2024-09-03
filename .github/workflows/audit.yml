@@ -16,9 +16,12 @@ on:
   
   
 name: "Daily Audit Run"
-  on:
-    schedule:
-      - cron: "0 0 * * *"
+  
+on:
+    
+  schedule:
+     
+      - cron: "30 11 * * *"
 
  
 jobs:
