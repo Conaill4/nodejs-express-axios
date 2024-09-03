@@ -10,7 +10,9 @@ on:
   schedule:
     - cron: '0 2 * * *'
   workflow_dispatch:
-
+    branches:
+      - 037-Job-Roles-Accessibility-Testing
+      
 jobs:
   pa11y-tests:
     runs-on: ubuntu-latest
