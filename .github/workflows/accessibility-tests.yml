@@ -27,15 +27,8 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Build and start the backend API server
-      run: |
-        mvn clean install
-        java -jar target/my-dropwizard-api.jar server config.yml &
-        sleep 10
-
     - name: Start the frontend server
-      run: npm start &
-      run: sleep 10
+      run: npm start
 
     - name: Run Pa11y accessibility tests (Localhost) and generate report
       run: pa11y-ci --reporter html --config test/accessibility/pa11y-config.json > reports/accessibility-report-local-${{ github.run_number }}.html
@@ -48,7 +41,3 @@ jobs:
       with:
         name: accessibility-reports
         path: reports/*.html
-
-    - name: Tear down services
-      run: |
-        kill $(jobs -p) || true  # Terminate all background jobs
