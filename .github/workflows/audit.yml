@@ -1,6 +1,9 @@
 name: Daily Audit Code Base
  
 on:
+  schedule:
+     
+      - cron: "0 15 * * *"
 
   push:
 
@@ -14,9 +17,7 @@ on:
 
       - main
     
-  schedule:
-     
-    - cron: "45 14 * * *"
+ 
 
 
 jobs:
