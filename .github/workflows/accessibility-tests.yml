@@ -4,14 +4,12 @@ on:
   push:
     branches:
       - main
+      - 037-Job-Roles-Accessibility-Testing
   pull_request:
     branches:
       - main
   schedule:
     - cron: '0 2 * * *'
-  workflow_dispatch:
-    branches:
-      - 037-Job-Roles-Accessibility-Testing
       
 jobs:
   pa11y-tests:
