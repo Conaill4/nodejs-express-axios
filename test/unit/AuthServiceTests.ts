@@ -10,18 +10,42 @@ const user: LoginRequest = {
     password: "$2a$10$abwOc0Pn.kTEmWCa7GJ0ROXGwmwJXFzX6Fh.81fmS4zOZdjj81jzW"
 }
 
+const user2: LoginRequest = {
+    email: "admin@kainos.com",
+    password: "incorrectPassword"
+}
+
 const mock = new MockAdapter(axios);
 
 describe('AuthService', function () {
     describe('getToken', function () {
         it('should return token from response', async () => {
-            const data = user;
+            const data = [user];
 
-            mock.onGet(URL).reply(200, data);
+            mock.onPost(URL).reply(200, data);
 
             const results = await getToken(user);
-            expect(results).to.be.not.null;
+            expect(results).to.not.equal(null);
         })
-
+        it('should return 500 error', async () => {
+            const data = [user];
+            mock.onPost(URL).reply(500, data);
+            try {
+                await getToken(user);
+              } catch (e) {
+                expect(e.message).to.equal('Failed to get user');
+                return;
+              }
+        })
+        it('should return 400 error', async () => {
+            const data = [user2];
+            mock.onPost(URL).reply(400, data);
+            try {
+                await getToken(user2);
+              } catch (e) {
+                expect(e.message).to.equal('User does not exist');
+                return;
+              }
+        })
     })
 });

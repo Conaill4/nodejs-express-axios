@@ -11,7 +11,10 @@ export const getToken = async (loginRequest: LoginRequest): Promise<string> => {
 
         return response.data;
     } catch (e) {
-        console.log(e);
-        throw new Error(e.response.data);
+        if(e.response?.status === 500)
+            {
+                throw new Error('Failed to get user');
+            }
+            throw new Error('User does not exist');
     }
 }
