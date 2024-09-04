@@ -9,11 +9,13 @@
                 text-align: center;
                 font-weight: 600;
                 padding-bottom: 1rem;
+                text-align: left;
         }
 
         .td_data{
             padding-bottom: 1rem;
             font-size: large;
+            
         }
 
         a{
@@ -35,7 +37,7 @@
         {% include "components/navigationBar.html" %}    
    </div>      
    {% if errormessage %} 
-   <div class="error-message" id="error" style="background-color: #262626; color: white; text-align: center; padding-top: 0.5rem; padding-bottom: 0.5rem; outline-color: maroon; outline-style: solid; outline-width: 2px;">{{ errormessage }}</div> 
+   <div class="error-message" id="error" style="background-color: white; color: black; text-align: center; padding-top: 0.5rem; padding-bottom: 0.5rem; outline-color: red; outline-style: solid; outline-width: 4px;">{{ errormessage }}</div> 
    {% endif %}
         <section class="ph-paragraph-cc-view1-option1-theme1 ph-widget" type="static" view="1719398658373-paragraph-cc-view1-option1-savedView-1719398636006" original-view="ph-paragraph-cc-view1-option1" theme="theme1" instance-id="P0ARHq" data-ph-id="-1719398658291">
             <div class="ph-paragraph-cc-view1-option1-theme1 ph-widget-target" type="static" as-element="ph-html-v1" data-widget="ph-html-v1" view="1719398658373-paragraph-cc-view1-option1-savedView-1719398636006" original-view="ph-paragraph-cc-view1-option1" theme="theme1" ph-removed="true" data-ph-id="-1719398658291-1" instance-id="P0ARHq">
@@ -59,9 +61,9 @@
                                                                 <h5 style="text-align: left; padding-top: 5px;">Please click on a job to view more information.</h5>
                                                                 <p style="text-align: left;">
                                                                     <br/>
-                                                                    <table style="width: 100%; margin: 0 auto; text-align: center; margin-top: 1rem;">
-                                                                        <tr>
-                                                                            <th class="th_data">Listing Number:</th>
+                                                                    <table style="width: 100%; margin: 0 auto; text-align: center; margin-top: 1rem; margin-left: 5.5rem;">
+                                                                        <tr style="text-align: left;">
+                                                                          
                                                                             <th class="th_data">Role name:</th>
                                                                             <th class="th_data">Location:</th>
                                                                             <th class="th_data">Capability:</th>
@@ -69,9 +71,9 @@
                                                                             <th class="th_data">Closing Date:</th>
                                                                         </tr>
                                                                         {% for JobRole in JobRoles | sort(attribute='jobRoleId') %}
-                                                                            <tr >
-                                                                                    <td class="td_data"id="jobRoleId{{ JobRole.jobRoleId }}">{{ JobRole.jobRoleId }}</td>
-                                                                                    <td class="td_data"><a href="/job-roles/{{JobRole.jobRoleId}}" id="jobName{{ JobRole.jobRoleId }}">{{ JobRole.roleName }}</a></td>
+                                                                            <tr style="text-align: left;" >
+                  
+                                                                                    <td class="td_data"><a href="/job-roles/{{JobRole.jobRoleId}}" id="jobName{{ JobRole.jobRoleId }}" style="text-decoration: underline;">{{ JobRole.roleName }}</a></td>
                                                                                     <td class="td_data"id="jobLocation{{ JobRole.jobRoleId }}" >{{ JobRole.location }}</td>
                                                                                     <td class="td_data" id="jobCapability{{ JobRole.jobRoleId }}">{{ JobRole.capabilityName }}</td>
                                                                                     <td class="td_data" id="jobBand{{ JobRole.jobRoleId }}">{{ JobRole.bandName }}</td>
