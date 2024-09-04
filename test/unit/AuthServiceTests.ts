@@ -43,7 +43,7 @@ describe('AuthService', function () {
             try {
                 await getToken(user2);
               } catch (e) {
-                expect(e.message).to.equal('User does not exist');
+                expect(e.message).to.equal('User Credentials Invalid');
                 return;
               }
         })

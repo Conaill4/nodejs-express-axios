@@ -15,6 +15,6 @@ export const getToken = async (loginRequest: LoginRequest): Promise<string> => {
             {
                 throw new Error('Failed to get user');
             }
-            throw new Error('User does not exist');
+            throw new Error('User Credentials Invalid');
     }
 }
