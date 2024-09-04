@@ -11,7 +11,6 @@ export const getJobs = async (): Promise<JobRole[]> => {
 
         return response.data;
     } catch (e) {
-        console.log(e);
         throw new Error('Failed to get any Jobs')
     }
 }
@@ -22,8 +21,6 @@ export const getJobDetailsById = async (id: string): Promise<JobRoleDetailedResp
 
         return response.data;
     } catch (e) {
-        
-        console.log(e);
         throw e;
     }
 }
