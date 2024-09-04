@@ -6,11 +6,11 @@ import session from "express-session";
 import { getJobsList } from "./controllers/JobRoleController";
 import { dateFilter } from "./filters/dateFilter";
 import { getHomePage } from "./controllers/HomePageController";
-import { getLoginForm, logoutForm, postLoginForm } from "./controllers/AuthController";
+import { getLoginForm, postLoginForm, logoutForm} from "./controllers/AuthController";
 import { checkLoginStatus } from "./middleware/AuthStatus";
 
 const app = express();
- 
+
 const env = nunjucks.configure('views', {
     autoescape: true,
     express: app,
@@ -46,4 +46,5 @@ app.listen(3000, () => {
 app.get('/', getHomePage);
 app.get('/loginForm', getLoginForm);
 app.post('/loginForm', postLoginForm);
-app.post('/logout', logoutForm);
+app.post('/logout', logoutForm );
+
