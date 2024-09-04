@@ -3,11 +3,11 @@ name: Local Accessibility Testing
 on:
   push:
     branches:
-      - main
+      #- main
       - 037-Job-Roles-Accessibility-Testing
   pull_request:
     branches:
-      - main
+      #- main
   schedule:
     - cron: '15 14 * * 0'
 

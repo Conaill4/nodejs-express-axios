@@ -3,11 +3,11 @@ name: Aws Accessibility Testing
 on:
   push:
     branches:
-      - main
+      #- main
       - 037-Job-Roles-Accessibility-Testing
   pull_request:
     branches:
-      - main
+      #- main
 
 jobs:
   pa11y:
@@ -26,7 +26,7 @@ jobs:
         run: npm install -g pa11y-ci
 
       - name: Install dependencies
-        run: npm install --no-optional
+        run: npm install
 
       - name: Run Pa11y on aws server
         run: pa11y-ci --config test/accessibility/pa11y-aws-config.json
