@@ -10,17 +10,22 @@ export const getJobs = async (): Promise<JobRole[]> => {
         const response: AxiosResponse = await axios.get(URL)
 
         return response.data;
-    } catch (e) {
-        throw new Error('Failed to get any Jobs')
+    } catch (e) { 
+        if(e.response?.status === 500){
+            throw new Error('Failed to get any Jobs')
+        }     
+        throw new Error("Unknown error occurred");
     }
 }
 
 export const getJobDetailsById = async (id: string): Promise<JobRoleDetailedResponse[]> => {
     try {
         const response: AxiosResponse = await axios.get(URL+id)
-
         return response.data;
     } catch (e) {
-        throw e;
+        if(e.response?.status === 404){
+            throw new Error("Sorry, the job you tried to find is unavailable.");
+        }     
+         throw new Error("Sorry, an unknown error has occurred.");
     }
 }
