@@ -1,7 +1,5 @@
 import express from "express";
 import {getJobDetailsById, getJobs} from "../services/JobRoleService"
-import { Console, log } from "console";
-import { deprecate } from "util";
 
 export const getJobsList = async (req: express.Request, res: express.Response): Promise<void> => {
     try{
