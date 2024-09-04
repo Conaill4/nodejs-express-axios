@@ -1,4 +1,4 @@
-import axios, { AxiosResponse} from "axios";
+import axios, { AxiosResponse } from "axios";
 import { LoginRequest } from "../models/LoginRequest";
 
 axios.defaults.baseURL = process.env.API_URL || 'http://localhost:8080/';
@@ -11,10 +11,11 @@ export const getToken = async (loginRequest: LoginRequest): Promise<string> => {
 
         return response.data;
     } catch (e) {
-        if(e.response?.status === 500)
-            {
-                throw new Error('Failed to get user');
-            }
+        if (e.response?.status === 500) {
+            throw new Error('Failed to get user');
+        } else if (e.response?.status === 404) {
             throw new Error('User Credentials Invalid');
+        }
+        throw new Error('Unknown Error Occurred');
     }
 }
