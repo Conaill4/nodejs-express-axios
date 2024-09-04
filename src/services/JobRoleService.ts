@@ -21,6 +21,6 @@ export const getJobDetailsById = async (id: string): Promise<JobRoleDetailedResp
 
         return response.data;
     } catch (e) {
-        throw e;
+        return e;
     }
 }
