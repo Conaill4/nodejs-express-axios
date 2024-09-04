@@ -13,7 +13,7 @@ export const getToken = async (loginRequest: LoginRequest): Promise<string> => {
     } catch (e) {
         if (e.response?.status === 500) {
             throw new Error('Failed to get user');
-        } else if (e.response?.status === 404) {
+        } else if (e.response?.status === 400) {
             throw new Error('User Credentials Invalid');
         }
         throw new Error('Unknown Error Occurred');

@@ -37,23 +37,23 @@ describe('AuthService', function () {
                 return;
               }
         })
-        it('should return 404 error', async () => {
+        it('should return unknown error', async () => {
             const data = [user2];
             mock.onPost(URL).reply(404, data);
             try {
                 await getToken(user2);
               } catch (e) {
-                expect(e.message).to.equal('User Credentials Invalid');
+                expect(e.message).to.equal('Unknown Error Occurred');
                 return;
               }
         })
-        it('should return unknown error', async () => {
+        it('should return 400 error', async () => {
             const data = [user2];
             mock.onPost(URL).reply(400, data);
             try {
                 await getToken(user2);
               } catch (e) {
-                expect(e.message).to.equal('Unknown Error Occurred');
+                expect(e.message).to.equal('User Credentials Invalid');
                 return;
               }
         })
