@@ -10,6 +10,10 @@
         {% include "components/navigationBar.html" %}    
    </div>
 
+   {% if errormessage %} 
+   <div class="error-message" id="error" style="background-color: #262626; color: white; text-align: center; padding-top: 0.5rem; padding-bottom: 0.5rem; outline-color: maroon; outline-style: solid; outline-width: 2px;">{{ errormessage }}</div> 
+   {% endif %}
+
     <div class="ph-page">
         <section class="ppc-section ph-widget" type="dynamic" instance-id="uoS0U6" theme="default" original-view="view2" ph-module="gdpr" data-ph-id="ph-widget-element-1638972464497-nEAYy0">
             <div class="ph-cookie-popup-v2-view2-default ph-widget-target" as-element="ph-cookie-popup-v2" data-widget="ph-cookie-popup-v2" view="view2-1638972474772" theme="default" original-view="view2" instance-id="uoS0U6" data-ph-id="ph-widget-element-1638972464497-nTWSb8"></div>

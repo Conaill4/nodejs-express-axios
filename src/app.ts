@@ -39,6 +39,7 @@ app.listen(3000, () => {
 app.get('/', getHomePage);
 app.get('/job-roles/:id', getJobByID)
 
+
 app.get('*', (req, res) => {
   res.redirect('/');
 });

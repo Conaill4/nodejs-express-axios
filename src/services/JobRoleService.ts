@@ -22,7 +22,8 @@ export const getJobDetailsById = async (id: string): Promise<JobRoleDetailedResp
 
         return response.data;
     } catch (e) {
+        
         console.log(e);
-        throw new Error('Failed to get Job')
+        throw e;
     }
 }

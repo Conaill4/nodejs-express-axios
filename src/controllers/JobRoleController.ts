@@ -1,5 +1,7 @@
 import express from "express";
 import {getJobDetailsById, getJobs} from "../services/JobRoleService"
+import { Console, log } from "console";
+import { deprecate } from "util";
 
 export const getJobsList = async (req: express.Request, res: express.Response): Promise<void> => {
     try{
@@ -14,11 +16,15 @@ export const getJobsList = async (req: express.Request, res: express.Response): 
 
 export const getJobByID = async (req: express.Request, res: express.Response): Promise<void> => {
     try{
-        
-        res.render("job-role-information.html", { JobRoleDetailedResponse: await getJobDetailsById(req.params.id) } );
+        const JobRoleDetailedResponse = await getJobDetailsById(req.params.id)
+        res.render("job-role-information.html", { JobRoleDetailedResponse } );
     }
     catch (e) {
-        res.locals.errormessage = e.message;
-        res.render('job-role-information.html');
+        if(e.response?.status === 404){
+           const errormessage = "Sorry, the job you tried to find is unavailable.";
+               
+           res.render('job-role-list.html', {errormessage: errormessage, JobRoles: await getJobs() });
+
+        }
     }
 }
