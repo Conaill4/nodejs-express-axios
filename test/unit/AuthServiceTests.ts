@@ -161,5 +161,75 @@ describe('AuthService', function () {
                 return;
               }
         })
+        it('should return invalid password error for no capital', async () => {
+          const user2: LoginRequest = {
+            email: "admin@kainos.com",
+            password: "adm1n$"
+        }
+            const data = [user2];
+            mock.onPost(URL).reply(200, data);
+            try {
+                await getToken(user2);
+              } catch (e) {
+                expect(e.message).to.equal('Password is invalid.');
+                return;
+              }
+        })
+        it('should return invalid password error for no number', async () => {
+          const user2: LoginRequest = {
+            email: "admin@kainos.com",
+            password: "Admin$"
+        }
+            const data = [user2];
+            mock.onPost(URL).reply(200, data);
+            try {
+                await getToken(user2);
+              } catch (e) {
+                expect(e.message).to.equal('Password is invalid.');
+                return;
+              }
+        })
+        it('should return invalid password error for no special character', async () => {
+          const user2: LoginRequest = {
+            email: "admin@kainos.com",
+            password: "Adm1n"
+        }
+            const data = [user2];
+            mock.onPost(URL).reply(200, data);
+            try {
+                await getToken(user2);
+              } catch (e) {
+                expect(e.message).to.equal('Password is invalid.');
+                return;
+              }
+        })
+        it('should return invalid password error for no lower case', async () => {
+          const user2: LoginRequest = {
+            email: "admin@kainos.com",
+            password: "ADM1N$"
+        }
+            const data = [user2];
+            mock.onPost(URL).reply(200, data);
+            try {
+                await getToken(user2);
+              } catch (e) {
+                expect(e.message).to.equal('Password is invalid.');
+                return;
+              }
+        })
+        it('should return invalid password error for a space', async () => {
+          const user2: LoginRequest = {
+            email: "admin@kainos.com",
+            password: "Adm 1n$"
+        }
+            const data = [user2];
+            mock.onPost(URL).reply(200, data);
+            try {
+                await getToken(user2);
+              } catch (e) {
+                expect(e.message).to.equal('Password is invalid.');
+                return;
+              }
+        })
     })
 });
