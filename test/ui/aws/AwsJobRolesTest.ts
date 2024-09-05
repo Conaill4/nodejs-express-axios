@@ -77,4 +77,28 @@ describe('Job Roles Page Tests - AWS', () => {
     })
   })
 
+  describe('AWS - Correct Capability for the roles', () =>{
+    it('Should return the correct capability for the specific role', async () =>{
+      await driver.get(url);
+
+      const capability1 = await driver.findElement(webdriver.By.id('jobCapability1')).getText();
+      const capability2 = await driver.findElement(webdriver.By.id('jobCapability2')).getText();
+
+      expect(capability1).to.equal('Engineering');
+      expect(capability2).to.equal('Testing');
+    })
+  })
+
+  describe('AWS - Correct Capability for the roles', () =>{
+    it('Should return the correct band for the specific role', async () =>{
+      await driver.get(url);
+
+      const band1 = await driver.findElement(webdriver.By.id('jobBand1')).getText();
+      const band2 = await driver.findElement(webdriver.By.id('jobBand2')).getText();
+
+      expect(band1).to.equal('Trainee');
+      expect(band2).to.equal('Manager');
+    })
+  })
+
 })
