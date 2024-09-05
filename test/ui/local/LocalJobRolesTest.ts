@@ -2,9 +2,11 @@ import { expect } from 'chai';
 import { describe, it, before, after } from 'mocha';
 import webdriver, { WebDriver } from 'selenium-webdriver';
 
-describe('Job Roles Page Tests - AWS', () => {
+describe('Job Roles Page Tests - Local', () => {
   let driver: WebDriver;
-  const url: string = 'https://localhost:3000/job-roles/'
+  const url: string = 'http://localhost:3000/job-roles';
+  const homeUrl: string = 'http://localhost:3000/';
+
 
   before(async () => {
     driver = new webdriver.Builder()
@@ -16,7 +18,7 @@ describe('Job Roles Page Tests - AWS', () => {
     await driver.quit();
   });
 
-  describe('AWS - Page Load', () => {
+  describe('Local - Page Load', () => {
     it('should load the job roles page successfully on AWS and return correct poge title', async () => {
       await driver.get(url);
       const title = await driver.getTitle();
@@ -24,17 +26,18 @@ describe('Job Roles Page Tests - AWS', () => {
     });
   });
 
-  describe('AWS - Working available jobs button', ()=> {
+  describe('Local - Working available jobs button', ()=> {
     it('should navigate to the job roles endpoint when button is clicked', async () =>{
-        const url: string = 'https://localhost:3000';
-        await driver.get(url);
+        await driver.get(homeUrl);
+        await driver.manage().setTimeouts({ implicit: 2000 });
         const availJobButton = await driver.findElement(webdriver.By.linkText('Available Jobs')).click();
+        await driver.manage().setTimeouts({ implicit: 2000 });
         const jobRolesUrl = await driver.getCurrentUrl();
         expect(jobRolesUrl).to.equal(url);
     })
   })
 
-  describe('AWS - Check correct headers', () => {
+  describe('Local - Check correct headers', () => {
     it('Headers should correspond to what is required in the ACs', async () =>{
         await driver.get(url);
         const headers = await driver.findElements(webdriver.By.className('th_data'));
@@ -46,7 +49,7 @@ describe('Job Roles Page Tests - AWS', () => {
     })
   })
 
-  describe('AWS - Check correct role name is returned', () => {
+  describe('Local - Check correct role name is returned', () => {
     it('The text in the entries should should match the role names in the database', async () =>{
         await driver.get(url);
         const roleName1 = await driver.findElement(webdriver.By.id('jobName1')).getText();
@@ -54,13 +57,26 @@ describe('Job Roles Page Tests - AWS', () => {
         expect(roleName1).to.equal('Software Engineer');
         expect(roleName2).to.equal('Tester');
     })
+
   })
 
-  describe('AWS - Ensure correct header is present', () =>{
+  describe('Local - Ensure correct header is present', () =>{
     it('Header should be present and read "Jobs at Kainos"', async () =>{
         await driver.get(url);
         const header = await driver.findElement(webdriver.By.tagName('h2')).getText();
         expect(header).to.equal('Jobs at Kainos');
+    })
+  })
+
+  describe('Local - Correct locations for the roles', () =>{
+    it('The location for each role in the table should have the correct location', async () =>{
+        await driver.get(url);
+
+        const location1 = await driver.findElement(webdriver.By.id('jobLocation1')).getText();
+        const location2 = await driver.findElement(webdriver.By.id('jobLocation2')).getText();
+
+        expect(location1).to.equal('Derry');
+        expect(location2).to.equal('Derry');
     })
   })
 

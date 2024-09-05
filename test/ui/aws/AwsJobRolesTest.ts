@@ -4,7 +4,8 @@ import webdriver, { WebDriver } from 'selenium-webdriver';
 
 describe('Job Roles Page Tests - AWS', () => {
   let driver: WebDriver;
-  const url: string = 'https://sbpkguvypc.eu-west-1.awsapprunner.com/job-roles/'
+  const url: string = 'https://sbpkguvypc.eu-west-1.awsapprunner.com/job-roles';
+  const homeUrl: string = 'https://sbpkguvypc.eu-west-1.awsapprunner.com/';
 
   before(async () => {
     driver = new webdriver.Builder()
@@ -26,8 +27,7 @@ describe('Job Roles Page Tests - AWS', () => {
 
   describe('AWS - Working available jobs button', ()=> {
     it('should navigate to the job roles endpoint when button is clicked', async () =>{
-        const url: string = 'https://sbpkguvypc.eu-west-1.awsapprunner.com/';
-        await driver.get(url);
+        await driver.get(homeUrl);
         const availJobButton = await driver.findElement(webdriver.By.linkText('Available Jobs')).click();
         const jobRolesUrl = await driver.getCurrentUrl();
         expect(jobRolesUrl).to.equal(url);
@@ -61,6 +61,19 @@ describe('Job Roles Page Tests - AWS', () => {
         await driver.get(url);
         const header = await driver.findElement(webdriver.By.tagName('h2')).getText();
         expect(header).to.equal('Jobs at Kainos');
+    })
+  })
+
+  describe('AWS - Correct locations for the roles', () =>{
+    it('The location for each role in the table should have the correct location', async () =>{
+        await driver.get(url);
+
+        const location1 = await driver.findElement(webdriver.By.id('jobLocation1')).getText();
+        const location2 = await driver.findElement(webdriver.By.id('jobLocation2')).getText();
+
+        expect(location1).to.equal('Derry');
+        expect(location2).to.equal('Derry');
+
     })
   })
 
