@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" class="external en_gb desktop">
+<head>
+    {% include "components/header.html" %}   
+    <title>Job {{ JobRole.jobRoleId }} - Kainos</title>
+    <style>
+
+        a{
+            font-size: 16px;
+        }
+
+        a:hover{
+            text-decoration: underline;
+            color: rgb(23, 74, 193);
+            transition: color 0.3s ease;
+        }
+
+        #infoTable{
+            width: 100%;       
+            border-collapse: separate;
+            display: flex;
+            font-size: larger;
+            border-spacing: 0 50px;
+        }
+
+        #infoTable th,td{
+            text-align: left;
+            padding: 8;
+        }
+
+        #infoTable th{
+            padding-right: 3rem;
+            font-weight: 600;
+        }
+
+        #infoTable tr{
+           width: 100%;
+        }
+
+        .content{
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        .description-block{
+            justify-items: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        a{
+            font-size: large;
+        }
+
+        #pattern{
+            background-color: rgb(47, 50, 129);
+            color: white;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            text-align: left;
+            width: 60%;
+        }
+
+        .box{
+            color: white;
+            padding-right: 1rem;
+            padding-left: 1rem;
+            width: 100%;
+        }
+
+        .box h2 {
+            font-weight: bold;
+            padding-bottom: 1rem;
+        }
+
+         </style>
+    
+</head>
+<body class="static-page Life at Kainos" style="visibility: hidden;">
+
+    <div class="main-header">
+        {% include "components/navigationBar.html" %}    
+   </div>
+   {% include "components/errorMessage.html" %}
+   <section class="ph-paragraph-cc-view1-option1-theme1 ph-widget" type="static" view="1719398658373-paragraph-cc-view1-option1-savedView-1719398636006" original-view="ph-paragraph-cc-view1-option1" theme="theme1" instance-id="P0ARHq" data-ph-id="-1719398658291">
+    <div class="ph-paragraph-cc-view1-option1-theme1 ph-widget-target" type="static" as-element="ph-html-v1" data-widget="ph-html-v1" view="1719398658373-paragraph-cc-view1-option1-savedView-1719398636006" original-view="ph-paragraph-cc-view1-option1" theme="theme1" ph-removed="true" data-ph-id="-1719398658291-1" instance-id="P0ARHq">
+        <div class="ph-component-cntr ph-widget-box" default-cards-count="1" max-allowed-cards="4" data-ph-id="ph-widget-element-1566038290791334-2">
+            <div class="inner-container ph-cc-d-p-t-40 ph-cc-d-p-b-20" data-ph-id="ph-widget-element-1566038290791334-3">
+                <div class="ph-container-content-block" data-ph-id="ph-widget-element-1566038290791334-4" style="width: 100%;">
+                    <div class="ph-card-container stackable" data-cards-per-row="one" data-ph-id="ph-widget-element-1566038290791334-5">
+                        
+                        <div class="ph-card" card-name="ph-paragraph-cc-view1" card-container-style="background-image:'url()'" data-ph-id="ph-widget-element-1566038290791334-6">
+                            <div class="ph-paragraph-cc-view1 ph-card-block" data-ph-at-id="ph-paragraph-cc-view1" data-ph-id="ph-widget-element-1566038290791334-7">
+                                <div class="ph-row" ph-row-num="1" data-ph-id="ph-widget-element-1566038290791334-8">
+                                    <div class="ph-col-12" ph-col-num="1" data-ph-id="ph-widget-element-1566038290791334-9">
+                                        <div class="content" ph-card-block-num="1" data-ph-id="ph-widget-element-1566038290791334-10" >
+                                            <ppc-container component-content-key="description" class="description ph-line-height-1_5" data-ph-cid="description1" style="color: rgb(37, 45, 79);" data-ph-id="ph-widget-element-1566038290791334-11">
+                                                <span class="description-block" data-ph-id="ph-widget-element-1566038290791334-12">
+                                                    <ppc-content key="Life at Kainos-P0ARHq-bRPP11-ph-paragraph-cc-view1-option1-savedView-1719398636006-description-text" data-ph-at-id="description-text" instance-id="bRPP11" data-ph-id="ph-widget-element-1566038290791334-13">          
+                                                        <strong><h2 id="querytitle" style=" text-align: center;">Additional Information</h2></strong>
+                                                            
+                                                            <table id="infoTable">
+                                                             
+                                                                
+                                                                <strong><h2 style=" text-align: left;"><a href="/job-roles" style="font-size: 30px; padding-right: 10px;">← Back </a></h2></strong>
+                                                                  <tr>
+                                                                        <th >Role name:</th>
+                                                                        <td id="roleName">{{ JobRoleDetailedResponse.jobRole.roleName }}</td>
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <th >Description:</th>
+                                                                        <td id="description">{{ JobRoleDetailedResponse.description }}</td>
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <th >Responsibilities:</th>
+                                                                        <td id="responsibilities">{{ JobRoleDetailedResponse.responsibilities }}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th >Sharepoint Link:</th>
+                                                                        <td id="sharepointLink"><a href="{{ JobRoleDetailedResponse.sharepointUrl }}" target="_blank">{{ JobRoleDetailedResponse.sharepointUrl }}</a></td>
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <th>Location:</th>
+                                                                        <td id="location">{{ JobRoleDetailedResponse.jobRole.location }}</td>
+                                                                                   
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <th >Capability:</th>
+                                                                        <td id="capability">{{ JobRoleDetailedResponse.jobRole.capabilityName }}</td>
+                                                                    </tr>
+                                                                    
+                                                                    <tr>
+                                                                        <th>Band:</th>
+                                                                        <td  id="band">{{ JobRoleDetailedResponse.jobRole.bandName }}</td>
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <th>Closing Date:</th>
+                                                                        <td  id="closingDate">{{ JobRoleDetailedResponse.jobRole.closingDate | date }}</td>
+                                                                    </tr>
+
+                                                                    </tr>
+                                                                        <th >Current Status:</th>
+                                                                        <td id="currentStatus">{{ JobRoleDetailedResponse.status }}</td>
+                                                                    </tr>
+                                                                    
+                                                                    <tr>
+                                                                        <th >Available Positions:</th>
+                                                                        <td id="availablePositions">{{ JobRoleDetailedResponse.numberOfOpenPositions }}</td>
+                                                                    </tr>
+                                                                           
+                                                                                  
+                                                            </table>
+                                                            <br/>
+                                                            <br/>
+                                                   </ppc-content>
+                                                </span>
+                                            </ppc-container>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+        
+{% include "components/footer.html" %}
+
+</body>
+</html>
+<div id='csrfToken' style='display:none'>9ce53fe1fb584ad884739157eadba0b5</div>

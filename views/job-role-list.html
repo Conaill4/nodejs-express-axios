@@ -34,7 +34,9 @@
     <div class="main-header">
         {% include "components/navigationBar.html" %}    
    </div>
-   
+
+   {% include "components/errorMessage.html" %}
+
     <div class="ph-page">
         <section class="ppc-section ph-widget" type="dynamic" instance-id="uoS0U6" theme="default" original-view="view2" ph-module="gdpr" data-ph-id="ph-widget-element-1638972464497-nEAYy0">
             <div class="ph-cookie-popup-v2-view2-default ph-widget-target" as-element="ph-cookie-popup-v2" data-widget="ph-cookie-popup-v2" view="view2-1638972474772" theme="default" original-view="view2" instance-id="uoS0U6" data-ph-id="ph-widget-element-1638972464497-nTWSb8"></div>
@@ -82,7 +84,6 @@
                     <div class="inner-container ph-cc-d-p-t-40 ph-cc-d-p-b-20" data-ph-id="ph-widget-element-1566038290791334-3">
                         <div class="ph-container-content-block" data-ph-id="ph-widget-element-1566038290791334-4" style="width: 100%;">
                             <div class="ph-card-container stackable" data-cards-per-row="one" data-ph-id="ph-widget-element-1566038290791334-5">
-
                                 <div class="ph-card" card-name="ph-paragraph-cc-view1" card-container-style="background-image:'url()'" data-ph-id="ph-widget-element-1566038290791334-6">
                                     <div class="ph-paragraph-cc-view1 ph-card-block" data-ph-at-id="ph-paragraph-cc-view1" data-ph-id="ph-widget-element-1566038290791334-7">
                                         <div class="ph-row" ph-row-num="1" data-ph-id="ph-widget-element-1566038290791334-8">
@@ -95,7 +96,8 @@
                                                                     <span class="ph-line-height-1_5" data-ph-process-line-height="true" data-ph-style-attr="ph-line-height-1_5">Jobs at Kainos
                                                                 </h2>
                                                                 <br/>
-                                                                <h4 style="text-align: left;">The following jobs are available at Kainos: &nbsp;</h4>
+                                                                <h4 style="text-align: left;"><b>The following jobs are available at Kainos:</b></h4>
+                                                                <h5 style="text-align: left; padding-top: 5px;">Please click on a job to view more information.</h5>
                                                                 <p style="text-align: left;">
                                                                     <br/>
                                                                     <table style="width: 100%; margin: 0 auto; text-align: center; margin-top: 1rem;">
@@ -109,12 +111,12 @@
                                                                         </tr>
                                                                         {% for JobRole in JobRoles | sort(attribute='jobRoleId') %}
                                                                             <tr >
-                                                                                    <td class="td_data" id="identification"><a href="/job-roles/{{JobRole.jobRoleId}}">{{ JobRole.jobRoleId }}</a></td>
-                                                                                    <td class="td_data" id="name"><a href="/job-roles/{{JobRole.jobRoleId}}">{{ JobRole.roleName }}</a></td>
-                                                                                    <td class="td_data" id="location">{{ JobRole.location }}</td>
-                                                                                    <td class="td_data" id="capabilityName">{{ JobRole.capabilityName }}</td>
-                                                                                    <td class="td_data" id="bandName">{{ JobRole.bandName }}</td>
-                                                                                    <td class="td_data" id="closingDate">{{ JobRole.closingDate | date }}</td>
+                                                                                    <td class="td_data"id="jobRoleId{{ JobRole.jobRoleId }}">{{ JobRole.jobRoleId }}</td>
+                                                                                    <td class="td_data"><a href="/job-roles/{{JobRole.jobRoleId}}" id="jobName{{ JobRole.jobRoleId }}">{{ JobRole.roleName }}</a></td>
+                                                                                    <td class="td_data"id="jobLocation{{ JobRole.jobRoleId }}" >{{ JobRole.location }}</td>
+                                                                                    <td class="td_data" id="jobCapability{{ JobRole.jobRoleId }}">{{ JobRole.capabilityName }}</td>
+                                                                                    <td class="td_data" id="jobBand{{ JobRole.jobRoleId }}">{{ JobRole.bandName }}</td>
+                                                                                    <td class="td_data" id="jobClosingDate{{ JobRole.jobRoleId }}">{{ JobRole.closingDate | date }}</td>
                                                                             </tr>
                                                                         {% endfor %}
                                                                     </table>
@@ -134,10 +136,9 @@
                     </div>
                 </div>
             </div>
-        </section>
-        
-        </div>
+        </section>      
     </div>
+</div>
 {% include "components/footer.html" %}
 </body>
 </html>
