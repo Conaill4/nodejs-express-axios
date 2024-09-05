@@ -5,21 +5,15 @@ import { getToken, URL } from '../../src/services/AuthService';
 import { describe, it } from "node:test";
 import { LoginRequest } from '../../src/models/LoginRequest';
 
-const user: LoginRequest = {
-    email: "admin@kainos.com",
-    password: "$2a$10$abwOc0Pn.kTEmWCa7GJ0ROXGwmwJXFzX6Fh.81fmS4zOZdjj81jzW"
-}
-
-const user2: LoginRequest = {
-    email: "admin@kainos.com",
-    password: "incorrectPassword"
-}
-
 const mock = new MockAdapter(axios);
 
 describe('AuthService', function () {
     describe('getToken', function () {
         it('should return token from response', async () => {
+          const user: LoginRequest = {
+            email: "admin@kainos.com",
+            password: "Adm1n$"
+        }
             const data = [user];
 
             mock.onPost(URL).reply(200, data);
@@ -28,32 +22,142 @@ describe('AuthService', function () {
             expect(results).to.not.equal(null);
         })
         it('should return 500 error', async () => {
+          const user: LoginRequest = {
+            email: "admin@kainos.com",
+            password: "Adm1n$"
+        }
             const data = [user];
             mock.onPost(URL).reply(500, data);
             try {
                 await getToken(user);
               } catch (e) {
-                expect(e.message).to.equal('Failed to get user');
+                expect(e.message).to.equal('Failed to get user.');
                 return;
               }
         })
-        it('should return unknown error', async () => {
+        it('should return empty email error', async () => {
+          const user2: LoginRequest = {
+            email: "",
+            password: "Adm1n$"
+        }
             const data = [user2];
-            mock.onPost(URL).reply(404, data);
+            mock.onPost(URL).reply(200, data);
             try {
                 await getToken(user2);
               } catch (e) {
-                expect(e.message).to.equal('Unknown Error Occurred');
+                expect(e.message).to.equal('Email is empty.');
                 return;
               }
         })
-        it('should return 400 error', async () => {
+        it('should return invalid email error for forbidden symbol', async () => {
+          const user2: LoginRequest = {
+            email: "admin&@kainos.com",
+            password: "Adm1n$"
+        }
             const data = [user2];
-            mock.onPost(URL).reply(400, data);
+            mock.onPost(URL).reply(200, data);
             try {
                 await getToken(user2);
               } catch (e) {
-                expect(e.message).to.equal('User Credentials Invalid');
+                expect(e.message).to.equal('Email is invalid.');
+                return;
+              }
+        })
+        it('should return invalid email error for extra At symbol', async () => {
+          const user2: LoginRequest = {
+            email: "admin@@kainos.com",
+            password: "Adm1n$"
+        }
+            const data = [user2];
+            mock.onPost(URL).reply(200, data);
+            try {
+                await getToken(user2);
+              } catch (e) {
+                expect(e.message).to.equal('Email is invalid.');
+                return;
+              }
+        })
+        it('should return invalid email error for At Symbol at beginning', async () => {
+          const user2: LoginRequest = {
+            email: "@adminkainos.com",
+            password: "Adm1n$"
+        }
+            const data = [user2];
+            mock.onPost(URL).reply(200, data);
+            try {
+                await getToken(user2);
+              } catch (e) {
+                expect(e.message).to.equal('Email is invalid.');
+                return;
+              }
+        })
+        it('should return invalid email error for no At Symbol', async () => {
+          const user2: LoginRequest = {
+            email: "adminkainos.com",
+            password: "Adm1n$"
+        }
+            const data = [user2];
+            mock.onPost(URL).reply(200, data);
+            try {
+                await getToken(user2);
+              } catch (e) {
+                expect(e.message).to.equal('Email is invalid.');
+                return;
+              }
+        })
+        it('should return invalid email error for Space', async () => {
+          const user2: LoginRequest = {
+            email: "admin @kainos.com",
+            password: "Adm1n$"
+        }
+            const data = [user2];
+            mock.onPost(URL).reply(200, data);
+            try {
+                await getToken(user2);
+              } catch (e) {
+                expect(e.message).to.equal('Email is invalid.');
+                return;
+              }
+        })
+        it('should return invalid email error for Empty Domain', async () => {
+          const user2: LoginRequest = {
+            email: "admin@",
+            password: "Adm1n$"
+        }
+            const data = [user2];
+            mock.onPost(URL).reply(200, data);
+            try {
+                await getToken(user2);
+              } catch (e) {
+                expect(e.message).to.equal('Email is invalid.');
+                return;
+              }
+        })
+        it('should return empty password error', async () => {
+          const user2: LoginRequest = {
+            email: "admin@kainos.com",
+            password: ""
+        }
+            const data = [user2];
+            mock.onPost(URL).reply(200, data);
+            try {
+                await getToken(user2);
+              } catch (e) {
+                expect(e.message).to.equal('Password is empty.');
+                return;
+              }
+        })
+        it('should return invalid password error', async () => {
+          const user2: LoginRequest = {
+            email: "admin@kainos.com",
+            password: "admin"
+        }
+            const data = [user2];
+            mock.onPost(URL).reply(200, data);
+            try {
+                await getToken(user2);
+              } catch (e) {
+                expect(e.message).to.equal('Password is invalid.');
                 return;
               }
         })
