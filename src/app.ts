@@ -39,7 +39,7 @@ declare module "express-session" {
   }
 }
  
-app.get('/job-roles', allowRoles([UserRole.Admin, UserRole.User]), getJobsList);
+app.get('/job-roles', allowRoles([UserRole.User, UserRole.Admin]), getJobsList);
  
 app.listen(3000, () => {
     console.log('Server started on port 3000');
