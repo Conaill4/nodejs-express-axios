@@ -1,4 +1,3 @@
-import { timeStamp } from "console";
 
 export const dateFilter = (unixTimestamp: number): string => {
     const date = new Date(unixTimestamp);
