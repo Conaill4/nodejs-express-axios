@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import { describe, it, before, after } from 'mocha';
 import webdriver, { WebDriver } from 'selenium-webdriver';
 
-describe('Job Roles Page Tests - Local', () => {
+describe('Job Roles Page Tests - local', () => {
   let driver: WebDriver;
   const url: string = 'http://localhost:3000/job-roles';
   const homeUrl: string = 'http://localhost:3000/';
