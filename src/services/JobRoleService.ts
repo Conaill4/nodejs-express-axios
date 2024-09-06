@@ -11,9 +11,11 @@ export const getJobs = async (token: string): Promise<JobRole[]> => {
         const response: AxiosResponse = await axios.get(URL, getHeader(token))
 
         return response.data;
-    } catch (e) {
-        console.log(e);
-        throw new Error('Failed to get any Jobs')
+    } catch (e) { 
+        if(e.response?.status === 500){
+            throw new Error('Failed to get any Jobs')
+        }     
+        throw new Error("Unknown error occurred");
     }
 }
 

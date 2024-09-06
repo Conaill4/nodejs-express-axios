@@ -99,7 +99,7 @@
                                             <ppc-container component-content-key="description" class="description ph-line-height-1_5" data-ph-cid="description1" style="color: rgb(37, 45, 79);" data-ph-id="ph-widget-element-1566038290791334-11">
                                                 <span class="description-block" data-ph-id="ph-widget-element-1566038290791334-12">
                                                     <ppc-content key="Life at Kainos-P0ARHq-bRPP11-ph-paragraph-cc-view1-option1-savedView-1719398636006-description-text" data-ph-at-id="description-text" instance-id="bRPP11" data-ph-id="ph-widget-element-1566038290791334-13">          
-                                                        <strong><h2 id="querytitle" style=" text-align: center;">Additional Information</h2></strong>
+                                                        <strong><h2 id="querytitle" style=" text-align: center;">{{ JobRoleDetailedResponse.jobRole.roleName }}</h2></strong>
                                                             
                                                             <table id="infoTable">
                                                              
@@ -121,7 +121,7 @@
                                                                     </tr>
                                                                     <tr>
                                                                         <th >Sharepoint Link:</th>
-                                                                        <td id="sharepointLink"><a href="{{ JobRoleDetailedResponse.sharepointUrl }}" target="_blank">{{ JobRoleDetailedResponse.sharepointUrl }}</a></td>
+                                                                        <td id="sharepointLink"><a href="{{ JobRoleDetailedResponse.sharepointUrl }}" target="_blank" style="text-decoration: underline; color: rgb(50, 27, 168); ">{{ JobRoleDetailedResponse.sharepointUrl }}</a></td>
                                                                     </tr>
 
                                                                     <tr>
