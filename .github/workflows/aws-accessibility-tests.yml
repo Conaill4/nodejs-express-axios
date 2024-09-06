@@ -3,11 +3,11 @@ name: Aws Accessibility Testing
 on:
   push:
     branches:
-      #- main
+      - main
       - 037-Job-Roles-Accessibility-Testing
   pull_request:
     branches:
-      #- main
+      - main
 
 jobs:
   pa11y:
