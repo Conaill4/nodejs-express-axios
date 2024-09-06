@@ -28,7 +28,7 @@ describe('Job Roles Page Tests - AWS', () => {
   describe('AWS - Working available jobs button', ()=> {
     it('should navigate to the job roles endpoint when button is clicked', async () =>{
         await driver.get(homeUrl);
-        const availJobButton = await driver.findElement(webdriver.By.linkText('Available Jobs')).click();
+        await driver.findElement(webdriver.By.linkText('Available Jobs')).click();
         const jobRolesUrl = await driver.getCurrentUrl();
         expect(jobRolesUrl).to.equal(url);
     })

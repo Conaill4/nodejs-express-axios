@@ -30,7 +30,7 @@ describe('Job Roles Page Tests - Local', () => {
     it('should navigate to the job roles endpoint when button is clicked', async () =>{
         await driver.get(homeUrl);
         await driver.manage().setTimeouts({ implicit: 2000 });
-        const availJobButton = await driver.findElement(webdriver.By.linkText('Available Jobs')).click();
+        await driver.findElement(webdriver.By.linkText('Available Jobs')).click();
         await driver.manage().setTimeouts({ implicit: 2000 });
         const jobRolesUrl = await driver.getCurrentUrl();
         expect(jobRolesUrl).to.equal(url);
