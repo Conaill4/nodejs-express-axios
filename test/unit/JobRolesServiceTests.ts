@@ -1,6 +1,5 @@
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
-import express from "express";
 import { expect } from 'chai';
 import { getJobs, URL, getJobDetailsById} from '../../src/services/JobRoleService';
 import { JobRole } from "../../src/models/JobRole";
