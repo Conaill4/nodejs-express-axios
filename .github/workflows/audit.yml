@@ -1,6 +1,9 @@
-name: Audit Code Base
- 
+name: Daily Audit Code Base
+
 on:
+  schedule:
+     
+      - cron: "0 0 * * *"
 
   push:
 
@@ -12,7 +15,8 @@ on:
 
     branches:
 
-      - main
+       - main
+    
  
 jobs:
 

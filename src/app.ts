@@ -3,12 +3,14 @@ import nunjucks from "nunjucks";
 import bodyParser from "body-parser";
 import session from "express-session";
 
-import { getJobsList } from "./controllers/JobRoleController";
+import { getJobByID, getJobsList } from "./controllers/JobRoleController";
 import { dateFilter } from "./filters/dateFilter";
 import { getHomePage } from "./controllers/HomePageController";
- 
+import { getLoginForm, postLoginForm, logoutForm} from "./controllers/AuthController";
+import { checkLoginStatus } from "./middleware/AuthStatus";
+
 const app = express();
- 
+
 const env = nunjucks.configure('views', {
     autoescape: true,
     express: app,
@@ -23,6 +25,11 @@ app.use(bodyParser.urlencoded({
 }))
  
 app.use(session({ secret: 'SUPER_SECRET', cookie: { maxAge: 28800000 }}));
+
+app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
+  res.locals.isLoggedIn = checkLoginStatus(req);
+  next();
+});
  
 declare module "express-session" {
   interface SessionData {
@@ -37,3 +44,13 @@ app.listen(3000, () => {
 });
 
 app.get('/', getHomePage);
+app.get('/loginForm', getLoginForm);
+app.post('/loginForm', postLoginForm);
+app.post('/logout', logoutForm );
+
+app.get('/job-roles/:id', getJobByID)
+
+
+app.get('*', (req, res) => {
+  res.redirect('/');
+});
