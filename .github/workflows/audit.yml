@@ -16,7 +16,6 @@ on:
     branches:
 
        - main
-       - 001_ui_tests
     
  
 jobs:
