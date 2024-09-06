@@ -5,7 +5,10 @@
     },
     "urls": [
       "https://sbpkguvypc.eu-west-1.awsapprunner.com",
-      "https://sbpkguvypc.eu-west-1.awsapprunner.com/job-roles"
+      "https://sbpkguvypc.eu-west-1.awsapprunner.com/job-roles",
+      "https://sbpkguvypc.eu-west-1.awsapprunner.com/job-roles/1",
+      "https://sbpkguvypc.eu-west-1.awsapprunner.com/loginForm"
+
     ]
   }
   
