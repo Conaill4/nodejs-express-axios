@@ -171,7 +171,7 @@ form button:hover {
             </div>    
             <div class="input_box">
                 {% if errormessage %}
-                    <h3>{{ errormessage }}</h3>
+                    <h3 style="color: red;">{{ errormessage }}</h3>
                 {% endif %}
             <label for="email">Email</label>
             <input type="email" id="email" name="email" value="{{email}}" placeholder="Enter email address" required />
