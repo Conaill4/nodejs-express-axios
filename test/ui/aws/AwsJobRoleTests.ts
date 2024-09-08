@@ -64,7 +64,7 @@ describe('Job Roles Page Tests - AWS', () => {
     })
   })
 
-  describe('AWS - Correct locations for the roles', () =>{
+  describe('AWS - Correct locations for the rols', () =>{
     it('The location for each role in the table should have the correct location', async () =>{
         await driver.get(url);
 
