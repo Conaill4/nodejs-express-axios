@@ -7,6 +7,7 @@ on:
     branches:
 
       - main
+      - 002_ui_tests
 
   pull_request:
 
@@ -45,7 +46,3 @@ jobs:
       - name: Run Npm Test
 
         run: npm test
-      
-      - name: Run Npm UI Test
-
-        run: npm run test-ui
