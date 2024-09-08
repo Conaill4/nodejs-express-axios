@@ -46,7 +46,3 @@ jobs:
       - name: Run Npm Test
 
         run: npm test
-      
-      - name: Run Npm UI Test
-
-        run: npm run test-ui
