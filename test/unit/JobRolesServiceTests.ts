@@ -94,7 +94,7 @@ describe('JobRoleService', function () {
           try {
             await getJobDetailsById((jobRoleDetailed.jobRole.jobRoleId).toString(), token);
           } catch (e) {
-            expect(e.message).to.equal('Failed to get job.');
+            expect(e.message).to.equal('Sorry, an unknown error has occurred.');
             return;
           }
         })

@@ -25,8 +25,9 @@ export const getJobDetailsById = async (id: string, token: string): Promise<JobR
 
         return response.data;
     } catch (e) {
-        
-        console.log(e);
-        throw new Error('Failed to get job.');
+        if(e.response?.status === 404){
+            throw new Error("Sorry, the job you tried to find is unavailable.");
+        }     
+         throw new Error("Sorry, an unknown error has occurred.")
     }
 }

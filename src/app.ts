@@ -50,7 +50,7 @@ app.get('/loginForm', getLoginForm);
 app.post('/loginForm', postLoginForm);
 app.post('/logout',  allowRoles([UserRole.Admin, UserRole.User]), logoutForm );
 
-app.get('/job-roles/:id', allowRoles([UserRole.Admin, UserRole.User]), getJobByID)
+app.get('/job-roles/:id', allowRoles([UserRole.Admin, UserRole.User]), getJobByID);
 
 
 app.get('*', (req, res) => {
