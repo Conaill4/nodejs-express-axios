@@ -11,7 +11,7 @@ describe('Job Role Info Page Tests - Local', () => {
             .withCapabilities(webdriver.Capabilities.chrome())
             .build();
 
-        //login to admin
+        //login to admin so job role info can be accessed
         await driver.get('http://localhost:3000/loginform');
         await driver.findElement(webdriver.By.id('email')).sendKeys('admin@kainos.com');
         await driver.findElement(webdriver.By.id('password')).sendKeys('Adm1n$');
