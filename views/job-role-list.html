@@ -112,8 +112,7 @@
                                                                             <th class="th_data">Closing Date:</th>
                                                                         </tr>
                                                                         {% for JobRole in JobRoles | sort(attribute='jobRoleId') %}
-                                                                            <tr >
-                                                                                    <td class="td_data"id="jobRoleId{{ JobRole.jobRoleId }}">{{ JobRole.jobRoleId }}</td>
+                                                                            <tr style="text-align: left;" >
                                                                                     <td class="td_data"><a href="/job-roles/{{JobRole.jobRoleId}}" id="jobName{{ JobRole.jobRoleId }}">{{ JobRole.roleName }}</a></td>
                                                                                     <td class="td_data"id="jobLocation{{ JobRole.jobRoleId }}" >{{ JobRole.location }}</td>
                                                                                     <td class="td_data" id="jobCapability{{ JobRole.jobRoleId }}">{{ JobRole.capabilityName }}</td>
