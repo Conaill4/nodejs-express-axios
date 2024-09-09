@@ -18,11 +18,6 @@ export const getJobByID = async (req: express.Request, res: express.Response): P
         res.render("job-role-information.html", { JobRoleDetailedResponse } );
     }
     catch (e) {
-        if(e.response?.status === 404){
-           const errormessage = "Sorry, the job you tried to find is unavailable.";
-               
-           res.render('job-role-list.html', {errormessage: errormessage, JobRoles: await getJobs(req.session.token) });
-
-        }
+        res.render('job-role-list.html', {errormessage: e.message, JobRoles: await getJobs(req.session.token) });
     }
 }
