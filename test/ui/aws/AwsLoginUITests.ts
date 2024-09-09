@@ -16,6 +16,22 @@ describe('Job Role Info Page Tests - AWS', () => {
         await driver.quit();
     });
 
+    const login = async (driver: WebDriver, email: string, password: string) => {
+        // Navigate to the login page
+        await driver.get(url);
+    
+        // Fill in the login form
+        await driver.findElement(webdriver.By.id('email')).sendKeys(email);
+        await driver.findElement(webdriver.By.id('password')).sendKeys(password);
+        
+        // Click submit
+        await driver.findElement(webdriver.By.id('submit')).click();
+    };
+
+    const logout = async (driver: WebDriver) => {
+        await driver.findElement(webdriver.By.css("button[type='submit']"));
+    }
+
     describe('Returns login form', ()=>{
         it('When /loginform endpoint is accessed, the login form should appear', async ()=>{
             await driver.get(url);
@@ -41,12 +57,34 @@ describe('Job Role Info Page Tests - AWS', () => {
 
     describe('Valid Admin details login', ()=>{
         it('When valid admin details are entered the user should be directed to the homepage', async()=>{
-            await driver.get(url);
-            const emailInput = await driver.findElement(webdriver.By.id('email')).isDisplayed();
-            const passwordInput = await driver.findElement(webdriver.By.id('password')).isDisplayed();
+            await login(driver, 'admin@kainos.com', 'Adm1n$');
+            const newPage = await driver.getTitle();
+            expect(newPage).to.equal('Home - Kainos');
+        })
 
+        it('logout button should appear on homepage after login', async ()=>{
+            const logoutButton = await driver.findElement(webdriver.By.css("button[type='submit']")).getText();
+            expect(logoutButton).to.equal('Logout');
         })
     })
 
+    describe('Valid Applicant User details login', ()=>{
+        it('When valid Applicant user details are entered the user should be directed to the homepage', async()=>{
+            await login(driver, 'user@kainos.com', 'Us3r$');
+            const newPage = await driver.getTitle();
+            expect(newPage).to.equal('Home - Kainos');
+        })
+
+        it('logout button should appear on homepage after login', async ()=>{
+            const logoutButton = await driver.findElement(webdriver.By.css("button[type='submit']")).getText();
+            expect(logoutButton).to.equal('Logout');
+        })
+    })
+
+    describe('Working logout button', ()=>{
+        it('When user is logged in and presses log out they should be directed back to the login page', async ()=>{
+            await login(driver, 'admin@kainos.com', '')
+        })
+    })
 
 })
