@@ -18,7 +18,7 @@ describe('Job Roles Page Tests - AWS', () => {
   });
 
   describe('AWS - Page Load', () => {
-    it('should load the job roles page successfully on AWS and return correct poge title', async () => {
+    it('should load the job roles pae successfully on AWS and return correct poge title', async () => {
       await driver.get(url);
       const title = await driver.getTitle();
       expect(title).to.equal('Job Roles - Kainos');
