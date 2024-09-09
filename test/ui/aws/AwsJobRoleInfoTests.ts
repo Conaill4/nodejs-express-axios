@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { describe, it, before, after, beforeEach } from 'mocha';
+import { describe, it, before, after } from 'mocha';
 import webdriver, { WebDriver } from 'selenium-webdriver';
 
 describe('Job Role Info Page Tests - AWS', () => {
