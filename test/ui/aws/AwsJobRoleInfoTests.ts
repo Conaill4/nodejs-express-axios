@@ -10,6 +10,12 @@ describe('Job Role Info Page Tests - AWS', () => {
         driver = new webdriver.Builder()
             .withCapabilities(webdriver.Capabilities.chrome())
             .build();
+
+        //login to admin
+        await driver.get('https://sbpkguvypc.eu-west-1.awsapprunner.com/loginform');
+        await driver.findElement(webdriver.By.id('email')).sendKeys('admin@kainos.com');
+        await driver.findElement(webdriver.By.id('password')).sendKeys('Adm1n$');
+        await driver.findElement(webdriver.By.id('submit')).click();
     });
 
     after(async () => {
@@ -101,7 +107,7 @@ describe('Job Role Info Page Tests - AWS', () => {
 
         it('should display the closingDate', async () => {
             const location = await driver.findElement(webdriver.By.id('closingDate')).getText();
-            expect(location).to.equal('Thursday 26 Dec 2024');
+            expect(location).to.equal('26/12/2024');
         });
 
         it('should display the currentStatus', async () => {
@@ -157,7 +163,7 @@ describe('Job Role Info Page Tests - AWS', () => {
 
         it('should display the closingDate', async () => {
             const location = await driver.findElement(webdriver.By.id('closingDate')).getText();
-            expect(location).to.equal('Wednesday 25 Dec 2024');
+            expect(location).to.equal('25/12/2024');
         });
 
         it('should display the currentStatus', async () => {
