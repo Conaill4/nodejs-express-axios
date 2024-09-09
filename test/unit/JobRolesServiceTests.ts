@@ -5,7 +5,7 @@ import { getJobs, URL, getJobDetailsById} from '../../src/services/JobRoleServic
 import { JobRole } from "../../src/models/JobRole";
 import { describe, it } from "node:test";
 import { JobRoleDetailedResponse } from "../../src/models/JobRoleDetailedResponse";
-
+import { JobRoleResponseWrapper } from "../../src/models/JobRoleResponsewrap";
 const jobRole: JobRole = {
   jobRoleId: 1,
   roleName: "Graduate Software Engineer",
@@ -39,7 +39,7 @@ describe('JobRoleService', function () {
 
         mock.onGet(URL).reply(200, data);
 
-        const results = await getJobs();
+        const results = await getJobs(100,0);
         expect(results[0].jobRoleId).to.deep.equal(jobRole.jobRoleId)
         expect(results[0].roleName).to.deep.equal(jobRole.roleName)
         expect(results[0].location).to.deep.equal(jobRole.location)
@@ -52,7 +52,7 @@ describe('JobRoleService', function () {
         mock.onGet(URL).reply(500);
 
         try {
-          await getJobs();
+          await getJobs(100,0);
         } catch (e) {
           expect(e.message).to.equal('Failed to get any Jobs');
           return;
@@ -84,7 +84,7 @@ describe('JobRoleService', function () {
           try {
             await getJobDetailsById((jobRoleDetailed.jobRole.jobRoleId).toString());
           } catch (e) {
-            expect(e.message).to.equal('Failed to get Job');
+            expect(e.message).to.equal('Sorry, an unknown error has occurred.');
             return;
           }
         })

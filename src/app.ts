@@ -16,7 +16,7 @@ const env = nunjucks.configure('views', {
 });
  
 env.addFilter('date', dateFilter);
- 
+
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
   extended: true
@@ -30,7 +30,17 @@ declare module "express-session" {
   }
 }
  
-app.get('/job-roles', getJobsList);
+
+app.get('/job-roles',(req,res) => {
+  const page = Number(req.query.page);
+  const limit = Number(req.query.pageSize);
+
+  const startIndex = (page - 1) * limit
+  const endIndex = page * limit;
+
+  getJobsList(req,res);
+});
+
  
 app.listen(3000, () => {
     console.log('Server started on port 3000');
@@ -39,3 +49,7 @@ app.listen(3000, () => {
 app.get('/', getHomePage);
 app.get('/job-roles/:id', getJobByID)
 
+
+app.get('*', (req, res) => {
+  res.redirect('/');
+});

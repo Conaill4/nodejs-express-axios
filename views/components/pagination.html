@@ -1,0 +1,80 @@
+<script>
+
+   // const importedtotalpages = {{ Pagination.totalPage }};
+
+   
+function getQueryParams() {
+    const params = new URLSearchParams(window.location.search);
+    return {
+        page: parseInt(params.get('page')) || 1, // default to page 1 if not available
+        pageSize: parseInt(params.get('pageSize')) || 10, // default to limit 10 if not available
+    };
+}
+
+
+function updatePaginationLinks() {
+    const { page, pageSize } = getQueryParams();
+    //prev page
+    const previousPage = page > 1 ? page - 1 : 1;
+    const prevPageLink = `?page=${previousPage}&pageSize=${pageSize}`;
+    document.querySelector('#previous-page button').setAttribute('onclick', `window.location.href='${prevPageLink}'`);
+    if (page === 1) {
+        document.querySelector('#previous-page').classList.add('disabled');
+    }
+
+    // next Page
+    const nextPage = page + 1;
+    const nextPageLink = `?page=${nextPage}&pageSize=${pageSize}`;
+    document.querySelector('#next-page button').setAttribute('onclick', `window.location.href='${nextPageLink}'`);
+
+    // tom this is where i do the check to disable the buttons i need access to Pagination.totalPage
+    // if (page == {{ Pagination.totalPage }}) {
+    //     document.querySelector('#next-page').classList.add('disabled');
+    //     document.querySelector('#last-page').classList.add('disabled');
+    // }
+}
+
+updatePaginationLinks();
+
+</script>
+
+<style>
+   
+.page-link {
+    align-items: center;
+  
+  background-color: #283583;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Galano Grotesque", monospace;
+  font-size: 16px;
+  font-weight: 600;
+  height: 48px;
+  justify-content: center;
+  letter-spacing: -.8px;
+  line-height: 24px;
+  min-width: 140px;
+  padding: 0 17px;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-right: 1rem;
+  margin-top: -3rem;
+}
+
+.page-link:hover {
+    background-color: #394cb6;
+    color: #ffffff;
+}
+
+.page-link :active {
+    border-color: #06f;
+  color: #06f;
+  fill: #06f;
+}
+</style>
