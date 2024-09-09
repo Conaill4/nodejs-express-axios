@@ -24,22 +24,26 @@ const jobRoleDetailed: JobRoleDetailedResponse = {
       bandId: 2,
       closingDate: new Date(1693078000000),
     },
-    description: " Software Engineer Derry",
+    description: "Software Engineer Derry",
     responsibilities: "Managing Software",
     sharePointUrl: "123.com",
     numberOfOpenPositions: 3,
     status: "OPEN"
 }
+
 const mock = new MockAdapter(axios);
 
 describe('JobRoleService', function () {
+  
     describe('getJobs', function () {
       it('should return jobs from response', async () => {
         const data = [jobRole];
 
+        const token = "123";
+
         mock.onGet(URL).reply(200, data);
 
-        const results = await getJobs();
+        const results = await getJobs(token);
         expect(results[0].jobRoleId).to.deep.equal(jobRole.jobRoleId)
         expect(results[0].roleName).to.deep.equal(jobRole.roleName)
         expect(results[0].location).to.deep.equal(jobRole.location)
@@ -51,8 +55,10 @@ describe('JobRoleService', function () {
       it('should throw exception when 500 error returned from axios', async () => {
         mock.onGet(URL).reply(500);
 
+        const token = "123";
+
         try {
-          await getJobs();
+          await getJobs(token);
         } catch (e) {
           expect(e.message).to.equal('Failed to get any Jobs');
           return;
@@ -62,11 +68,13 @@ describe('JobRoleService', function () {
       describe('getDetailedJobInfo', function () {
         it('should return detailed information for the job', async () => {
           const data = [jobRoleDetailed];
-  
+          
+          const token = "123";
+
           mock.onGet(URL+jobRoleDetailed.jobRole.jobRoleId).reply(200, data);
 
           
-          const results = await getJobDetailsById((jobRoleDetailed.jobRole.jobRoleId).toString());
+          const results = await getJobDetailsById((jobRoleDetailed.jobRole.jobRoleId).toString(), token);
 
           results[0].jobRole.closingDate = new Date(results[0].jobRole.closingDate);
           expect(results[0].jobRole).to.deep.equal(jobRoleDetailed.jobRole)
@@ -80,9 +88,11 @@ describe('JobRoleService', function () {
   
         it('should throw exception when 500 error returned from axios', async () => {
           mock.onGet(URL+jobRoleDetailed.jobRole.jobRoleId).reply(500);
+
+          const token = "123";
   
           try {
-            await getJobDetailsById((jobRoleDetailed.jobRole.jobRoleId).toString());
+            await getJobDetailsById((jobRoleDetailed.jobRole.jobRoleId).toString(), token);
           } catch (e) {
             expect(e.message).to.equal('Sorry, an unknown error has occurred.');
             return;
