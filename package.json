@@ -20,8 +20,10 @@
     "axios-mock-adapter": "^2.0.0",
     "body-parser": "^1.20.2",
     "chai": "^5.1.1",
+    "core-js": "^3.38.1",
     "express": "^4.19.2",
     "express-session": "^1.18.0",
+    "jwt-decode": "^4.0.0",
     "nunjucks": "^3.2.4",
     "selenium-webdriver": "^4.24.0"
   },
@@ -35,6 +37,7 @@
     "@types/nunjucks": "^3.2.6",
     "@types/selenium-webdriver": "^4.1.22",
     "@types/sinon": "^17.0.3",
+    "@types/supertest": "^6.0.2",
     "axios-mock-adapter": "^1.21.4",
     "chai": "^4.3.7",
     "chromedriver": "^127.0.2",

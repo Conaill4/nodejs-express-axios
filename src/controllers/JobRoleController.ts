@@ -3,15 +3,15 @@ import {getJobDetailsById, getJobs} from "../services/JobRoleService"
 
 export const getJobsList = async (req: express.Request, res: express.Response): Promise<void> => {
     try{
+
         const page = parseInt(req.query.page as string) || 1;
         const pageSize = parseInt(req.query.pageSize as string) || 10;
-        
-
-        const response = await getJobs(page, pageSize);
+        const response = await getJobs(page, pageSize,req.session.token);
         const { jobRoles, pagination } = response;
         const totalPages = pagination.totalPages;
         
         res.render("job-role-list.html", { JobRoles: jobRoles, Pagination: pagination } );
+
     }
     catch (e) {
         res.locals.errormessage = e.message;
@@ -22,11 +22,10 @@ export const getJobsList = async (req: express.Request, res: express.Response): 
 
 export const getJobByID = async (req: express.Request, res: express.Response): Promise<void> => {
     try{
-        const JobRoleDetailedResponse = await getJobDetailsById(req.params.id)
+        const JobRoleDetailedResponse = await getJobDetailsById(req.params.id, req.session.token)
         res.render("job-role-information.html", { JobRoleDetailedResponse } );
     }
     catch (e) {        
-           res.render('job-role-list.html', {errormessage: e.message, JobRoles: await getJobs(100,0) });
-
+           res.render('job-role-list.html', {errormessage: e.message, JobRoles: await getJobs(1,10,req.session.token) });
     }
 }
