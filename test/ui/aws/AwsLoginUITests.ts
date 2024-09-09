@@ -16,6 +16,10 @@ describe('Job Role Info Page Tests - AWS', () => {
         await driver.quit();
     });
 
+    const getLoginForm = async(driver) =>{
+        return await driver.findElement()
+    }
+
     describe('Returns login form', ()=>{
         it('When /loginform endpoint is accessed, the login form should appear', async ()=>{
             await driver.get(url);
@@ -38,4 +42,15 @@ describe('Job Role Info Page Tests - AWS', () => {
             expect(passwordInput).to.be.true;
         })
     })
+
+    describe('Valid Admin details login', ()=>{
+        it('When valid admin details are entered the user should be directed to the homepage', async()=>{
+            await driver.get(url);
+            const emailInput = await driver.findElement(webdriver.By.id('email')).isDisplayed();
+            const passwordInput = await driver.findElement(webdriver.By.id('password')).isDisplayed();
+
+        })
+    })
+
+
 })
