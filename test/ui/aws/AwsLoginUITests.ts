@@ -16,10 +16,6 @@ describe('Job Role Info Page Tests - AWS', () => {
         await driver.quit();
     });
 
-    const getLoginForm = async(driver) =>{
-        return await driver.findElement()
-    }
-
     describe('Returns login form', ()=>{
         it('When /loginform endpoint is accessed, the login form should appear', async ()=>{
             await driver.get(url);
