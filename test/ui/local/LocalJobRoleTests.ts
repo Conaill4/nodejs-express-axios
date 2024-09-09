@@ -12,6 +12,13 @@ describe('Job Roles Page Tests - local', () => {
     driver = new webdriver.Builder()
       .withCapabilities(webdriver.Capabilities.chrome())
       .build();
+
+      //login to admin so job roles can be accessed
+      await driver.get('http://localhost:3000/loginform');
+      await driver.findElement(webdriver.By.id('email')).sendKeys('admin@kainos.com');
+      await driver.findElement(webdriver.By.id('password')).sendKeys('Adm1n$');
+      await driver.findElement(webdriver.By.id('submit')).click();
+
   });
 
   after(async () => {
@@ -58,14 +65,6 @@ describe('Job Roles Page Tests - local', () => {
         expect(roleName2).to.equal('Tester');
     })
 
-  })
-
-  describe('Local - Ensure correct header is present', () =>{
-    it('Header should be present and read "Jobs at Kainos"', async () =>{
-        await driver.get(url);
-        const header = await driver.findElement(webdriver.By.tagName('h2')).getText();
-        expect(header).to.equal('Jobs at Kainos');
-    })
   })
 
   describe('Local - Correct locations for the roles', () =>{

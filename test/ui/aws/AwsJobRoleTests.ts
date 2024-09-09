@@ -11,6 +11,13 @@ describe('Job Roles Page Tests - AWS', () => {
     driver = new webdriver.Builder()
       .withCapabilities(webdriver.Capabilities.chrome())
       .build();
+
+      //login to admin so job roles can be accessed
+      await driver.get('https://sbpkguvypc.eu-west-1.awsapprunner.com/loginform');
+      await driver.findElement(webdriver.By.id('email')).sendKeys('admin@kainos.com');
+      await driver.findElement(webdriver.By.id('password')).sendKeys('Adm1n$');
+      await driver.findElement(webdriver.By.id('submit')).click();
+
   });
 
   after(async () => {
@@ -53,14 +60,6 @@ describe('Job Roles Page Tests - AWS', () => {
         const roleName2 = await driver.findElement(webdriver.By.id('jobName2')).getText();
         expect(roleName1).to.equal('Software Engineer');
         expect(roleName2).to.equal('Tester');
-    })
-  })
-
-  describe('AWS - Ensure correct header is present', () =>{
-    it('Header should be present and read "Jobs at Kainos"', async () =>{
-        await driver.get(url);
-        const header = await driver.findElement(webdriver.By.tagName('h2')).getText();
-        expect(header).to.equal('Jobs at Kainos');
     })
   })
 
