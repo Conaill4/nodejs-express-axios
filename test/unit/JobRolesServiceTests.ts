@@ -76,7 +76,7 @@ describe('JobRoleService', function () {
           
           const token = "123";
 
-          mock.onGet(URL+"/" + jobRoleDetailed.jobRole.jobRoleId).reply(200, data);
+          mock.onGet(URL + "/" + jobRoleDetailed.jobRole.jobRoleId).reply(200, data);
 
           const results = await getJobDetailsById((jobRoleDetailed.jobRole.jobRoleId).toString(), token);
 
