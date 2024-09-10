@@ -53,7 +53,7 @@ describe('JobRoleService', function () {
         const pageSize = 10;
         mock.onGet(URL + `?page=${Page}&pageSize=${pageSize}`).reply(200, data);
         console.log("consdf");
-        const results = await getJobs(1,10,"token");
+        const results = await getJobs(1,10,"123");
 
         expect(results.jobRoles[0].jobRoleId).to.deep.equal(jobRole1.jobRoleId)
         expect(results.jobRoles[0].roleName).to.deep.equal(jobRole1.roleName)
@@ -61,7 +61,6 @@ describe('JobRoleService', function () {
 
       it('should throw exception when 500 error returned from axios', async () => {
         mock.onGet(URL).reply(500);
-
         try {
           await getJobs(1,10,"token");
         } catch (e) {
@@ -72,13 +71,9 @@ describe('JobRoleService', function () {
 
       describe('getDetailedJobInfo', function () {
         it('should return detailed information for the job', async () => {
-          const data = [jobRoleDetailed];
-          
-          const token = "123";
-
+          const data = [jobRoleDetailed];  
           mock.onGet(URL + "/" + jobRoleDetailed.jobRole.jobRoleId).reply(200, data);
-
-          const results = await getJobDetailsById((jobRoleDetailed.jobRole.jobRoleId).toString(), token);
+          const results = await getJobDetailsById((jobRoleDetailed.jobRole.jobRoleId).toString(), "123");
 
           results[0].jobRole.closingDate = new Date(results[0].jobRole.closingDate);
           expect(results[0].jobRole).to.deep.equal(jobRoleDetailed.jobRole)
@@ -92,11 +87,8 @@ describe('JobRoleService', function () {
   
         it('should throw exception when 500 error returned from axios', async () => {
           mock.onGet(URL+jobRoleDetailed.jobRole.jobRoleId).reply(500);
-
-          const token = "123";
-  
           try {
-            await getJobDetailsById((jobRoleDetailed.jobRole.jobRoleId).toString(), token);
+            await getJobDetailsById((jobRoleDetailed.jobRole.jobRoleId).toString(), "123");
           } catch (e) {
             expect(e.message).to.equal('Sorry, an unknown error has occurred.');
             return;
