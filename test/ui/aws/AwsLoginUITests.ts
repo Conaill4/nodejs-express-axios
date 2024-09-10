@@ -83,7 +83,13 @@ describe('Job Role Info Page Tests - AWS', () => {
 
     describe('Working logout button', ()=>{
         it('When user is logged in and presses log out they should be directed back to the login page', async ()=>{
-            await login(driver, 'admin@kainos.com', '')
+            await login(driver, 'admin@kainos.com', 'Adm1n$');
+            const homepage = await driver.getTitle();
+            await logout(driver);
+            const loginPage = await driver.getTitle();
+            expect(homepage).to.equal('Home - Kainos');
+            expect(loginPage).to.equal('Login - Kainos');
+            
         })
     })
 
