@@ -7,10 +7,9 @@ axios.defaults.baseURL = process.env.API_URL || 'http://localhost:8080/';
 
 export const URL: string = "/api/job-roles";
 
-export const getJobs = async (Page: number,pageSize: number): Promise<JobRoleResponseWrapper> => {
+export const getJobs = async (Page: number, pageSize: number): Promise<JobRoleResponseWrapper> => {
     try {
         const response: AxiosResponse = await axios.get(URL + `?page=${Page}&pageSize=${pageSize}`)
-
         return response.data;
     } catch (e) {
         if (axios.isAxiosError(e)) {

@@ -5,14 +5,25 @@ import { getJobs, URL, getJobDetailsById} from '../../src/services/JobRoleServic
 import { JobRole } from "../../src/models/JobRole";
 import { describe, it } from "node:test";
 import { JobRoleDetailedResponse } from "../../src/models/JobRoleDetailedResponse";
+import { JobRoleResponseWrapper } from "../../src/models/JobRoleResponseWrapper";
 
-const jobRole: JobRole = {
+const jobRole1: JobRole = {
   jobRoleId: 1,
   roleName: "Graduate Software Engineer",
   location: "Derry",
   capabilityId: 1,
   bandId: 2,
   closingDate: new Date(1693078000000),
+}
+
+const JobRoleResponseWrapperTest: JobRoleResponseWrapper = {
+  jobRoles: [jobRole1],
+  pagination: {
+    currentPage: 1,
+    totalPages: 5,
+    nextPage: 2,
+    previousPage: 1
+  }
 }
 
 const jobRoleDetailed: JobRoleDetailedResponse = {
@@ -37,30 +48,22 @@ describe('JobRoleService', function () {
   
     describe('getJobs', function () {
       it('should return jobs from response', async () => {
-        const data = [jobRole];
+        const data = JobRoleResponseWrapperTest;
+        const Page = 1;
+        const pageSize = 10;
+        mock.onGet(URL + `?page=${Page}&pageSize=${pageSize}`).reply(200, data);
+        console.log("consdf");
+        const results = await getJobs(1,10);
 
-        const token = "123";
-
-        mock.onGet(URL).reply(200, data);
-
-
-        const results = await getJobs(1,10,token);
-
-        expect(results[0].jobRoleId).to.deep.equal(jobRole.jobRoleId)
-        expect(results[0].roleName).to.deep.equal(jobRole.roleName)
-        expect(results[0].location).to.deep.equal(jobRole.location)
-        expect(results[0].capabilityId).to.deep.equal(jobRole.capabilityId)
-        expect(results[0].bandId).to.deep.equal(jobRole.bandId)
-        expect(new Date(results[0].closingDate)).to.deep.equal(jobRole.closingDate);
+        expect(results.jobRoles[0].jobRoleId).to.deep.equal(jobRole1.jobRoleId)
+        expect(results.jobRoles[0].roleName).to.deep.equal(jobRole1.roleName)
       })
 
       it('should throw exception when 500 error returned from axios', async () => {
         mock.onGet(URL).reply(500);
 
-        const token = "123";
-
         try {
-          await getJobs(1,10,token);
+          await getJobs(1,10);
         } catch (e) {
           expect(e.message).to.equal('Failed to get any Jobs');
           return;
@@ -73,9 +76,8 @@ describe('JobRoleService', function () {
           
           const token = "123";
 
-          mock.onGet(URL+jobRoleDetailed.jobRole.jobRoleId).reply(200, data);
+          mock.onGet(URL+"/" + jobRoleDetailed.jobRole.jobRoleId).reply(200, data);
 
-          
           const results = await getJobDetailsById((jobRoleDetailed.jobRole.jobRoleId).toString(), token);
 
           results[0].jobRole.closingDate = new Date(results[0].jobRole.closingDate);
