@@ -25,7 +25,6 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
   extended: true
 }))
- 
 app.use(session({ secret: 'SUPER_SECRET', cookie: { maxAge: 28800000 }}));
 
 app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
@@ -39,12 +38,9 @@ declare module "express-session" {
   }
 }
  
-app.get('/job-roles',(req,res) => {
+app.get('/job-roles', allowRoles([UserRole.User, UserRole.Admin]),(req,res) => {
   const page = Number(req.query.page);
   const limit = Number(req.query.pageSize);
-
-  const startIndex = (page - 1) * limit
-  const endIndex = page * limit;
 
   getJobsList(req,res);
 });
@@ -56,8 +52,8 @@ app.listen(3000, () => {
 app.get('/', getHomePage);
 app.get('/loginForm', getLoginForm);
 app.post('/loginForm', postLoginForm);
-app.post('/logout', logoutForm );
-app.get('/job-roles/:id', getJobByID);
+app.post('/logout', logoutForm , allowRoles([UserRole.User, UserRole.Admin]));
+app.get('/job-roles/:id', allowRoles([UserRole.User, UserRole.Admin]), getJobByID);
 
 
 app.get('*', (req, res) => {

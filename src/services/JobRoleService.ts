@@ -1,8 +1,7 @@
-import axios, {Axios, AxiosResponse} from "axios";
+import axios, {AxiosResponse} from "axios";
 import { JobRoleDetailedResponse } from "../models/JobRoleDetailedResponse";
 import { getHeader } from "./AuthUtils";
 import { JobRoleResponseWrapper } from "../models/JobRoleResponseWrapper";
-import { JobRole } from "../models/JobRole";
 axios.defaults.baseURL = process.env.API_URL || 'http://localhost:8080/';
 
 
