@@ -63,14 +63,16 @@
                                                                     <table style="width: 100%; margin: 0 auto; text-align: center; margin-top: 1rem; margin-left: 5.5rem;">
                                                                         <tr style="text-align: left;">
                                                                           
-                                                                            <th class="th_data">Role name:</th>
+                                                                            <th class="th_data">Role name:</button></th>
                                                                             <th class="th_data">Location:</th>
                                                                             <th class="th_data">Capability:</th>
                                                                             <th class="th_data">Band:</th>
                                                                             <th class="th_data">Closing Date:</th>
                                                                         </tr>
                                                                         {% for JobRole in JobRoles | sort(attribute='jobRoleId') %}
-                                                                            <tr style="text-align: left;" >
+
+                                                                            <tr style="text-align: left;">
+
                                                                                     <td class="td_data"><a href="/job-roles/{{JobRole.jobRoleId}}" id="jobName{{ JobRole.jobRoleId }}">{{ JobRole.roleName }}</a></td>
                                                                                     <td class="td_data"id="jobLocation{{ JobRole.jobRoleId }}" >{{ JobRole.location }}</td>
                                                                                     <td class="td_data" id="jobCapability{{ JobRole.jobRoleId }}">{{ JobRole.capabilityName }}</td>
@@ -86,19 +88,19 @@
                                                                         <ul class="pagination">
                                                                     
                                                                               <li class="page-item {% if 1 == Pagination.currentPage %}disabled{% endif %}">
-                                                                                <button role="button" class="page-link" onclick="window.location.href='?page=1&pageSize=10'">First Page</button>
+                                                                                <button role="button" class="page-link" onclick="window.location.href='?fieldName={{ RoleOrdering.fieldName }}&orderBy={{ RoleOrdering.orderBy}}&page=1&pageSize=10'">First Page</button>
                                                                               </li>
                                                                                                       
                                                                                <li class="page-item {% if 1 == Pagination.currentPage %}disabled{% endif %}" id="previous-page">
-                                                                                <button class="page-link" onclick="window.location.href='?page={{ Pagination.previousPage }}&pageSize=10'" role="button">← Previous</button>
+                                                                                <button class="page-link" onclick="window.location.href='?fieldName={{ RoleOrdering.fieldName }}&orderBy={{ RoleOrdering.orderBy}}&page={{ Pagination.previousPage }}&pageSize=10'" role="button">← Previous</button>
                                                                               </li>
                                                                                
                                                                               <li class="page-item {% if Pagination.totalPage == Pagination.currentPage %}disabled{% endif %}" id="next-page">
-                                                                                <button class="page-link" onclick="window.location.href='?page={{ Pagination.nextPage }}&pageSize=10'" role="button"> Next →</button>
+                                                                                <button class="page-link" onclick="window.location.href='?fieldName={{ RoleOrdering.fieldName }}&orderBy={{ RoleOrdering.orderBy}}&page={{ Pagination.nextPage }}&pageSize=10'" role="button"> Next →</button>
                                                                               </li>
                                                                                
                                                                               <li class="page-item {% if Pagination.totalPage == Pagination.currentPage %}disabled{% endif %} " id="last-page">
-                                                                                <button role="button" class="page-link" onclick="window.location.href='?page={{ Pagination.totalPage }}&pageSize=10'">Last Page</button>
+                                                                                <button role="button" class="page-link" onclick="window.location.href='?fieldName={{ RoleOrdering.fieldName }}&orderBy={{ RoleOrdering.orderBy }}&page={{ Pagination.totalPage }}&pageSize=10'">Last Page</button>
                                                                               </li>
                                                                          
                                                                               {% include "components/pagination.html" %}
