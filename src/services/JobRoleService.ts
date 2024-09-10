@@ -19,6 +19,7 @@ export const getJobs = async (Page: number, pageSize: number, token: string): Pr
             else if (e.response?.status === 500) {
                 throw new Error('Server Error');
             }
+            throw new Error('Unknown Server Error');
         } else {
             throw new Error('An Unknown error occurred');
         }
