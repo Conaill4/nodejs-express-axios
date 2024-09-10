@@ -39,9 +39,6 @@ declare module "express-session" {
 }
  
 app.get('/job-roles', allowRoles([UserRole.User, UserRole.Admin]),(req,res) => {
-  const page = Number(req.query.page);
-  const limit = Number(req.query.pageSize);
-
   getJobsList(req,res);
 });
 
