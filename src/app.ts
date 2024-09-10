@@ -39,7 +39,6 @@ declare module "express-session" {
   }
 }
  
-
 app.get('/job-roles',(req,res) => {
   const page = Number(req.query.page);
   const limit = Number(req.query.pageSize);
@@ -50,7 +49,6 @@ app.get('/job-roles',(req,res) => {
   getJobsList(req,res);
 });
 
- 
 app.listen(3000, () => {
     console.log('Server started on port 3000');
 });

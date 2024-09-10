@@ -10,7 +10,7 @@ export const URL: string = "/api/job-roles";
 
 export const getJobs = async (Page: number,pageSize: number, token: string): Promise<JobRoleResponseWrapper> => {
     try {
-        const response: AxiosResponse = await axios.get(URL)
+        const response: AxiosResponse = await axios.get(URL + `?page=${Page}&pageSize=${pageSize}`)
 
         return response.data;
     } catch (e) {
