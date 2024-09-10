@@ -27,6 +27,6 @@ export const getJobByID = async (req: express.Request, res: express.Response): P
         res.render("job-role-information.html", { JobRoleDetailedResponse } );
     }
     catch (e) {        
-           res.render('job-role-list.html', {errormessage: e.message, JobRoles: await getJobs("roleName", "ASC", 1,10,req.session.token) });
+           res.render('job-role-list.html', {errormessage: e.message, JobRoles: await getJobs("roleName", "ASC", 1,10, req.session.token) });
     }
 }

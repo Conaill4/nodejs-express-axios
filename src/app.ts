@@ -10,6 +10,7 @@ import { getLoginForm, postLoginForm, logoutForm} from "./controllers/AuthContro
 import { checkLoginStatus } from "./middleware/AuthStatus";
 import { allowRoles } from "./middleware/AuthMiddleware";
 import { UserRole } from "./models/JwtToken";
+import { updateSorting } from "./util/handleSort";
 
 const app = express();
 
@@ -60,6 +61,11 @@ app.get('/loginForm', getLoginForm);
 app.post('/loginForm', postLoginForm);
 app.post('/logout', allowRoles([UserRole.User, UserRole.Admin]), logoutForm );
 app.get('/job-roles/:id', allowRoles([UserRole.User, UserRole.Admin]), getJobByID);
+app.post('/sort', (req, res) => {
+  const fieldName = req.body.fieldName;
+
+  updateSorting(fieldName);
+})
 
 
 app.get('*', (req, res) => {

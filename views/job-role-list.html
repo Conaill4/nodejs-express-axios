@@ -3,6 +3,8 @@
 <head>
     {% include "components/header.html" %}   
 
+    <script src="../src/util/handleSort.ts"></script>
+
     <title>Job Roles - Kainos</title>
     <style>
         .th_data{
@@ -62,14 +64,18 @@
                                                                     <br/>
                                                                     <table style="width: 100%; margin: 0 auto; text-align: center; margin-top: 1rem; margin-left: 5.5rem;">
                                                                         <tr style="text-align: left;">
+
+                                                                            <form action="/sort" method="post">
                                                                           
-                                                                            <th class="th_data">Role name:</button></th>
-                                                                            <th class="th_data">Location:</th>
-                                                                            <th class="th_data">Capability:</th>
-                                                                            <th class="th_data">Band:</th>
-                                                                            <th class="th_data">Closing Date:</th>
+                                                                                <button type="submit" name="fieldName" value="roleName">Role name:</button>
+                                                                                <button type="submit" name="fieldName" value="roleName">Location:</button>
+                                                                                <button>Capability:</button>
+                                                                                <button>Band:</button>
+                                                                                <button>Closing Date:</button>
+
+                                                                            </form>
                                                                         </tr>
-                                                                        {% for JobRole in JobRoles | sort(attribute='jobRoleId') %}
+                                                                        {% for JobRole in JobRoles %}
 
                                                                             <tr style="text-align: left;">
 
