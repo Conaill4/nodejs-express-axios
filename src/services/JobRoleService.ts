@@ -30,7 +30,7 @@ export const getJobs = async (Page: number,pageSize: number, token: string): Pro
 
 export const getJobDetailsById = async (id: string, token: string): Promise<JobRoleDetailedResponse[]> => {
     try {
-        const response: AxiosResponse = await axios.get(URL+id, getHeader(token))
+        const response: AxiosResponse = await axios.get(URL+"/" + id, getHeader(token))
 
         return response.data;
     } catch (e) {

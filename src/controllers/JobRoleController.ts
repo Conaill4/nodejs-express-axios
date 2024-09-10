@@ -8,7 +8,6 @@ export const getJobsList = async (req: express.Request, res: express.Response): 
         const pageSize = parseInt(req.query.pageSize as string) || 10;
         const response = await getJobs(page, pageSize,req.session.token);
         const { jobRoles, pagination } = response;
-        const totalPages = pagination.totalPages;
         
         res.render("job-role-list.html", { JobRoles: jobRoles, Pagination: pagination } );
 
