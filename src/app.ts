@@ -20,7 +20,6 @@ const env = nunjucks.configure('views', {
 });
  
 env.addFilter('date', dateFilter);
-
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
   extended: true

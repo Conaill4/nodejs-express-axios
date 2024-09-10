@@ -6,6 +6,7 @@ import { JobRole } from "../../src/models/JobRole";
 import { describe, it } from "node:test";
 import { JobRoleDetailedResponse } from "../../src/models/JobRoleDetailedResponse";
 import { JobRoleResponseWrapper } from "../../src/models/JobRoleResponseWrapper";
+import { getToken } from "../../src/services/AuthService";
 
 const jobRole1: JobRole = {
   jobRoleId: 1,
@@ -53,7 +54,7 @@ describe('JobRoleService', function () {
         const pageSize = 10;
         mock.onGet(URL + `?page=${Page}&pageSize=${pageSize}`).reply(200, data);
         console.log("consdf");
-        const results = await getJobs(1,10);
+        const results = await getJobs(1,10,"token");
 
         expect(results.jobRoles[0].jobRoleId).to.deep.equal(jobRole1.jobRoleId)
         expect(results.jobRoles[0].roleName).to.deep.equal(jobRole1.roleName)
@@ -63,7 +64,7 @@ describe('JobRoleService', function () {
         mock.onGet(URL).reply(500);
 
         try {
-          await getJobs(1,10);
+          await getJobs(1,10,"token");
         } catch (e) {
           expect(e.message).to.equal('Failed to get any Jobs');
           return;
