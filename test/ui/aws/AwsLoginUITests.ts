@@ -30,7 +30,7 @@ describe('Job Role Info Page Tests - AWS', () => {
 
     const logout = async (driver: WebDriver) => {
         const logoutButton = await driver.findElement(webdriver.By.css("button[type='submit']"));
-        await driver.wait(webdriver.until.elementIsVisible(logoutButton), 5000); // Ensure the logout button is visible
+        await driver.wait(webdriver.until.elementIsVisible(logoutButton), 5000);
         await logoutButton.click();
     };
 
