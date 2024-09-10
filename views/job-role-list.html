@@ -3,34 +3,72 @@
 <head>
     {% include "components/header.html" %}   
 
+<style>
+          
+.page-link {
+    align-items: center;
+  
+  background-color: #283583;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Galano Grotesque", monospace;
+  font-size: 16px;
+  font-weight: 600;
+  height: 48px;
+  justify-content: center;
+  letter-spacing: -.8px;
+  line-height: 24px;
+  min-width: 140px;
+  padding: 0 17px;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-right: 1rem;
+  margin-top: -3rem;
+}
+
+.page-link:hover {
+    background-color: #394cb6;
+    color: #ffffff;
+}
+
+.page-link :active {
+    border-color: #06f;
+  color: #06f;
+  fill: #06f;
+}
+
+.th_data{
+  text-align: center;
+  font-weight: 600;
+  padding-bottom: 1rem;
+  text-align: left;
+  text-align: left;
+}
+
+.td_data{
+padding-bottom: 1rem;
+font-size: large;
+
+}
+
+a{
+font-size: 16px;
+}
+
+a:hover{
+text-decoration: underline;
+color: rgb(23, 74, 193);
+transition: color 0.3s ease;
+}
+</style>
+
     <title>Job Roles - Kainos</title>
-    <style>
-        .th_data{
-                text-align: center;
-                font-weight: 600;
-                padding-bottom: 1rem;
-                text-align: left;
-                text-align: left;
-        }
-        
-        .td_data{
-            padding-bottom: 1rem;
-            font-size: large;
-            
-            
-        }
-
-        a{
-            font-size: 16px;
-        }
-
-        a:hover{
-            text-decoration: underline;
-            color: rgb(23, 74, 193);
-            transition: color 0.3s ease;
-        }
-
-    </style>
 
 </head>
 <body class="static-page Life at Kainos" style="visibility: hidden;">
@@ -100,17 +138,14 @@
                                                                               <li class="page-item {% if Pagination.totalPage == Pagination.currentPage %}disabled{% endif %} " id="last-page">
                                                                                 <button role="button" class="page-link" onclick="window.location.href='?page={{ Pagination.totalPage }}&pageSize=10'">Last Page</button>
                                                                               </li>
-                                                                         
-                                                                              {% include "components/pagination.html" %}
                                                                         </ul>
                                                                     </nav>
                                                                 </div>
-                                                            </div>
-                                                                   
-                                                                </p>
-                                                            </ppc-content>
-                                                        </span>
-                                                    </ppc-container>
+                                                           </div>        
+                                                        </p>
+                                                    </ppc-content>
+                                                </span>
+                                                </ppc-container>
                                                 </div>
                                             </div>
                                         </div>
@@ -121,7 +156,7 @@
                     </div>
                 </div>
             </div>
-        </section>      
+        </section>    
     </div>
 </div>
 {% include "components/footer.html" %}
