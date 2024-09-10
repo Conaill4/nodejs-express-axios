@@ -6,20 +6,24 @@
     <script src="../src/util/handleSort.ts"></script>
 
     <title>Job Roles - Kainos</title>
-    <style>
-        .th_data{
-                text-align: center;
-                font-weight: 600;
-                padding-bottom: 1rem;
-                text-align: left;
-                text-align: left;
-        }
-        
+    <style> 
         .td_data{
             padding-bottom: 1rem;
             font-size: large;
             
             
+        }
+
+        form {
+            justify-content: space-between;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            font-weight: 600;
+            padding-bottom: 1rem;
+            text-align: left;
+            text-align: left;
         }
 
         a{
@@ -64,16 +68,13 @@
                                                                     <br/>
                                                                     <table style="width: 100%; margin: 0 auto; text-align: center; margin-top: 1rem; margin-left: 5.5rem;">
                                                                         <tr style="text-align: left;">
-
-                                                                            <form action="/sort" method="post">
-                                                                          
-                                                                                <button type="submit" name="fieldName" value="roleName">Role name:</button>
-                                                                                <button type="submit" name="fieldName" value="roleName">Location:</button>
-                                                                                <button>Capability:</button>
-                                                                                <button>Band:</button>
-                                                                                <button>Closing Date:</button>
-
-                                                                            </form>
+                                                                          <form action="/sort" method="post" style="justify-content: space-between; ">
+                                                                            <button type="submit" name="fieldName" value="roleName">Role name:</button>
+                                                                            <button type="submit" name="fieldName" value="location">Location:</button>
+                                                                            <button type="submit" name="fieldName" value="capabilityName">Capability:</button>
+                                                                            <button type="submit" name="fieldName" value="bandName">Band:</button>
+                                                                            <button type="submit" name="fieldName" value="closingDate">Closing Date:</button>
+                                                                        </form>
                                                                         </tr>
                                                                         {% for JobRole in JobRoles %}
 
