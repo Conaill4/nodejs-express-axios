@@ -6,7 +6,6 @@ import { JobRole } from "../../src/models/JobRole";
 import { describe, it } from "node:test";
 import { JobRoleDetailedResponse } from "../../src/models/JobRoleDetailedResponse";
 import { JobRoleResponseWrapper } from "../../src/models/JobRoleResponseWrapper";
-import { getToken } from "../../src/services/AuthService";
 
 const jobRole1: JobRole = {
   jobRoleId: 1,
