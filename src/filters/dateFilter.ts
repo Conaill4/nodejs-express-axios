@@ -1,3 +1,4 @@
+
 export const dateFilter = (unixTimestamp: number): string => {
     const date = new Date(unixTimestamp);
     const day = date.getDate().toString().padStart(2, '0');
@@ -6,4 +7,3 @@ export const dateFilter = (unixTimestamp: number): string => {
 
     return `${day}/${month}/${year}`;
 };
-
