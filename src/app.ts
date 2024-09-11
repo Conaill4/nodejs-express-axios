@@ -20,12 +20,10 @@ const env = nunjucks.configure('views', {
 });
  
 env.addFilter('date', dateFilter);
- 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
   extended: true
 }))
- 
 app.use(session({ secret: 'SUPER_SECRET', cookie: { maxAge: 28800000 }}));
 
 app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
@@ -39,8 +37,10 @@ declare module "express-session" {
   }
 }
  
-app.get('/job-roles', allowRoles([UserRole.User, UserRole.Admin]), getJobsList);
- 
+app.get('/job-roles', allowRoles([UserRole.User, UserRole.Admin]),(req,res) => {
+  getJobsList(req,res);
+});
+
 app.listen(3000, () => {
     console.log('Server started on port 3000');
 });
@@ -48,9 +48,8 @@ app.listen(3000, () => {
 app.get('/', getHomePage);
 app.get('/loginForm', getLoginForm);
 app.post('/loginForm', postLoginForm);
-app.post('/logout',  allowRoles([UserRole.Admin, UserRole.User]), logoutForm );
-
-app.get('/job-roles/:id', allowRoles([UserRole.Admin, UserRole.User]), getJobByID);
+app.post('/logout', logoutForm , allowRoles([UserRole.User, UserRole.Admin]));
+app.get('/job-roles/:id', allowRoles([UserRole.User, UserRole.Admin]), getJobByID);
 
 
 app.get('*', (req, res) => {
