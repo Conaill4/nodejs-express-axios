@@ -14,7 +14,7 @@
     "test-ui-aws": "mocha --require ts-node/register --timeout 10000 test/ui/aws/*.ts",
     "test-ui-local-001": "mocha --require ts-node/register --timeout 10000 test/ui/local/LocalJobRoleTests.ts",
     "test-ui-aws-001": "mocha --require ts-node/register --timeout 10000 test/ui/aws/AwsJobRoleTests.ts",
-    "test-ui-local-040": "mocha --require ts-node/register --timeout 10000 test/ui/local/AwsLoginUITests.ts",
+    "test-ui-local-040": "mocha --require ts-node/register --timeout 10000 test/ui/local/LocalLoginUITests.ts",
     "test-ui-aws-040": "mocha --require ts-node/register --timeout 10000 test/ui/aws/AwsLoginUITests.ts"
 
   },
