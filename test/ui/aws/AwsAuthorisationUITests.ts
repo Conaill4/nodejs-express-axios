@@ -3,7 +3,7 @@ import { describe, it, before, after } from 'mocha';
 import webdriver, { WebDriver } from 'selenium-webdriver';
 import { DriverService } from 'selenium-webdriver/remote';
 
-describe('Job Role Info Page Tests - AWS', () => {
+describe('Authorisation tests - AWS', () => {
     let driver: WebDriver;
     const url: string = 'https://sbpkguvypc.eu-west-1.awsapprunner.com';
 
@@ -71,7 +71,26 @@ describe('Job Role Info Page Tests - AWS', () => {
         it('Admin user can access job-roles/{id}', async()=>{
             await driver.get(url + '/job-roles/1');
             const jobRolePage = await driver.getTitle();
+            expect(jobRolePage).to.equal('Job - Kainos');
+        })
+
+    })
+
+    describe('Applicant user can access appropriate endpoints via buttons and urls', ()=>{
+        beforeEach(async () => {
+            await login(driver, 'user@kainos.com', 'Us3r$$');
+        });
+
+        it('Admin user can access job-roles', async()=>{
+            await driver.get(url + '/job-roles');
+            const jobRolePage = await driver.getTitle();
             expect(jobRolePage).to.equal('Job Roles - Kainos');
+        })                          
+
+        it('Admin user can access job-roles/{id}', async()=>{
+            await driver.get(url + '/job-roles/1');
+            const jobRolePage = await driver.getTitle();
+            expect(jobRolePage).to.equal('Job - Kainos');
         })
 
     })
