@@ -3,7 +3,7 @@ import nunjucks from "nunjucks";
 import bodyParser from "body-parser";
 import session from "express-session";
 
-import { getJobByID, getJobsList } from "./controllers/JobRoleController";
+import { getJobByID, getJobsList, getNewJobForm, postNewJobForm } from "./controllers/JobRoleController";
 import { dateFilter } from "./filters/dateFilter";
 import { getHomePage } from "./controllers/HomePageController";
 import { getLoginForm, postLoginForm, logoutForm} from "./controllers/AuthController";
@@ -50,7 +50,8 @@ app.get('/loginForm', getLoginForm);
 app.post('/loginForm', postLoginForm);
 app.post('/logout', logoutForm , allowRoles([UserRole.User, UserRole.Admin]));
 app.get('/job-roles/:id', allowRoles([UserRole.User, UserRole.Admin]), getJobByID);
-
+app.get('/add-new-job-role', getNewJobForm)
+app.post('/add-new-job-role', postNewJobForm)
 
 app.get('*', (req, res) => {
   res.redirect('/');

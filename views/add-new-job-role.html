@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" class="external en_gb desktop">
+<head>
+    {% include "components/header.html" %}   
+
+<style>
+          
+.page-link {
+    align-items: center;
+  
+  background-color: #283583;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Galano Grotesque", monospace;
+  font-size: 16px;
+  font-weight: 600;
+  height: 48px;
+  justify-content: center;
+  letter-spacing: -.8px;
+  line-height: 24px;
+  min-width: 140px;
+  padding: 0 17px;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-right: 1rem;
+  margin-top: -3rem;
+}
+
+.page-link:hover {
+    background-color: #394cb6;
+    color: #ffffff;
+}
+
+.page-link :active {
+    border-color: #06f;
+  color: #06f;
+  fill: #06f;
+}
+
+.th_data{
+  text-align: center;
+  font-weight: 600;
+  padding-bottom: 1rem;
+  text-align: left;
+  text-align: left;
+}
+
+.td_data{
+padding-bottom: 1rem;
+font-size: large;
+
+}
+
+a{
+font-size: 16px;
+}
+
+a:hover{
+text-decoration: underline;
+color: rgb(23, 74, 193);
+transition: color 0.3s ease;
+}
+</style>
+
+    <title>Job Roles - Kainos</title>
+
+</head>
+<body class="static-page Life at Kainos" style="visibility: hidden;">
+
+    <div class="main-header">
+        {% include "components/navigationBar.html" %}    
+   </div>
+        <section class="ph-paragraph-cc-view1-option1-theme1 ph-widget" type="static" view="1719398658373-paragraph-cc-view1-option1-savedView-1719398636006" original-view="ph-paragraph-cc-view1-option1" theme="theme1" instance-id="P0ARHq" data-ph-id="-1719398658291">
+            <div class="ph-paragraph-cc-view1-option1-theme1 ph-widget-target" type="static" as-element="ph-html-v1" data-widget="ph-html-v1" view="1719398658373-paragraph-cc-view1-option1-savedView-1719398636006" original-view="ph-paragraph-cc-view1-option1" theme="theme1" ph-removed="true" data-ph-id="-1719398658291-1" instance-id="P0ARHq">
+                <div class="ph-component-cntr ph-widget-box" default-cards-count="1" max-allowed-cards="4" data-ph-id="ph-widget-element-1566038290791334-2">
+                    <div class="inner-container ph-cc-d-p-t-40 ph-cc-d-p-b-20" data-ph-id="ph-widget-element-1566038290791334-3">
+                        <div class="ph-container-content-block" data-ph-id="ph-widget-element-1566038290791334-4" style="width: 100%;">
+                            <div class="ph-card-container stackable" data-cards-per-row="one" data-ph-id="ph-widget-element-1566038290791334-5">
+                                <div class="ph-card" card-name="ph-paragraph-cc-view1" card-container-style="background-image:'url()'" data-ph-id="ph-widget-element-1566038290791334-6">
+                                    <div class="ph-paragraph-cc-view1 ph-card-block" data-ph-at-id="ph-paragraph-cc-view1" data-ph-id="ph-widget-element-1566038290791334-7">
+                                        <div class="ph-row" ph-row-num="1" data-ph-id="ph-widget-element-1566038290791334-8">
+                                            <div class="ph-col-12" ph-col-num="1" data-ph-id="ph-widget-element-1566038290791334-9">
+                                                <div class="content" ph-card-block-num="1" data-ph-id="ph-widget-element-1566038290791334-10" >
+                                                    <ppc-container component-content-key="description" class="description ph-line-height-1_5" data-ph-cid="description1" style="color: rgb(37, 45, 79);" data-ph-id="ph-widget-element-1566038290791334-11">
+                                                        <span class="description-block" data-ph-id="ph-widget-element-1566038290791334-12">
+                                                            <ppc-content key="Life at Kainos-P0ARHq-bRPP11-ph-paragraph-cc-view1-option1-savedView-1719398636006-description-text" data-ph-at-id="description-text" instance-id="bRPP11" data-ph-id="ph-widget-element-1566038290791334-13">
+                                                                <h2>
+                                                                    <span class="ph-line-height-1_5" data-ph-process-line-height="true" data-ph-style-attr="ph-line-height-1_5">Add a new Job - Admin
+                                                                </h2>
+                                                                <br/>
+                                                                <h4 style="text-align: left;"><b>Please fill out the Job details:</b></h4>
+                                                                <h5 style="text-align: left; padding-top: 5px;">Ensure that all fields are filled out correctly.</h5>
+                                                                
+                                                                <form class="form" action="/jobForm" method="post">
+
+                                                                    <label for="name">Job title:</label>
+                                                                    <input type="text" placeholder="Enter job title" />
+
+                                                                    <label for="name">Job description:</label>
+                                                                    <textarea cols="40" rows="5"></textarea>
+
+
+                                                                    <input type="number" placeholder="Enter a number" />
+                                                                    <input type="radio" />
+                                                                    <input type="checkbox" />
+                                                                    
+                                                                    <input type="url" />
+                                                                    <input type="date" />
+                                                                    <input type="datetime-local" />
+                                                                 
+                                                                    <select>
+                                                                        <option value="HTML">Select a Language</option>
+                                                                        <option value="HTML">HTML</option>
+                                                                        <option value="CSS">CSS</option>
+                                                                        <option value="JavaScript">JavaScript</option>
+                                                                        <option value="React">React</option>
+                                                                  </select>
+
+                                                                    <button id="submit">Submit</button>
+
+                                                                </form>
+                                                                
+                                                            </ppc-content>
+                                                        </span>
+                                                    </ppc-container>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>    
+    </div>
+</div>
+{% include "components/footer.html" %}
+</body>
+</html>
+<div id='csrfToken' style='display:none'>9ce53fe1fb584ad884739157eadba0b5</div>

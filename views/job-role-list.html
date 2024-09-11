@@ -4,7 +4,13 @@
     {% include "components/header.html" %}   
 
 <style>
-          
+       
+body{
+    display: flexbox;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
 .page-link {
     align-items: center;
   
@@ -66,6 +72,22 @@ text-decoration: underline;
 color: rgb(23, 74, 193);
 transition: color 0.3s ease;
 }
+
+#textbanner button{
+    float: right;
+    margin-top: -62px;
+}
+
+.forcebottom{
+    
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.content{
+    min-height: 30vh;
+}
 </style>
 
     <title>Job Roles - Kainos</title>
@@ -94,11 +116,18 @@ transition: color 0.3s ease;
                                                                     <span class="ph-line-height-1_5" data-ph-process-line-height="true" data-ph-style-attr="ph-line-height-1_5">Jobs at Kainos
                                                                 </h2>
                                                                 <br/>
-                                                                <h4 style="text-align: left;"><b>The following jobs are available at Kainos:</b></h4>
-                                                                <h5 style="text-align: left; padding-top: 5px;">Please click on a job to view more information.</h5>
+                                                                <div id="textbanner">
+                                                                    <h4 style="text-align: left;"><b>The following jobs are available at Kainos:</b></h4>
+                                                                    <h5 style="text-align: left; padding-top: 5px;">Please click on a job to view more information.{{ decodedToken.Role }}</h5>
+                                                                    
+                                                                    {% if Number == 1 %}
+                                                                    <button role="button" class="page-link" onclick="window.location.href='/add-new-job-role'">Add New Listing</button>
+                                                                    {% endif %}
+                                                                </div>
+                                                                
                                                                 <p style="text-align: left;">
                                                                     <br/>
-                                                                    <table style="width: 100%; margin: 0 auto; text-align: center; margin-top: 1rem; margin-left: 5.5rem;">
+                                                                    <table style="width: 100%; margin: 0 auto; text-align: center; margin-top: 1rem; margin-left: 5.5rem; ">
                                                                         <tr style="text-align: left;">
                                                                           
                                                                             <th class="th_data">Role name:</th>
@@ -140,6 +169,7 @@ transition: color 0.3s ease;
                                                                               </li>
                                                                         </ul>
                                                                     </nav>
+                                                                    
                                                                 </div>
                                                            </div>        
                                                         </p>
@@ -159,7 +189,9 @@ transition: color 0.3s ease;
         </section>    
     </div>
 </div>
-{% include "components/footer.html" %}
+<div class="forcebottom">
+    {% include "components/footer.html" %}
+</div>
 </body>
 </html>
 <div id='csrfToken' style='display:none'>9ce53fe1fb584ad884739157eadba0b5</div>

@@ -1,5 +1,7 @@
 import express from "express";
-import {getJobDetailsById, getJobs} from "../services/JobRoleService"
+import {createJobRole, getJobDetailsById, getJobs} from "../services/JobRoleService"
+import { JwtToken } from "../models/JwtToken";
+import { jwtDecode } from "jwt-decode";
 
 export const getJobsList = async (req: express.Request, res: express.Response): Promise<void> => {
     try{
@@ -7,9 +9,13 @@ export const getJobsList = async (req: express.Request, res: express.Response): 
         const page = parseInt(req.query.page as string) || 1;
         const pageSize = parseInt(req.query.pageSize as string) || 10;
         const response = await getJobs(page, pageSize, req.session.token);
+
+        const decodedToken: JwtToken = jwtDecode(req.session.token);
+        const roleid = decodedToken.Role;
+
         const { jobRoles, pagination } = response;
         
-        res.render("job-role-list.html", { JobRoles: jobRoles, Pagination: pagination } );
+        res.render("job-role-list.html", { JobRoles: jobRoles, Pagination: pagination, Number: roleid } );
 
     }
     catch (e) {
@@ -28,5 +34,24 @@ export const getJobByID = async (req: express.Request, res: express.Response): P
         const page = 1;
         const pageSize = 10;       
         res.render('job-role-list.html', {errormessage: e.message, JobRoles: await getJobs(page, pageSize, req.session.token) });
+    }
+}
+
+export const getNewJobForm = async (req: express.Request, res: express.Response): Promise<void> => {
+    try{
+        res.render("add-new-job-role.html");
+    }
+    catch (e) {     
+        res.render('home.html', {errormessage: "Unable to find the specified page."});
+    }
+}
+
+export const postNewJobForm = async (req: express.Request, res: express.Response): Promise<void> => {
+    try{
+        const id = await createJobRole(req.body);
+        res.redirect('/job-roles/' + id)
+    }
+    catch (e) {     
+        res.render('add-new-job-role.html', {errormessage: e.message});
     }
 }

@@ -2,6 +2,7 @@ import axios, {AxiosResponse} from "axios";
 import { JobRoleDetailedResponse } from "../models/JobRoleDetailedResponse";
 import { getHeader } from "./AuthUtils";
 import { JobRoleResponseWrapper } from "../models/JobRoleResponseWrapper";
+import { JobRequest } from "../models/JobRequest";
 axios.defaults.baseURL = process.env.API_URL || 'http://localhost:8080/';
 
 
@@ -36,5 +37,16 @@ export const getJobDetailsById = async (id: string, token: string): Promise<JobR
             throw new Error("Sorry, the job you tried to find is unavailable.");
         }     
          throw new Error("Sorry, an unknown error has occurred.");
+    }
+}
+
+export const createJobRole = async (jobRole: JobRequest): Promise<Number> => {
+    try {
+        const response: AxiosResponse = await axios.post(URL + "/create-job-role", jobRole);
+
+        return response.data;
+    } catch (e) {
+        console.log(e);
+        throw new Error(e.response.data);
     }
 }
