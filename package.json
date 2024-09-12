@@ -9,7 +9,13 @@
     "dev": "nodemon src/app.ts",
     "linter": "npx eslint .",
     "test": "mocha --require ts-node/register test/unit/**/*.ts",
-    "test-ui": "mocha --require ts-node/register --timeout 10000 test/ui/**/*.ts"
+    "test-ui": "mocha --require ts-node/register --timeout 10000 test/ui/**/*.ts",
+    "test-ui-local": "mocha --require ts-node/register --timeout 10000 test/ui/local/*.ts",
+    "test-ui-aws": "mocha --require ts-node/register --timeout 10000 test/ui/aws/*.ts",
+    "test-ui-local-001": "mocha --require ts-node/register --timeout 10000 test/ui/local/LocalJobRoleTests.ts",
+    "test-ui-aws-001": "mocha --require ts-node/register --timeout 10000 test/ui/aws/AwsJobRoleTests.ts",
+    "test-ui-local-040": "mocha --require ts-node/register --timeout 10000 test/ui/local/LocalLoginUITests.ts",
+    "test-ui-aws-040": "mocha --require ts-node/register --timeout 10000 test/ui/aws/AwsLoginUITests.ts"
   },
   "keywords": [],
   "author": "Shaun Ganley <shaung@kainos.com>",
@@ -43,6 +49,7 @@
     "chai": "^4.3.7",
     "chromedriver": "^127.0.2",
     "eslint": "^9.9.1",
+    "eslint-plugin-chai-friendly": "^1.0.1",
     "globals": "^15.9.0",
     "mocha": "^10.7.3",
     "sass": "^1.75.0",

@@ -24,6 +24,10 @@ const JobRoleResponseWrapperTest: JobRoleResponseWrapper = {
     totalPages: 5,
     nextPage: 2,
     previousPage: 1
+  },
+  roleOrdering: {
+    fieldName: "jobRoleId",
+    orderBy: "ASC"
   }
 }
 
@@ -104,11 +108,13 @@ describe('JobRoleService', function () {
     describe('getJobs', function () {
       it('should return jobs from response', async () => {
         const data = JobRoleResponseWrapperTest;
-        const Page = 1;
+        const fieldName = data.roleOrdering.fieldName;
+        const orderBy = data.roleOrdering.orderBy;
+        const Page = data.pagination.currentPage;
         const pageSize = 10;
-        mock.onGet(URL + `?page=${Page}&pageSize=${pageSize}`).reply(200, data);
+        mock.onGet(URL + `?fieldName=${fieldName}&orderBy=${orderBy}&page=${Page}&pageSize=${pageSize}`).reply(200, data);
         console.log("consdf");
-        const results = await getJobs(1,10,"123");
+        const results = await getJobs("jobRoleId","ASC",1,10,"123");
 
         expect(results.jobRoles[0].jobRoleId).to.deep.equal(jobRole1.jobRoleId)
         expect(results.jobRoles[0].roleName).to.deep.equal(jobRole1.roleName)
@@ -117,9 +123,9 @@ describe('JobRoleService', function () {
       it('should throw exception when 500 error returned from axios', async () => {
         mock.onGet(URL).reply(500);
         try {
-          await getJobs(1,10,"token");
+          await getJobs("jobRoleId","ASC",1,10,"token");
         } catch (e) {
-          expect(e.message).to.equal('Failed to get any Jobs');
+          expect(e.message).to.equal('Server Error');
           return;
         }
       })

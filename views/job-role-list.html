@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" class="external en_gb desktop">
+
 <head>
-    {% include "components/header.html" %}   
+    {% include "components/header.html" %}
 
 <style>
        
@@ -38,34 +39,27 @@ body{
   margin-top: -3rem;
 }
 
-.page-link:hover {
-    background-color: #394cb6;
-    color: #ffffff;
-}
+        
+        .page-link:hover {
+            background-color: #394cb6;
+            color: #ffffff;
+        }
 
-.page-link :active {
-    border-color: #06f;
-  color: #06f;
-  fill: #06f;
-}
+        .page-link :active {
+            border-color: #06f;
+            color: #06f;
+            fill: #06f;
+        }
 
-.th_data{
-  text-align: center;
-  font-weight: 600;
-  padding-bottom: 1rem;
-  text-align: left;
-  text-align: left;
-}
+        .td_data {
+            padding-bottom: 1rem;
+            font-size: large;
 
-.td_data{
-padding-bottom: 1rem;
-font-size: large;
+        }
 
-}
-
-a{
-font-size: 16px;
-}
+        a {
+            font-size: 16px;
+        }
 
 a:hover{
 text-decoration: underline;
@@ -88,97 +82,246 @@ transition: color 0.3s ease;
 .content{
     min-height: 30vh;
 }
-</style>
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            /* Keeps the table cells collapsed without borders */
+            margin-top: 20px;
+        }
+
+        #roleOrderingForm .button-container {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        #roleOrderingForm .button-container button {
+            margin-right: 10px;
+            padding: 10px 20px;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #roleOrderingFormtable {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        #roleOrderingForm th {
+            border: 1px solid #ddd;
+            text-align: left;
+            border-collapse: collapse;
+            border: none;
+            padding-bottom: 10px;
+        }
+
+        #roleOrderingForm th {
+            background-color: transparent;
+        }
+
+        #roleOrderingForm th button {
+            background: none;
+            border: none;
+            color: inherit;
+            cursor: pointer;
+            padding: 0;
+            font-size: 18px;
+            font-weight: 600;
+            text-align: left;
+        }
+    </style>
 
     <title>Job Roles - Kainos</title>
 
 </head>
+
 <body class="static-page Life at Kainos" style="visibility: hidden;">
 
     <div class="main-header">
-        {% include "components/navigationBar.html" %}    
-   </div>
-        <section class="ph-paragraph-cc-view1-option1-theme1 ph-widget" type="static" view="1719398658373-paragraph-cc-view1-option1-savedView-1719398636006" original-view="ph-paragraph-cc-view1-option1" theme="theme1" instance-id="P0ARHq" data-ph-id="-1719398658291">
-            <div class="ph-paragraph-cc-view1-option1-theme1 ph-widget-target" type="static" as-element="ph-html-v1" data-widget="ph-html-v1" view="1719398658373-paragraph-cc-view1-option1-savedView-1719398636006" original-view="ph-paragraph-cc-view1-option1" theme="theme1" ph-removed="true" data-ph-id="-1719398658291-1" instance-id="P0ARHq">
-                <div class="ph-component-cntr ph-widget-box" default-cards-count="1" max-allowed-cards="4" data-ph-id="ph-widget-element-1566038290791334-2">
-                    <div class="inner-container ph-cc-d-p-t-40 ph-cc-d-p-b-20" data-ph-id="ph-widget-element-1566038290791334-3">
-                        <div class="ph-container-content-block" data-ph-id="ph-widget-element-1566038290791334-4" style="width: 100%;">
-                            <div class="ph-card-container stackable" data-cards-per-row="one" data-ph-id="ph-widget-element-1566038290791334-5">
-                                <div class="ph-card" card-name="ph-paragraph-cc-view1" card-container-style="background-image:'url()'" data-ph-id="ph-widget-element-1566038290791334-6">
-                                    <div class="ph-paragraph-cc-view1 ph-card-block" data-ph-at-id="ph-paragraph-cc-view1" data-ph-id="ph-widget-element-1566038290791334-7">
-                                        <div class="ph-row" ph-row-num="1" data-ph-id="ph-widget-element-1566038290791334-8">
-                                            <div class="ph-col-12" ph-col-num="1" data-ph-id="ph-widget-element-1566038290791334-9">
-                                                <div class="content" ph-card-block-num="1" data-ph-id="ph-widget-element-1566038290791334-10" >
-                                                    <ppc-container component-content-key="description" class="description ph-line-height-1_5" data-ph-cid="description1" style="color: rgb(37, 45, 79);" data-ph-id="ph-widget-element-1566038290791334-11">
-                                                        <span class="description-block" data-ph-id="ph-widget-element-1566038290791334-12">
-                                                            <ppc-content key="Life at Kainos-P0ARHq-bRPP11-ph-paragraph-cc-view1-option1-savedView-1719398636006-description-text" data-ph-at-id="description-text" instance-id="bRPP11" data-ph-id="ph-widget-element-1566038290791334-13">
-                                                                <h2>
-                                                                    <span class="ph-line-height-1_5" data-ph-process-line-height="true" data-ph-style-attr="ph-line-height-1_5">Jobs at Kainos
-                                                                </h2>
-                                                                <br/>
-                                                                <div id="textbanner">
-                                                                    <h4 style="text-align: left;"><b>The following jobs are available at Kainos:</b></h4>
-                                                                    <h5 style="text-align: left; padding-top: 5px;">Please click on a job to view more information.{{ decodedToken.Role }}</h5>
-                                                                    
+        {% include "components/navigationBar.html" %}
+
+        {% include "components/errorMessage.html" %}
+    </div>
+    <section class="ph-paragraph-cc-view1-option1-theme1 ph-widget" type="static"
+        view="1719398658373-paragraph-cc-view1-option1-savedView-1719398636006"
+        original-view="ph-paragraph-cc-view1-option1" theme="theme1" instance-id="P0ARHq" data-ph-id="-1719398658291">
+        <div class="ph-paragraph-cc-view1-option1-theme1 ph-widget-target" type="static" as-element="ph-html-v1"
+            data-widget="ph-html-v1" view="1719398658373-paragraph-cc-view1-option1-savedView-1719398636006"
+            original-view="ph-paragraph-cc-view1-option1" theme="theme1" ph-removed="true" data-ph-id="-1719398658291-1"
+            instance-id="P0ARHq">
+            <div class="ph-component-cntr ph-widget-box" default-cards-count="1" max-allowed-cards="4"
+                data-ph-id="ph-widget-element-1566038290791334-2">
+                <div class="inner-container ph-cc-d-p-t-40 ph-cc-d-p-b-20"
+                    data-ph-id="ph-widget-element-1566038290791334-3">
+                    <div class="ph-container-content-block" data-ph-id="ph-widget-element-1566038290791334-4"
+                        style="width: 100%;">
+                        <div class="ph-card-container stackable" data-cards-per-row="one"
+                            data-ph-id="ph-widget-element-1566038290791334-5">
+                            <div class="ph-card" card-name="ph-paragraph-cc-view1"
+                                card-container-style="background-image:'url()'"
+                                data-ph-id="ph-widget-element-1566038290791334-6">
+                                <div class="ph-paragraph-cc-view1 ph-card-block" data-ph-at-id="ph-paragraph-cc-view1"
+                                    data-ph-id="ph-widget-element-1566038290791334-7">
+                                    <div class="ph-row" ph-row-num="1"
+                                        data-ph-id="ph-widget-element-1566038290791334-8">
+                                        <div class="ph-col-12" ph-col-num="1"
+                                            data-ph-id="ph-widget-element-1566038290791334-9">
+                                            <div class="content" ph-card-block-num="1"
+                                                data-ph-id="ph-widget-element-1566038290791334-10">
+                                                <ppc-container component-content-key="description"
+                                                    class="description ph-line-height-1_5" data-ph-cid="description1"
+                                                    style="color: rgb(37, 45, 79);"
+                                                    data-ph-id="ph-widget-element-1566038290791334-11">
+                                                    <span class="description-block"
+                                                        data-ph-id="ph-widget-element-1566038290791334-12">
+                                                        <ppc-content
+                                                            key="Life at Kainos-P0ARHq-bRPP11-ph-paragraph-cc-view1-option1-savedView-1719398636006-description-text"
+                                                            data-ph-at-id="description-text" instance-id="bRPP11"
+                                                            data-ph-id="ph-widget-element-1566038290791334-13">
+                                                            <h2>
+                                                                <span class="ph-line-height-1_5"
+                                                                    data-ph-process-line-height="true"
+                                                                    data-ph-style-attr="ph-line-height-1_5">Jobs at
+                                                                    Kainos
+                                                            </h2>
+                                                            <br />
+                                                            <div id="textbanner">
+                                                               
+                                                                <h4 style="text-align: left;"><b>The following jobs are
+                                                                        available at Kainos:</b></h4>
+                                                                <h5 style="text-align: left; padding-top: 5px;">Please click
+                                                                    on a job to view more information.</h5>
                                                                     {% if Number == 1 %}
                                                                     <button role="button" class="page-link" onclick="window.location.href='/add-new-job-role'">Add New Listing</button>
                                                                     {% endif %}
-                                                                </div>
-                                                                
-                                                                <p style="text-align: left;">
-                                                                    <br/>
-                                                                    <table style="width: 100%; margin: 0 auto; text-align: center; margin-top: 1rem; margin-left: 5.5rem; ">
-                                                                        <tr style="text-align: left;">
-                                                                          
-                                                                            <th class="th_data">Role name:</th>
-                                                                            <th class="th_data">Location:</th>
-                                                                            <th class="th_data">Capability:</th>
-                                                                            <th class="th_data">Band:</th>
-                                                                            <th class="th_data">Closing Date:</th>
-                                                                        </tr>
-                                                                        {% for JobRole in JobRoles | sort(attribute='jobRoleId') %}
-                                                                            <tr style="text-align: left;" >
-                                                                                    <td class="td_data"><a href="/job-roles/{{JobRole.jobRoleId}}" id="jobName{{ JobRole.jobRoleId }}">{{ JobRole.roleName }}</a></td>
-                                                                                    <td class="td_data"id="jobLocation{{ JobRole.jobRoleId }}" >{{ JobRole.location }}</td>
-                                                                                    <td class="td_data" id="jobCapability{{ JobRole.jobRoleId }}">{{ JobRole.capabilityName }}</td>
-                                                                                    <td class="td_data" id="jobBand{{ JobRole.jobRoleId }}">{{ JobRole.bandName }}</td>
-                                                                                    <td class="td_data" id="jobClosingDate{{ JobRole.jobRoleId }}">{{ JobRole.closingDate | date }}</td>
-                                                                            </tr>
-                                                                        {% endfor %}
-                                                                    </table>
-                                                                    <br/>
-                                                                    <br/>
-                                                                  
-                                                                    <nav class="d-flex flex-row justify-content-center mb-5 pb-5">
-                                                                        <ul class="pagination">
-                                                                    
-                                                                              <li class="page-item {% if 1 == Pagination.currentPage %}disabled{% endif %}">
-                                                                                <button role="button" class="page-link" onclick="window.location.href='?page=1&pageSize=10'">First Page</button>
-                                                                              </li>
-                                                                                                      
-                                                                               <li class="page-item {% if 1 == Pagination.currentPage %}disabled{% endif %}" id="previous-page">
-                                                                                <button class="page-link" onclick="window.location.href='?page={{ Pagination.previousPage }}&pageSize=10'" role="button">← Previous</button>
-                                                                              </li>
-                                                                               
-                                                                              <li class="page-item {% if Pagination.totalPage == Pagination.currentPage %}disabled{% endif %}" id="next-page">
-                                                                                <button class="page-link" onclick="window.location.href='?page={{ Pagination.nextPage }}&pageSize=10'" role="button"> Next →</button>
-                                                                              </li>
-                                                                               
-                                                                              <li class="page-item {% if Pagination.totalPage == Pagination.currentPage %}disabled{% endif %} " id="last-page">
-                                                                                <button role="button" class="page-link" onclick="window.location.href='?page={{ Pagination.totalPage }}&pageSize=10'">Last Page</button>
-                                                                              </li>
-                                                                        </ul>
-                                                                    </nav>
-                                                                    
-                                                                </div>
-                                                           </div>        
-                                                        </p>
-                                                    </ppc-content>
-                                                </span>
-                                                </ppc-container>
-                                                </div>
+                                                            </div>
+                                                            
+                                                            <p>
+                                                                <br />
+                                                                {% if RoleOrdering.fieldName == "roleName" %}
+                                                                <label
+                                                                    style="float: right; font-size: 16px; font-weight: 400; font-style: italic; padding-bottom: 1rem;">Sort
+                                                                    By: Role Name
+                                                                    ({{RoleOrdering.orderBy}})</label>
+                                                                {% endif %}
+                                                                {% if RoleOrdering.fieldName == "location" %}
+                                                                <label
+                                                                    style="float: right; font-size: 16px; font-weight: 400; font-style: italic; padding-bottom: 1rem;">Sort
+                                                                    By: Location
+                                                                    ({{RoleOrdering.orderBy}})</label>
+                                                                {% endif %}
+                                                                {% if RoleOrdering.fieldName == "capabilityName" %}
+                                                                <label
+                                                                    style="float: right; font-size: 16px; font-weight: 400; font-style: italic; padding-bottom: 1rem;">Sort
+                                                                    By: Capability
+                                                                    ({{RoleOrdering.orderBy}})</label>
+                                                                {% endif %}
+                                                                {% if RoleOrdering.fieldName == "bandName" %}
+                                                                <label
+                                                                    style="float: right; font-size: 16px; font-weight: 400; font-style: italic; padding-bottom: 1rem;">Sort
+                                                                    By: Band
+                                                                    ({{RoleOrdering.orderBy}})</label>
+                                                                {% endif %}
+                                                                {% if RoleOrdering.fieldName == "closingDate" %}
+                                                                <label
+                                                                    style="float: right; font-size: 16px; font-weight: 400; font-style: italic; padding-bottom: 1rem;">Sort
+                                                                    By: Closing Date
+                                                                    ({{RoleOrdering.orderBy}})</label>
+                                                                {% endif %}
+                                                            <form action="/sort" method="post" id="roleOrderingForm">
+                                                                <table
+                                                                    style="width: 100%; margin: 0 auto; text-align: center; margin-top: 1rem; margin-left: 5.5rem;">
+                                                                    <tr style="text-align: left;">
+                                                                        <div class="button-container">
+                                                                            <th><button type="submit" name="fieldName"
+                                                                                    value="roleName" id="roleNameButton">Role name:
+                                                                                    ⇅</button>
+                                                                            </th>
+                                                                            <th><button type="submit" name="fieldName"
+                                                                                    value="location" id="locationButton">Location:
+                                                                                    ⇅</button>
+                                                                            </th>
+                                                                            <th><button type="submit" name="fieldName"
+                                                                                    value="capabilityName" id="capabilityNameButton">Capability:
+                                                                                    ⇅</button>
+                                                                            </th>
+                                                                            <th><button type="submit" name="fieldName"
+                                                                                    value="bandName" id="bandNameButton">Band: ⇅</button>
+                                                                            </th>
+                                                                            <th><button type="submit" name="fieldName"
+                                                                                    value="closingDate" id="closingDateButton">Closing
+                                                                                    Date: ⇅</button></th>
+                                                                        </div>
+                                                                    </tr>
+                                                                    {% for JobRole in JobRoles %}
+
+                                                                    <tr style="text-align: left;">
+
+                                                                        <td class="td_data"><a
+                                                                                href="/job-roles/{{JobRole.jobRoleId}}"
+                                                                                id="jobName{{ JobRole.jobRoleId }}">{{
+                                                                                JobRole.roleName }}</a></td>
+                                                                        <td class="td_data"
+                                                                            id="jobLocation{{ JobRole.jobRoleId }}">{{
+                                                                            JobRole.location }}</td>
+                                                                        <td class="td_data"
+                                                                            id="jobCapability{{ JobRole.jobRoleId }}">{{
+                                                                            JobRole.capabilityName }}</td>
+                                                                        <td class="td_data"
+                                                                            id="jobBand{{ JobRole.jobRoleId }}">{{
+                                                                            JobRole.bandName }}</td>
+                                                                        <td class="td_data"
+                                                                            id="jobClosingDate{{ JobRole.jobRoleId }}">
+                                                                            {{
+                                                                            JobRole.closingDate | date }}</td>
+                                                                    </tr>
+                                                                    {% endfor %}
+                                                                </table>
+                                                            </form>
+                                                            <br />
+                                                            <br />
+
+                                                            <nav
+                                                                class="d-flex flex-row justify-content-center mb-5 pb-5">
+                                                                <ul class="pagination">
+
+                                                                    <li
+                                                                        class="page-item {% if 1 == Pagination.currentPage %}disabled{% endif %}">
+                                                                        <button role="button" class="page-link"
+                                                                            onclick="window.location.href='?fieldName={{ RoleOrdering.fieldName }}&orderBy={{ RoleOrdering.orderBy}}&page=1&pageSize=10'">First
+                                                                            Page</button>
+                                                                    </li>
+
+                                                                    <li class="page-item {% if 1 == Pagination.currentPage %}disabled{% endif %}"
+                                                                        id="previous-page">
+                                                                        <button class="page-link"
+                                                                            onclick="window.location.href='?fieldName={{ RoleOrdering.fieldName }}&orderBy={{ RoleOrdering.orderBy}}&page={{ Pagination.previousPage }}&pageSize=10'"
+                                                                            role="button">← Previous</button>
+                                                                    </li>
+
+                                                                    <li class="page-item {% if Pagination.totalPage == Pagination.currentPage %}disabled{% endif %}"
+                                                                        id="next-page">
+                                                                        <button class="page-link"
+                                                                            onclick="window.location.href='?fieldName={{ RoleOrdering.fieldName }}&orderBy={{ RoleOrdering.orderBy}}&page={{ Pagination.nextPage }}&pageSize=10'"
+                                                                            role="button"> Next →</button>
+                                                                    </li>
+
+                                                                    <li class="page-item {% if Pagination.totalPage == Pagination.currentPage %}disabled{% endif %} "
+                                                                        id="last-page">
+                                                                        <button role="button" class="page-link"
+                                                                            onclick="window.location.href='?fieldName={{ RoleOrdering.fieldName }}&orderBy={{ RoleOrdering.orderBy }}&page={{ Pagination.totalPage }}&pageSize=10'">Last
+                                                                            Page</button>
+                                                                    </li>
+                                                                </ul>
+                                                            </nav>
                                             </div>
                                         </div>
+                                        </p>
+                                        </ppc-content>
+                                        </span>
+                                        </ppc-container>
                                     </div>
                                 </div>
                             </div>
@@ -186,12 +329,16 @@ transition: color 0.3s ease;
                     </div>
                 </div>
             </div>
-        </section>    
+        </div>
+        </div>
+        </div>
+    </section>
     </div>
-</div>
-<div class="forcebottom">
+    </div>
+    <div class="forcebottom">
     {% include "components/footer.html" %}
 </div>
 </body>
+
 </html>
 <div id='csrfToken' style='display:none'>9ce53fe1fb584ad884739157eadba0b5</div>
