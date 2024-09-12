@@ -12,13 +12,15 @@ import { allowRoles } from "./middleware/AuthMiddleware";
 import { UserRole } from "./models/JwtToken";
 
 const app = express();
+app.use(express.json());
 
 const env = nunjucks.configure('views', {
     autoescape: true,
     express: app,
     noCache: true
 });
- 
+
+
 env.addFilter('date', dateFilter);
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({

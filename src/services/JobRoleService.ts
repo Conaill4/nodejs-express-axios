@@ -40,13 +40,13 @@ export const getJobDetailsById = async (id: string, token: string): Promise<JobR
     }
 }
 
-export const createJobRole = async (jobRole: JobRoleRequest, id: string, token: string): Promise<Number> => {
+export const createJobRole = async (jobRole: JobRoleRequest, token: string): Promise<number> => {
     
     try {
         const response: AxiosResponse = await axios.post(URL, jobRole, getHeader(token));
         return response.data;
     } catch (e) {
         console.log(e);
-        throw new Error(e.response.data);
+        throw new Error('Failed to create job role');
     }
 }

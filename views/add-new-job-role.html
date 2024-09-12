@@ -137,14 +137,14 @@ transition: color 0.3s ease;
 }
 
 input[type="number"] {
-    -webkit-appearance: textfield; /* Remove the default spinner styling */
+    -webkit-appearance: textfield;
 }   
 
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: inner-spin-button !important; /* Force spinners to appear */
-    opacity: 1; /* Ensure they are fully visible */
-    display: block; /* Ensure they are displayed */
+    -webkit-appearance: inner-spin-button !important; 
+    opacity: 1;
+    display: block; 
 }
 </style>
 
@@ -181,79 +181,89 @@ input[type="number"]::-webkit-outer-spin-button {
                                                                 <h5 style="text-align: left; padding-top: 5px;">Ensure that all fields are filled out correctly.</h5>
                                                                 
                                                                 <form class="form" action="/add-new-job-role" method="post">
+                                                                   
                                                                     <table id="infoTable">
-                                                                        <tr>
-                                                                            <th>Job title:</th>
-                                                                            <td><input type="text" id="name" placeholder="Job title" maxlength="45" style="width: 29.5rem; padding-left: 5px;" value="{{roleName}}" required /></td>
-                                                                        </tr>
-    
-                                                                        <tr>
-                                                                            <th>Job Description:</th>
-                                                                            <td><textarea cols="40" id="desc" rows="5" placeholder="Job description" style="resize: none; padding-left: 5px;" value="{{description}}" required maxlength="300"></textarea></td>
-                                                                        </tr>
-    
-                                                                        <tr>
-                                                                            <th>Sharepoint URL:</th>
-                                                                            <td><input type="text" id="url" placeholder="Sharepoint URL" style="min-width: 29.5rem; padding-left: 5px;" value="{{sharepointUrl}}" maxlength="300"/></td>
-                                                                        </tr>
-
-                                                                        <tr>
-                                                                            <th>Responsibilities:</th>
-                                                                            <td><textarea cols="40" id="resp" rows="5" placeholder="Job responsibilities" value="{{responsibilities}}" style="resize: none; padding-left: 5px;" maxlength="300" required></textarea></td>            
-                                                                        </tr>
-    
-                                                                        <tr>
-                                                                            <th>Available Positions:</th>
-                                                                            <td id="openPos"><input type="number" style="min-width: 3rem; text-align: center; padding-left: 5px;" value="{{numberOfOpenPositions}}" required min="1" max="50"/></td>
-                                                                        </tr>
-                                                                        
-                                                                        <tr>
-                                                                            <th>Location:</th>
-                                                                            <td><input type="text" id="location" placeholder="Location" style="min-width: 20rem; padding-left: 5px;" value="{{location}}" required/></td>
-                                                                        </tr>
-    
-                                                                        <tr>
-                                                                            <th>Closing Date:</th>
-                                                                            <td><input type="date" id="date" style="min-width: 20rem; padding-left: 5px;" value="{{closingDate}}" required/></td>
-                                                                        </tr>
-    
-                                                                        <tr>
-                                                                            <th>Band:</th>
-                                                                            <td>
-                                                                                <select name="band" id="band" style="min-width: 20rem; padding-left: 5px;" value="{{bandId}}" required>
-                                                                                
-                                                                                <option value="" disabled selected>Please Select a Band:</option>
-                                                                                {% for Band in bands | sort(attribute='bandId') %}
-                                                                                    <option value="">
-                                                                                        {{Band.bandName}}
-                                                                                    </option>
-                                                                                {% endfor %}
-                                                                                </select>
-                                                                                
-                                                                            </td>
-                                                                        </tr>
-
-                                                                        <tr>
-                                                                            <th>Capability:</th>
-                                                                            <td>
-                                                                                <select name="capability" id="capability" style="min-width: 20rem; padding-left: 5px;" value="{{capabilityId}}" required>
-                                                                                
-                                                                                <option value="" disabled selected>Please Select a Capability:</option>
-                                                                                {% for Capability in capabilities | sort(attribute='capabilityId') %}
-                                                                                <option value="">
-                                                                                    {{Capability.capabilityName}}
-                                                                                </option>
-                                                                                {% endfor %}
-                                                                                </select>
-                                                                                
-                                                                            </td>
-                                                                        </tr>
-                                                    
-                                                                </table>
-                                                                
-                                                                <button class="page-link" id="submit" type="submit">Submit</button>
-                                                                
-                                                                </form>
+                                                                      <tr>
+                                                                        <th>Job title:</th>
+                                                                        <td>
+                                                                          <input type="text" name="roleName" id="name" placeholder="Job title" maxlength="45" style="width: 29.5rem; padding-left: 5px;" value="{{roleName}}" required />
+                                                                        </td>
+                                                                      </tr>
+                                                                  
+                                                                      <tr>
+                                                                        <th>Job Description:</th>
+                                                                        <td>
+                                                                          <textarea name="description" cols="40" id="desc" rows="5" placeholder="Job description" style="resize: none; padding-left: 5px;" required maxlength="300">{{description}}</textarea>
+                                                                        </td>
+                                                                      </tr>
+                                                                  
+                                                                      <tr>
+                                                                        <th>Sharepoint URL:</th>
+                                                                        <td>
+                                                                          <input type="text" name="sharepointUrl" id="url" placeholder="Sharepoint URL" style="min-width: 29.5rem; padding-left: 5px;" value="{{sharepointUrl}}" maxlength="300" />
+                                                                        </td>
+                                                                      </tr>
+                                                                  
+                                                                      <tr>
+                                                                        <th>Responsibilities:</th>
+                                                                        <td>
+                                                                          <textarea name="responsibilities" cols="40" id="resp" rows="5" placeholder="Job responsibilities" style="resize: none; padding-left: 5px;" maxlength="300" required>{{responsibilities}}</textarea>
+                                                                        </td>
+                                                                      </tr>
+                                                                  
+                                                                      <tr>
+                                                                        <th>Available Positions:</th>
+                                                                        <td id="openPos">
+                                                                          <input type="number" name="numberOfOpenPositions" style="min-width: 3rem; text-align: center; padding-left: 5px;" value="{{numberOfOpenPositions}}" required min="1" max="50" />
+                                                                        </td>
+                                                                      </tr>
+                                                                  
+                                                                      <tr>
+                                                                        <th>Location:</th>
+                                                                        <td>
+                                                                          <input type="text" name="location" id="location" placeholder="Location" style="min-width: 20rem; padding-left: 5px;" value="{{location}}" required />
+                                                                        </td>
+                                                                      </tr>
+                                                                  
+                                                                      <tr>
+                                                                        <th>Closing Date:</th>
+                                                                        <td>
+                                                                          <input type="date" name="closingDate" id="date" style="min-width: 20rem; padding-left: 5px;" value="{{closingDate}}" required />
+                                                                        </td>
+                                                                      </tr>
+                                                                  
+                                                                      <tr>
+                                                                        <th>Band:</th>
+                                                                        <td>
+                                                                          <select name="bandId" id="bandId" style="min-width: 20rem; padding-left: 5px;" required>
+                                                                            <option value="" disabled selected>Please Select a Band:</option>
+                                                                            {% for Band in bands | sort(attribute='bandId') %}
+                                                                            <option value="{{Band.bandID}}">
+                                                                              {{Band.bandName}}
+                                                                            </option>
+                                                                            {% endfor %}
+                                                                          </select>
+                                                                        </td>
+                                                                      </tr>
+                                                                  
+                                                                      <tr>
+                                                                        <th>Capability:</th>
+                                                                        <td>
+                                                                          <select name="capabilityId" id="capabilityId" style="min-width: 20rem; padding-left: 5px;" required>
+                                                                            <option value="" disabled selected>Please Select a Capability:</option>
+                                                                            {% for Capability in capabilities | sort(attribute='capabilityId') %}
+                                                                            <option  value="{{Capability.capabilityID}}">
+                                                                              {{Capability.capabilityName}}
+                                                                            </option>
+                                                                            {% endfor %}
+                                                                          </select>
+                                                                        </td>
+                                                                      </tr>
+                                                                    </table>
+                                                                  
+                                                                    <button class="page-link" id="submit" type="submit">Submit</button>
+                                                                  </form>
+                                                                  
                                                             </ppc-content>
                                                         </span>
                                                     </ppc-container>
@@ -274,15 +284,13 @@ input[type="number"]::-webkit-outer-spin-button {
 
     const dateInput = document.getElementById('date');
 
-  // Get today's date and add 7 days (one week)
+  // Get today's date and add 7 days
   const today = new Date();
   const oneWeekFromNow = new Date(today);
   oneWeekFromNow.setDate(today.getDate() + 7);
 
-  // Format the date as YYYY-MM-DD
   const formattedDate = oneWeekFromNow.toISOString().split('T')[0];
 
-  // Set the minimum date
   dateInput.setAttribute('min', formattedDate);
   dateInput.setAttribute('value', formattedDate);
 

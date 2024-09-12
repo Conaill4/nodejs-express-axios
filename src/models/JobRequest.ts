@@ -1,12 +1,12 @@
 export type JobRequest = {
-    name: String,
-    description: String,
-    sharePointUrl: String,
-    responsibilities: String,
+    name: string,
+    description: string,
+    sharePointUrl: string,
+    responsibilities: string,
     numberOfOpenPositions: number,
-    location: String,
+    location: string,
     closingdate: Date,
-    band: String,
-    capability: String,
-    status: String
+    band: string,
+    capability: string,
+    status: string
 }

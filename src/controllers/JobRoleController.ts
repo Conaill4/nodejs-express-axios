@@ -4,7 +4,6 @@ import { JwtToken } from "../models/JwtToken";
 import { jwtDecode } from "jwt-decode";
 import { getBands } from "../services/BandService";
 import { getCapabilities } from "../services/CapabilityService";
-import { JobRoleRequest } from "../models/JobRoleRequest";
 
 export const getJobsList = async (req: express.Request, res: express.Response): Promise<void> => {
     try{
@@ -46,13 +45,15 @@ export const getNewJobForm = async (req: express.Request, res: express.Response)
        res.render('add-new-job-role.html', { bands: await getBands(), capabilities: await getCapabilities()  });
     }
     catch (e) {     
+        console.log(e);
         res.render('home.html', {errormessage: "Unable to find the specified page."});
     }
 }
 
 export const postNewJobForm = async (req: express.Request, res: express.Response): Promise<void> => {
     try{
-        const id = await createJobRole(req.body.fieldname,req.params.id, req.session.token);
+        const jobData = req.body;
+        const id = await createJobRole(jobData,req.session.token);
         res.redirect('/job-roles/' + id)
     }
     catch (e) {     
