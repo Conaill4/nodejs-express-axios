@@ -1,15 +1,17 @@
-import axios, {AxiosResponse} from "axios";
+import axios, { AxiosResponse} from "axios";
 import { JobRoleDetailedResponse } from "../models/JobRoleDetailedResponse";
 import { getHeader } from "./AuthUtils";
 import { JobRoleResponseWrapper } from "../models/JobRoleResponseWrapper";
+
 axios.defaults.baseURL = process.env.API_URL || 'http://localhost:8080/';
 
 
 export const URL: string = "/api/job-roles";
 
-export const getJobs = async (Page: number, pageSize: number, token: string): Promise<JobRoleResponseWrapper> => {
+export const getJobs = async (fieldName: string, orderBy: string, Page: number, pageSize: number, token: string): Promise<JobRoleResponseWrapper> => {
     try {
-        const response: AxiosResponse = await axios.get(URL + `?page=${Page}&pageSize=${pageSize}`,getHeader(token))
+        const response: AxiosResponse = await axios.get(URL + `?fieldName=${fieldName}&orderBy=${orderBy}&page=${Page}&pageSize=${pageSize}`, getHeader(token))
+
         return response.data;
     } catch (e) {
         if (axios.isAxiosError(e)) {
@@ -19,7 +21,6 @@ export const getJobs = async (Page: number, pageSize: number, token: string): Pr
             else if (e.response?.status === 500) {
                 throw new Error('Server Error');
             }
-            throw new Error('Unknown Server Error');
         } else {
             throw new Error('An Unknown error occurred');
         }
