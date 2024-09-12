@@ -43,7 +43,7 @@ describe('Job Role Info Page Tests - AWS', () => {
         });
     });
 
-    describe('email and password inputs empty - aws', () => {
+    describe('email and password inputs visible - aws', () => {
         it('When the login form is accessed the email input should be visible', async () => {
             await driver.get(url);
             const emailInput = await driver.findElement(webdriver.By.id('email')).isDisplayed();

@@ -43,7 +43,7 @@ describe('Job Role Info Page Tests - Local', () => {
         });
     });
 
-    describe('email and password inputs empty - local', () => {
+    describe('email and password inputs visible - local', () => {
         it('When the login form is accessed the email input should be visible', async () => {
             await driver.get(url);
             const emailInput = await driver.findElement(webdriver.By.id('email')).isDisplayed();
