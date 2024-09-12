@@ -50,8 +50,8 @@ app.get('/loginForm', getLoginForm);
 app.post('/loginForm', postLoginForm);
 app.post('/logout', logoutForm , allowRoles([UserRole.User, UserRole.Admin]));
 app.get('/job-roles/:id', allowRoles([UserRole.User, UserRole.Admin]), getJobByID);
-app.get('/add-new-job-role', getNewJobForm)
-app.post('/add-new-job-role', postNewJobForm)
+app.get('/add-new-job-role',allowRoles([UserRole.Admin]), getNewJobForm);
+app.post('/add-new-job-role',allowRoles([UserRole.Admin]), postNewJobForm);
 
 app.get('*', (req, res) => {
   res.redirect('/');

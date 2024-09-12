@@ -2,7 +2,7 @@ import axios, {AxiosResponse} from "axios";
 import { JobRoleDetailedResponse } from "../models/JobRoleDetailedResponse";
 import { getHeader } from "./AuthUtils";
 import { JobRoleResponseWrapper } from "../models/JobRoleResponseWrapper";
-import { JobRequest } from "../models/JobRequest";
+import { JobRoleRequest } from "../models/JobRoleRequest";
 axios.defaults.baseURL = process.env.API_URL || 'http://localhost:8080/';
 
 
@@ -40,10 +40,10 @@ export const getJobDetailsById = async (id: string, token: string): Promise<JobR
     }
 }
 
-export const createJobRole = async (jobRole: JobRequest): Promise<Number> => {
+export const createJobRole = async (jobRole: JobRoleRequest, id: string, token: string): Promise<Number> => {
+    
     try {
-        const response: AxiosResponse = await axios.post(URL + "/create-job-role", jobRole);
-
+        const response: AxiosResponse = await axios.post(URL, jobRole, getHeader(token));
         return response.data;
     } catch (e) {
         console.log(e);
