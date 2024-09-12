@@ -38,7 +38,7 @@ describe('Job Role Info Page Tests - Local', () => {
         it('When /loginform endpoint is accessed, the login form should appear', async () => {
             await driver.get(url);
             const loginForm = await driver.findElement(webdriver.By.className('login_form'));
-            expect(await loginForm.isDisplayed()).to.be.true;
+            expect(await loginForm.isDisplayed()).to.be.ok;
         });
     });
 
@@ -46,13 +46,13 @@ describe('Job Role Info Page Tests - Local', () => {
         it('When the login form is accessed the email input should be visible', async () => {
             await driver.get(url);
             const emailInput = await driver.findElement(webdriver.By.id('email'));
-            expect(await emailInput.isDisplayed()).to.be.true;
+            expect(await emailInput.isDisplayed()).to.be.ok;
         });
 
         it('When the login form is accessed the password input should be visible', async () => {
             await driver.get(url);
             const passwordInput = await driver.findElement(webdriver.By.id('password'));
-            expect(await passwordInput.isDisplayed()).to.be.true;
+            expect(await passwordInput.isDisplayed()).to.be.ok;
         });
     });
 
