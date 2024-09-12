@@ -1,4 +1,4 @@
-import { expect } from 'chai';
+import { expect, assert } from 'chai';
 import { describe, it, before, after } from 'mocha';
 import webdriver, { WebDriver } from 'selenium-webdriver';
 
@@ -38,7 +38,7 @@ describe('Job Role Info Page Tests - AWS', () => {
         it('When /loginform endpoint is accessed, the login form should appear', async () => {
             await driver.get(url);
             const loginForm = await driver.findElement(webdriver.By.className('login_form'));
-            expect(await loginForm.isDisplayed()).to.be.ok;
+            assert(await loginForm.isDisplayed(), 'Login form is not displayed');
         });
     });
 
@@ -46,14 +46,12 @@ describe('Job Role Info Page Tests - AWS', () => {
         it('When the login form is accessed the email input should be visible', async () => {
             await driver.get(url);
             const emailInput = await driver.findElement(webdriver.By.id('email'));
-            expect(await emailInput.isDisplayed()).to.be.ok;
-        });
+            assert(await emailInput.isDisplayed(), 'email is not displayed');        });
 
         it('When the login form is accessed the password input should be visible', async () => {
             await driver.get(url);
             const passwordInput = await driver.findElement(webdriver.By.id('password'));
-            expect(await passwordInput.isDisplayed()).to.be.ok;
-        });
+            assert(await passwordInput.isDisplayed(), 'password is not displayed');        });
     });
 
     describe('Valid Admin details login - aws', () => {
