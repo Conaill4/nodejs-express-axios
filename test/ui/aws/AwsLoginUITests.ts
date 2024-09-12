@@ -66,7 +66,7 @@ describe('Job Role Info Page Tests - AWS', () => {
             expect(newPage).to.equal('Home - Kainos');
         });
 
-        it('logout button should appear on homepage after login', async () => {
+        it('logout  button should appear on homepage after login', async () => {
             const logoutButton = await driver.findElement(webdriver.By.css("button[type='submit']")).getText();
             expect(logoutButton).to.equal('Logout');
         });
