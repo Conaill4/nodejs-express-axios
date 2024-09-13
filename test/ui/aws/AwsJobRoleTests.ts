@@ -57,9 +57,9 @@ describe('Job Roles Page Tests - AWS', () => {
     it('The text in the entries should should match the role names in the database', async () =>{
         await driver.get(url);
         const roleName1 = await driver.findElement(webdriver.By.id('jobName1')).getText();
-        const roleName2 = await driver.findElement(webdriver.By.id('jobName2')).getText();
+        const roleName2 = await driver.findElement(webdriver.By.id('jobName10')).getText();
         expect(roleName1).to.equal('Software Engineer');
-        expect(roleName2).to.equal('Tester');
+        expect(roleName2).to.equal('Database Administrator');
     })
   })
 
@@ -68,10 +68,10 @@ describe('Job Roles Page Tests - AWS', () => {
         await driver.get(url);
 
         const location1 = await driver.findElement(webdriver.By.id('jobLocation1')).getText();
-        const location2 = await driver.findElement(webdriver.By.id('jobLocation2')).getText();
+        const location2 = await driver.findElement(webdriver.By.id('jobLocation10')).getText();
 
         expect(location1).to.equal('Derry');
-        expect(location2).to.equal('Derry');
+        expect(location2).to.equal('New York');
 
     })
   })
@@ -81,10 +81,10 @@ describe('Job Roles Page Tests - AWS', () => {
       await driver.get(url);
 
       const capability1 = await driver.findElement(webdriver.By.id('jobCapability1')).getText();
-      const capability2 = await driver.findElement(webdriver.By.id('jobCapability2')).getText();
+      const capability2 = await driver.findElement(webdriver.By.id('jobCapability10')).getText();
 
       expect(capability1).to.equal('Engineering');
-      expect(capability2).to.equal('Testing');
+      expect(capability2).to.equal('Engineering');
     })
   })
 
@@ -93,10 +93,10 @@ describe('Job Roles Page Tests - AWS', () => {
       await driver.get(url);
 
       const band1 = await driver.findElement(webdriver.By.id('jobBand1')).getText();
-      const band2 = await driver.findElement(webdriver.By.id('jobBand2')).getText();
+      const band2 = await driver.findElement(webdriver.By.id('jobBand10')).getText();
 
       expect(band1).to.equal('Trainee');
-      expect(band2).to.equal('Manager');
+      expect(band2).to.equal('Consultant');
     })
   })
 

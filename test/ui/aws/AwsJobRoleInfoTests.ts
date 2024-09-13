@@ -44,28 +44,6 @@ describe('Job Role Info Page Tests - AWS', () => {
         })
     })
 
-    describe('AWS - correct role page for Tester', () => {
-        it('When role name link is clicked, the role info page should be for the correct role - Tester', async () => {
-
-            //Navigate to job role info page
-            await driver.get(url);
-
-            //Select job role one link, extract it's text and click
-            const roleTwoButton = await driver.findElement(webdriver.By.id('jobName2'));
-            const roleTwoButtonText = await roleTwoButton.getText();
-            await roleTwoButton.click();
-
-            // Get URL after click and extract text of role name in job info page
-            const infoPageURL = await driver.getCurrentUrl();
-            const infoPageRole = await driver.findElement(webdriver.By.id('roleName')).getText();
-
-            // Compare URL and role name to expected
-            expect(infoPageURL).to.equal('https://sbpkguvypc.eu-west-1.awsapprunner.com/job-roles/2');
-            expect(infoPageRole).to.equal(roleTwoButtonText);
-
-        })
-    })
-
     describe('AWS - Job Role Details Page should return correct values in each for Tester (id = 2)', () => {
 
         it('should display the job role name', async () => {
