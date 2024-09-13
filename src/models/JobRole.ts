@@ -4,5 +4,6 @@ export type JobRole = {
     location: string,
     capabilityId: number,
     bandId: number,
-    closingDate: Date
+    closingDate: Date,
+    
 }

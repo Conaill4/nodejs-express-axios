@@ -1,11 +1,12 @@
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
 import { expect } from 'chai';
-import { getJobs, URL, getJobDetailsById} from '../../src/services/JobRoleService';
+import { getJobs, URL, getJobDetailsById, createJobRole} from '../../src/services/JobRoleService';
 import { JobRole } from "../../src/models/JobRole";
-import { describe, it } from "node:test";
+import { afterEach, beforeEach, describe, it } from "node:test";
 import { JobRoleDetailedResponse } from "../../src/models/JobRoleDetailedResponse";
 import { JobRoleResponseWrapper } from "../../src/models/JobRoleResponseWrapper";
+import { JobRoleRequest } from "../../src/models/JobRoleRequest";
 
 const jobRole1: JobRole = {
   jobRoleId: 1,
@@ -45,6 +46,60 @@ const jobRoleDetailed: JobRoleDetailedResponse = {
     numberOfOpenPositions: 3,
     status: "OPEN"
 }
+
+describe('createJobRole', function () {
+  let mock: MockAdapter;
+  const URL = 'api/job-roles';  
+  const jobRole: JobRoleRequest = {
+    
+    roleName: 'Software Engineer',
+    description: 'Develops software applications',
+    sharepointUrl: 'http://sharepoint-url',
+    responsibilities: 'Coding, testing, debugging',
+    numberOfOpenPositions: 5,
+    location: 'Remote',
+    closingDate: new Date('2024-09-12'),
+    bandId: 1,
+    capabilityId: 2
+  };
+  const token = '123abc';
+
+  beforeEach(() => {
+    mock = new MockAdapter(axios);
+  });
+
+  afterEach(() => {
+    mock.restore();
+  });
+
+  it('should create a job role and return the job role ID', async () => {
+    const responseData = 1001;  // Assume this is the job role ID returned by the API
+
+    // Mock the POST request to return a successful response
+    mock.onPost(URL).reply(200, responseData);
+
+    // Call the function you're testing
+    const result = await createJobRole(jobRole, token);
+
+    // Verify the result is what you expect
+    expect(result).to.equal(responseData);
+  });
+
+  it('should throw an error if the API request fails', async () => {
+    const errorMessage = 'Failed to create job role';
+
+    // Mock the POST request to return an error
+    mock.onPost(URL).reply(500, { message: errorMessage });
+
+    try {
+      await createJobRole(jobRole, token);
+    } catch (e) {
+      // Verify that the error message is what you expect
+      expect(e.message).to.equal(errorMessage);
+    }
+  });
+});
+
 
 const mock = new MockAdapter(axios);
 

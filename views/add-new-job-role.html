@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" class="external en_gb desktop">
+<head>
+    {% include "components/header.html" %}   
+
+<style>
+          
+.page-link {
+    align-items: center;
+  
+  background-color: #283583;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Galano Grotesque", monospace;
+  font-size: 16px;
+  font-weight: 600;
+  height: 48px;
+  justify-content: center;
+  letter-spacing: -.8px;
+  line-height: 24px;
+  min-width: 140px;
+  padding: 0 17px;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+.page-link:hover {
+    background-color: #394cb6;
+    color: #ffffff;
+}
+
+.page-link :active {
+    border-color: #06f;
+  color: #06f;
+  fill: #06f;
+}
+
+.th_data{
+  text-align: center;
+  font-weight: 600;
+  padding-bottom: 1rem;
+  text-align: left;
+  text-align: left;
+}
+
+        .error {
+            border: 1px solid red;
+            box-shadow: 0 0 5px red;
+        }
+
+.td_data{
+padding-bottom: 1rem;
+font-size: large;
+}
+
+a{
+font-size: 16px;
+}
+
+a:hover{
+text-decoration: underline;
+color: rgb(23, 74, 193);
+transition: color 0.3s ease;
+}
+
+#infoTable{
+            padding-left: 20%;
+            padding-right: 20%;
+            width: 100%;       
+            border-collapse: separate;
+            display: flex;
+            font-size: larger;
+            border-spacing: 0 50px;
+            
+        }
+
+        #infoTable th,td{
+            text-align: left;
+            vertical-align: top; 
+        }
+
+        #infoTable th{
+            text-align: right;
+            padding-right: 2rem;
+            font-weight: 600;
+        }
+
+        #infoTable tr{
+           width: 100%;
+        }
+
+        .page-link {
+    align-items: center;
+  
+  background-color: #283583;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Galano Grotesque", monospace;
+  font-size: 16px;
+  font-weight: 600;
+  height: 48px;
+  justify-content: center;
+  letter-spacing: -.8px;
+  line-height: 24px;
+  min-width: 12rem;
+  padding: 0 17px;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-right: 1rem;
+  margin-top: -3rem;
+}
+
+.page-link:hover {
+    background-color: #394cb6;
+    color: #ffffff;
+}
+
+.page-link :active {
+    border-color: #06f;
+  color: #06f;
+  fill: #06f;
+}
+
+input[type="number"] {
+    -webkit-appearance: textfield;
+}   
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: inner-spin-button !important; 
+    opacity: 1;
+    display: block; 
+}
+</style>
+
+    <title>Job Roles - Kainos</title>
+
+</head>
+<body class="static-page Life at Kainos" style="visibility: hidden;">
+
+    <div class="main-header">
+        {% include "components/navigationBar.html" %}    
+   </div>
+
+   {% include "components/errorMessage.html" %}
+
+        <section class="ph-paragraph-cc-view1-option1-theme1 ph-widget" type="static" view="1719398658373-paragraph-cc-view1-option1-savedView-1719398636006" original-view="ph-paragraph-cc-view1-option1" theme="theme1" instance-id="P0ARHq" data-ph-id="-1719398658291">
+            <div class="ph-paragraph-cc-view1-option1-theme1 ph-widget-target" type="static" as-element="ph-html-v1" data-widget="ph-html-v1" view="1719398658373-paragraph-cc-view1-option1-savedView-1719398636006" original-view="ph-paragraph-cc-view1-option1" theme="theme1" ph-removed="true" data-ph-id="-1719398658291-1" instance-id="P0ARHq">
+                <div class="ph-component-cntr ph-widget-box" default-cards-count="1" max-allowed-cards="4" data-ph-id="ph-widget-element-1566038290791334-2">
+                    <div class="inner-container ph-cc-d-p-t-40 ph-cc-d-p-b-20" data-ph-id="ph-widget-element-1566038290791334-3">
+                        <div class="ph-container-content-block" data-ph-id="ph-widget-element-1566038290791334-4" style="width: 100%;">
+                            <div class="ph-card-container stackable" data-cards-per-row="one" data-ph-id="ph-widget-element-1566038290791334-5">
+                                <div class="ph-card" card-name="ph-paragraph-cc-view1" card-container-style="background-image:'url()'" data-ph-id="ph-widget-element-1566038290791334-6">
+                                    <div class="ph-paragraph-cc-view1 ph-card-block" data-ph-at-id="ph-paragraph-cc-view1" data-ph-id="ph-widget-element-1566038290791334-7">
+                                        <div class="ph-row" ph-row-num="1" data-ph-id="ph-widget-element-1566038290791334-8">
+                                            <div class="ph-col-12" ph-col-num="1" data-ph-id="ph-widget-element-1566038290791334-9">
+                                                <div class="content" ph-card-block-num="1" data-ph-id="ph-widget-element-1566038290791334-10" >
+                                                    <ppc-container component-content-key="description" class="description ph-line-height-1_5" data-ph-cid="description1" style="color: rgb(37, 45, 79);" data-ph-id="ph-widget-element-1566038290791334-11">
+                                                        <span class="description-block" data-ph-id="ph-widget-element-1566038290791334-12">
+                                                            <ppc-content key="Life at Kainos-P0ARHq-bRPP11-ph-paragraph-cc-view1-option1-savedView-1719398636006-description-text" data-ph-at-id="description-text" instance-id="bRPP11" data-ph-id="ph-widget-element-1566038290791334-13">
+                                                                <h2>
+                                                                    <span class="ph-line-height-1_5" data-ph-process-line-height="true" data-ph-style-attr="ph-line-height-1_5">Add a new Job - Admin
+                                                                </h2>
+                                                                <br/>
+                                                                <h4 style="text-align: left;"><b>Please fill out the Job details:</b></h4>
+                                                                <h5 style="text-align: left; padding-top: 5px;">Ensure that all fields are filled out correctly.</h5>
+                                                                
+                                                                <form class="form" action="/add-new-job-role" method="post">
+                                                                   
+                                                                    <table id="infoTable">
+                                                                      <tr>
+                                                                        <th>Job title:</th>
+                                                                        <td>
+                                                                          <input type="text" name="roleName" id="name" placeholder="Job title" maxlength="45" style="width: 29.5rem; padding-left: 5px;" value="{{roleName}}" required />
+                                                                        </td>
+                                                                      </tr>
+                                                                  
+                                                                      <tr>
+                                                                        <th>Job Description:</th>
+                                                                        <td>
+                                                                          <textarea name="description" cols="40" id="desc" rows="5" placeholder="Job description" style="resize: none; padding-left: 5px;" required maxlength="300">{{description}}</textarea>
+                                                                        </td>
+                                                                      </tr>
+                                                                  
+                                                                      <tr>
+                                                                        <th>Sharepoint URL:</th>
+                                                                        <td>
+                                                                          <input type="text" name="sharepointUrl" id="url" placeholder="Sharepoint URL" style="min-width: 29.5rem; padding-left: 5px;" value="{{sharepointUrl}}" maxlength="300" />
+                                                                        </td>
+                                                                      </tr>
+                                                                  
+                                                                      <tr>
+                                                                        <th>Responsibilities:</th>
+                                                                        <td>
+                                                                          <textarea name="responsibilities" cols="40" id="resp" rows="5" placeholder="Job responsibilities" style="resize: none; padding-left: 5px;" maxlength="300" required>{{responsibilities}}</textarea>
+                                                                        </td>
+                                                                      </tr>
+                                                                  
+                                                                      <tr>
+                                                                        <th>Available Positions:</th>
+                                                                        <td id="openPos">
+                                                                          <input type="number" name="numberOfOpenPositions" style="min-width: 3rem; text-align: center; padding-left: 5px;" value="{{numberOfOpenPositions}}" required min="1" max="50" />
+                                                                        </td>
+                                                                      </tr>
+                                                                  
+                                                                      <tr>
+                                                                        <th>Location:</th>
+                                                                        <td>
+                                                                          <input type="text" name="location" id="location" placeholder="Location" style="min-width: 20rem; padding-left: 5px;" value="{{location}}" required />
+                                                                        </td>
+                                                                      </tr>
+                                                                  
+                                                                      <tr>
+                                                                        <th>Closing Date:</th>
+                                                                        <td>
+                                                                          <input type="date" name="closingDate" id="date" style="min-width: 20rem; padding-left: 5px;" value="{{closingDate}}" required />
+                                                                        </td>
+                                                                      </tr>
+                                                                  
+                                                                      <tr>
+                                                                        <th>Band:</th>
+                                                                        <td>
+                                                                          <select name="bandId" id="bandId" style="min-width: 20rem; padding-left: 5px;" required>
+                                                                            <option value="" disabled selected>Please Select a Band:</option>
+                                                                            {% for Band in bands | sort(attribute='bandId') %}
+                                                                            <option value="{{Band.bandID}}">
+                                                                              {{Band.bandName}}
+                                                                            </option>
+                                                                            {% endfor %}
+                                                                          </select>
+                                                                        </td>
+                                                                      </tr>
+                                                                  
+                                                                      <tr>
+                                                                        <th>Capability:</th>
+                                                                        <td>
+                                                                          <select name="capabilityId" id="capabilityId" style="min-width: 20rem; padding-left: 5px;" required>
+                                                                            <option value="" disabled selected>Please Select a Capability:</option>
+                                                                            {% for Capability in capabilities | sort(attribute='capabilityId') %}
+                                                                            <option  value="{{Capability.capabilityID}}">
+                                                                              {{Capability.capabilityName}}
+                                                                            </option>
+                                                                            {% endfor %}
+                                                                          </select>
+                                                                        </td>
+                                                                      </tr>
+                                                                    </table>
+                                                                  
+                                                                    <button class="page-link" id="submit" type="submit">Submit</button>
+                                                                  </form>
+                                                                  
+                                                            </ppc-content>
+                                                        </span>
+                                                    </ppc-container>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>    
+    </div>
+</div>
+<script>
+
+    const dateInput = document.getElementById('date');
+
+  // Get today's date and add 7 days
+  const today = new Date();
+  const oneWeekFromNow = new Date(today);
+  oneWeekFromNow.setDate(today.getDate() + 7);
+
+  const formattedDate = oneWeekFromNow.toISOString().split('T')[0];
+
+  dateInput.setAttribute('min', formattedDate);
+  dateInput.setAttribute('value', formattedDate);
+
+</script>
+{% include "components/footer.html" %}
+</body>
+</html>
+<div id='csrfToken' style='display:none'>9ce53fe1fb584ad884739157eadba0b5</div>

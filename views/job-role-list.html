@@ -4,33 +4,42 @@
 <head>
     {% include "components/header.html" %}
 
-    <style>
-        .page-link {
-            align-items: center;
+<style>
+       
+body{
+    display: flexbox;
+    justify-content: space-between;
+    flex-direction: column;
+}
 
-            background-color: #283583;
-            box-sizing: border-box;
-            color: #ffffff;
-            cursor: pointer;
-            display: inline-flex;
-            font-family: "Galano Grotesque", monospace;
-            font-size: 16px;
-            font-weight: 600;
-            height: 48px;
-            justify-content: center;
-            letter-spacing: -.8px;
-            line-height: 24px;
-            min-width: 140px;
-            padding: 0 17px;
-            text-decoration: none;
-            transition: all .3s;
-            user-select: none;
-            -webkit-user-select: none;
-            touch-action: manipulation;
-            margin-right: 1rem;
-            margin-top: -3rem;
-        }
+.page-link {
+    align-items: center;
+  
+  background-color: #283583;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Galano Grotesque", monospace;
+  font-size: 16px;
+  font-weight: 600;
+  height: 48px;
+  justify-content: center;
+  letter-spacing: -.8px;
+  line-height: 24px;
+  min-width: 140px;
+  padding: 0 17px;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-right: 1rem;
+  margin-top: -3rem;
+}
 
+        
         .page-link:hover {
             background-color: #394cb6;
             color: #ffffff;
@@ -52,11 +61,27 @@
             font-size: 16px;
         }
 
-        a:hover {
-            text-decoration: underline;
-            color: rgb(23, 74, 193);
-            transition: color 0.3s ease;
-        }
+a:hover{
+text-decoration: underline;
+color: rgb(23, 74, 193);
+transition: color 0.3s ease;
+}
+
+#textbanner button{
+    float: right;
+    margin-top: -62px;
+}
+
+.forcebottom{
+    
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.content{
+    min-height: 30vh;
+}
 
         table {
             width: 100%;
@@ -162,10 +187,17 @@
                                                                     Kainos
                                                             </h2>
                                                             <br />
-                                                            <h4 style="text-align: left;"><b>The following jobs are
-                                                                    available at Kainos:</b></h4>
-                                                            <h5 style="text-align: left; padding-top: 5px;">Please click
-                                                                on a job to view more information.</h5>
+                                                            <div id="textbanner">
+                                                               
+                                                                <h4 style="text-align: left;"><b>The following jobs are
+                                                                        available at Kainos:</b></h4>
+                                                                <h5 style="text-align: left; padding-top: 5px;">Please click
+                                                                    on a job to view more information.</h5>
+                                                                    {% if Number == 1 %}
+                                                                    <button role="button" class="page-link" onclick="window.location.href='/add-new-job-role'">Add New Listing</button>
+                                                                    {% endif %}
+                                                            </div>
+                                                            
                                                             <p>
                                                                 <br />
                                                                 {% if RoleOrdering.fieldName == "roleName" %}
@@ -303,7 +335,9 @@
     </section>
     </div>
     </div>
+    <div class="forcebottom">
     {% include "components/footer.html" %}
+</div>
 </body>
 
 </html>
