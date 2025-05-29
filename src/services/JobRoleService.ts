@@ -21,16 +21,15 @@ export const getJobs = async (fieldName: string, orderBy: string, Page: number, 
             else if (e.response?.status === 500) {
                 throw new Error('Server Error');
             }
-            throw new Error('Server Error');
         } else {
-            throw new Error('An unexpected error occurred');
+            throw new Error('An Unknown error occurred');
         }
     }
 }
 
 export const getJobDetailsById = async (id: string, token: string): Promise<JobRoleDetailedResponse[]> => {
     try {
-        const response: AxiosResponse = await axios.get(URL+id, getHeader(token))
+        const response: AxiosResponse = await axios.get(URL + "/" + id, getHeader(token))
 
         return response.data;
     } catch (e) {

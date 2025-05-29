@@ -44,4 +44,4 @@ jobs:
  
       - name: Run Audit
 
-        run: npm audit
+        run: npm audit --audit-level=critical

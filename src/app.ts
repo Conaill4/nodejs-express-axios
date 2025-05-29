@@ -21,7 +21,6 @@ const env = nunjucks.configure('views', {
 });
 
 env.addFilter('date', dateFilter);
-
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
   extended: true
@@ -41,9 +40,6 @@ declare module "express-session" {
 }
 
 app.get('/job-roles', allowRoles([UserRole.User, UserRole.Admin]), (req, res) => {
-  const page = Number(req.query.page);
-  const limit = Number(req.query.pageSize);
-
   getJobsList(req, res);
 });
 
